@@ -24,7 +24,7 @@
       "textBox": 16
     },
     "dropCapDefaultFontWeight": "700",
-    "lyricsVerticalOffset": 26.25,
+    "lyricsVerticalOffset": 26,
     "lyricsMelismaSpacing": 1.8,
     "lyricsMelismaThickness": 0.75,
     "colors": {
@@ -73,7 +73,7 @@
               "type": "textbox",
               "x": 0,
               "width": 503.2756,
-              "height": 21.5,
+              "height": 22.5,
               "alignment": "c",
               "content": "Χουρμουζίου Χαρτοφύλακος (†1840)",
               "color": "800000"
@@ -85,7 +85,7 @@
             {
               "type": "modekey",
               "width": 503.2756,
-              "height": 33.5,
+              "height": 33,
               "alignment": "c",
               "martyria": "modeSecond",
               "note": "modeDi",
