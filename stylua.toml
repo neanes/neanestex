@@ -1,0 +1,6 @@
+# stylua.toml
+column_width = 240
+indent_type = "Spaces"
+
+[sort_requires]
+enabled = true
