@@ -45,7 +45,8 @@ local function load_font_data(font)
         font_metadata_filename = neume_font_metadata_file_map_default[font]
     end
 
-    local font_metadata = json.tolua(read_json(font_metadata_filename))
+    local font_metadata_path = kpse.find_file(font_metadata_filename, "tex") or font_metadata_filename
+    local font_metadata = json.tolua(read_json(font_metadata_path))
 
     local glyph_name_to_codepoint_map = {}
 
