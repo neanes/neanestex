@@ -10,9 +10,10 @@ local err, warn, info, log = luatexbase.provides_module({
     license = "GPL-3.0",
 })
 
-local schema_version = 2
+local schema_version = 3
 -- Schema changes
 -- 1 to 2: Positive lyricsVerticalOffset now moves lyrics down, making it consistent with other offsets in the schema
+-- 2 to 3: Measure bar positioning includes offsets and adjacent spacing calculated by the layout engine
 
 local lualibs = require("lualibs")
 local json = utilities.json
@@ -166,13 +167,37 @@ local function escape_latex(str)
     return str:gsub("[\\%$%&%#_%^{}~\n]", replacements):gsub("\u{E280}", replacements["\u{E280}"]):gsub("\u{E281}", replacements["\u{E281}"]):gsub("\u{1D0B4}", replacements["\u{1D0B4}"]):gsub("\u{1D0B5}", replacements["\u{1D0B5}"])
 end
 
+local function print_measure_bar(glyph_name, offset, spacing_before, spacing_after)
+    offset = offset or 0
+    spacing_before = spacing_before or 0
+    spacing_after = spacing_after or 0
+
+    if spacing_before ~= 0 then
+        tex.sprint(string.format("\\hspace{%fbp}", spacing_before))
+    end
+
+    if offset ~= 0 then
+        tex.sprint(string.format("\\hspace{%fbp}", offset))
+    end
+
+    tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[glyph_name]))
+
+    if offset ~= 0 then
+        tex.sprint(string.format("\\hspace{%fbp}", -offset))
+    end
+
+    if spacing_after ~= 0 then
+        tex.sprint(string.format("\\hspace{%fbp}", spacing_after))
+    end
+end
+
 local function print_note(note, pageSetup)
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", note.x))
     tex.sprint(string.format("\\makebox[%fbp]{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont", note.width))
 
     if note.measureBarLeft then
-        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[note.measureBarLeft]))
+        print_measure_bar(note.measureBarLeft, note.computedMeasureBarLeftOffsetX, 0, note.computedMeasureBarLeftLeadingSpacing)
     end
 
     if note.vareia then
@@ -316,7 +341,7 @@ local function print_note(note, pageSetup)
 
     -- Right measure bar is last
     if note.measureBarRight then
-        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[note.measureBarRight]))
+        print_measure_bar(note.measureBarRight, note.computedMeasureBarRightOffsetX, note.computedMeasureBarRightTrailingSpacing, 0)
     end
 
     -- close \makebox{}
@@ -391,7 +416,7 @@ local function print_martyria(martyria, pageSetup)
     tex.sprint(string.format("\\textcolor{byzcolormartyria}{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont"))
 
     if martyria.measureBarLeft and not string.match(martyria.measureBarLeft, "Above$") then
-        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[martyria.measureBarLeft]))
+        print_measure_bar(martyria.measureBarLeft, martyria.computedMeasureBarLeftOffsetX, 0, martyria.computedMeasureBarLeftLeadingSpacing)
     end
 
     if martyria.tempoLeft then
@@ -409,7 +434,7 @@ local function print_martyria(martyria, pageSetup)
     end
 
     if martyria.measureBarLeft and string.match(martyria.measureBarLeft, "Above$") then
-        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[martyria.measureBarLeft]))
+        print_measure_bar(martyria.measureBarLeft, martyria.computedMeasureBarLeftOffsetX, 0, martyria.computedMeasureBarLeftLeadingSpacing)
     end
 
     if martyria.tempoRight then
@@ -417,7 +442,7 @@ local function print_martyria(martyria, pageSetup)
     end
 
     if martyria.measureBarRight then
-        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[martyria.measureBarRight]))
+        print_measure_bar(martyria.measureBarRight, martyria.computedMeasureBarRightOffsetX, martyria.computedMeasureBarRightTrailingSpacing, 0)
     end
 
     tex.sprint("}")
