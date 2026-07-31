@@ -54,7 +54,7 @@
     "martyriaDefaultStrokeWidth": 0,
     "tempoDefaultColor": "#800000",
     "tempoDefaultStrokeWidth": 0,
-    "dropCapDefaultFontFamily": "PFGoudyInitials",
+    "dropCapDefaultFontFamily": "Source Serif",
     "dropCapDefaultFontSize": 80,
     "dropCapDefaultFontWeight": "400",
     "dropCapDefaultFontStyle": "normal",
@@ -270,7 +270,7 @@
       {
         "elementType": "DropCap",
         "content": "L",
-        "fontFamily": "PFGoudyInitials",
+        "fontFamily": "Source Serif",
         "fontSize": 80,
         "fontWeight": "400",
         "fontStyle": "normal",
