@@ -24,9 +24,9 @@ local neume_font_family = nil
 local neume_font_file_map = {}
 local neume_font_metadata_file_map = {}
 local neume_font_metadata_file_map_default = {
-    ["Neanes"] = "neanes.metadata.json",
-    ["NeanesRTL"] = "neanesrtl.metadata.json",
-    ["NeanesStathisSeries"] = "neanesstathisseries.metadata.json",
+    ["Neanes"] = "neanesengraving.metadata.json",
+    ["NeanesRTL"] = "neanesrtlengraving.metadata.json",
+    ["NeanesStathisSeries"] = "neanesstathisseriesengraving.metadata.json",
 }
 
 local function read_json(filename)
