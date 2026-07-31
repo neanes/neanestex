@@ -10,7 +10,7 @@ Create a TeX document. See the `examples/` directory for a starting point.
 
 Either copy the contents of `tex/` to your TeX Live local packages folder, or copy the contents to the same location as your TeX document.
 
-Download the engraving neume fonts and metadata JSON files from the [Neanes repository](https://github.com/neanes/neanes/tree/master/src/assets/fonts) and place them in the same location as your TeX document. Also download and install any additional text fonts that you want to use from the repository and install them in your operating system, or in TeX Live.
+Download the neume engraving fonts and metadata JSON files from the [Neanes repository](https://github.com/neanes/neanes/tree/master/src/assets/fonts) and place them in the same location as your TeX document. Also download and install any additional text fonts that you want to use from the repository and install them in your operating system, or in TeX Live.
 
 Specify the font and metadata files in your document.
 
