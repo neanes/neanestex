@@ -5,12 +5,11 @@
 \RequirePackage{luacode}
 \RequirePackage{luacolor}
 \RequirePackage{fontspec}
+\RequirePackage{lua-ul}
+\RequirePackage{pdfrender}
 \RequireLuaTeX
 
 \newfontfamily\byzneumefont{Neanes}
-\newfontfamily\byzlyricfont{Source Serif 4}
-\newfontfamily\byzdropcapfont{Source Serif 4}
-\newfontfamily\byztextboxfont{Source Serif 4}
 
 \begin{luacode*}
   dofile(kpse.find_file("neanestex.lua", "tex"))
@@ -23,24 +22,13 @@
 \newlength{\byzmodekeysize}
 \setlength{\byzmodekeysize}{20bp}
 
-\newlength{\byzlyricsize}
-\setlength{\byzlyricsize}{12bp}
-
-\newlength{\byzdropcapsize}
-\setlength{\byzdropcapsize}{60bp}
-
-\newlength{\byztextboxsize}
-\setlength{\byztextboxsize}{20bp}
-
 % Colors
 \definecolor{byzcoloraccidental}{HTML}{ED0000}
-\definecolor{byzcolordropcap}{HTML}{ED0000}
 \definecolor{byzcolorfthora}{HTML}{ED0000}
 \definecolor{byzcolorgorgon}{HTML}{ED0000}
 \definecolor{byzcolorheteron}{HTML}{ED0000}
 \definecolor{byzcolorison}{HTML}{ED0000}
 \definecolor{byzcolorkoronis}{HTML}{ED0000}
-\definecolor{byzcolorlyrics}{HTML}{000000}
 \definecolor{byzcolormartyria}{HTML}{ED0000}
 \definecolor{byzcolormeasurebar}{HTML}{ED0000}
 \definecolor{byzcolormeasurenumber}{HTML}{000000}
@@ -48,7 +36,6 @@
 \definecolor{byzcolorneume}{HTML}{000000}
 \definecolor{byzcolornoteindicator}{HTML}{ED0000}
 \definecolor{byzcolortempo}{HTML}{ED0000}
-\definecolor{byzcolortextbox}{HTML}{000000}
 
 % Draws a score
 % If section name is blank, the default section will be used. Ex: \neanesscore{example.byztex}{}
