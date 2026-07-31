@@ -13,7 +13,7 @@ local err, warn, info, log = luatexbase.provides_module({
 local schema_version = 3
 -- Schema changes
 -- 1 to 2: Positive lyricsVerticalOffset now moves lyrics down, making it consistent with other offsets in the schema
--- 2 to 3: Measure bar positioning includes offsets and adjacent spacing calculated by the layout engine
+-- 2 to 3: Glyph positioning includes layout-resolved spacing, offsets, transferred measure-bar placement, and leading lyric hyphens
 
 local lualibs = require("lualibs")
 local json = utilities.json
@@ -24,9 +24,9 @@ local neume_font_family = nil
 local neume_font_file_map = {}
 local neume_font_metadata_file_map = {}
 local neume_font_metadata_file_map_default = {
-    ["Neanes"] = "neanes.metadata.json",
-    ["NeanesRTL"] = "neanesrtl.metadata.json",
-    ["NeanesStathisSeries"] = "neanesstathisseries.metadata.json",
+    ["Neanes"] = "neanesengraving.metadata.json",
+    ["NeanesRTL"] = "neanesrtlengraving.metadata.json",
+    ["NeanesStathisSeries"] = "neanesstathisseriesengraving.metadata.json",
 }
 
 local function read_json(filename)
@@ -167,10 +167,21 @@ local function escape_latex(str)
     return str:gsub("[\\%$%&%#_%^{}~\n]", replacements):gsub("\u{E280}", replacements["\u{E280}"]):gsub("\u{E281}", replacements["\u{E281}"]):gsub("\u{1D0B4}", replacements["\u{1D0B4}"]):gsub("\u{1D0B5}", replacements["\u{1D0B5}"])
 end
 
-local function print_measure_bar(glyph_name, offset, spacing_before, spacing_after)
+local function measure_bar_text(glyph_name, manual_offset)
+    local result = string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[glyph_name])
+
+    if manual_offset and manual_offset.y ~= 0 then
+        return string.format("\\raisebox{-%fem}{%s}", manual_offset.y, result)
+    end
+
+    return result
+end
+
+local function print_measure_bar(glyph_name, offset, spacing_before, spacing_after, manual_offset)
     offset = offset or 0
     spacing_before = spacing_before or 0
     spacing_after = spacing_after or 0
+    local manual_x = manual_offset and manual_offset.x or 0
 
     if spacing_before ~= 0 then
         tex.sprint(string.format("\\hspace{%fbp}", spacing_before))
@@ -180,7 +191,15 @@ local function print_measure_bar(glyph_name, offset, spacing_before, spacing_aft
         tex.sprint(string.format("\\hspace{%fbp}", offset))
     end
 
-    tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[glyph_name]))
+    if manual_x ~= 0 then
+        tex.sprint(string.format("\\hspace{%fem}", manual_x))
+    end
+
+    tex.sprint(measure_bar_text(glyph_name, manual_offset))
+
+    if manual_x ~= 0 then
+        tex.sprint(string.format("\\hspace{-%fem}", manual_x))
+    end
 
     if offset ~= 0 then
         tex.sprint(string.format("\\hspace{%fbp}", -offset))
@@ -191,17 +210,69 @@ local function print_measure_bar(glyph_name, offset, spacing_before, spacing_aft
     end
 end
 
+local function print_transferred_measure_bar(glyph_name, offset, spacing_before, manual_offset)
+    local position = (offset or 0) + (spacing_before or 0)
+    local manual_x = manual_offset and manual_offset.x or 0
+
+    tex.sprint(string.format("\\rlap{\\hspace{%fbp}{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont\\hspace{%fem}%s}}", position, manual_x, measure_bar_text(glyph_name, manual_offset)))
+end
+
+local function get_formatted_lyrics(note, pageSetup, text)
+    local font_size = note.lyricsFontSize and string.format("%fbp", note.lyricsFontSize) or "\\byzlyricsize"
+    local color = note.lyricsColor and string.format("\\textcolor[HTML]{%s}", note.lyricsColor) or "\\textcolor{byzcolorlyrics}"
+    local font_weight = note.lyricsFontWeight or pageSetup.lyricsDefaultFontWeight
+    local font_style = note.lyricsFontStyle or pageSetup.lyricsDefaultFontStyle
+    local text_decoration = note.lyricsTextDecoration or pageSetup.lyricsDefaultTextDecoration
+    local content = escape_latex(text)
+    content = font_style == "italic" and string.format("\\textit{%s}", content) or content
+    content = font_weight == "700" and string.format("\\textbf{%s}", content) or content
+    content = text_decoration == "underline" and string.format("\\underline{%s}", content) or content
+    content = note.lyricsFontFamily and string.format("{\\fontspec{%s}%s}", note.lyricsFontFamily, content) or string.format("\\byzlyricfont{}{%s}", content)
+
+    return font_size, color, content
+end
+
+local function print_leading_lyric_hyphen(note, pageSetup)
+    if note.leadingLyricHyphenOffset == nil then
+        return
+    end
+
+    local font_size, color, hyphen = get_formatted_lyrics(note, pageSetup, "-")
+    local offset_from_cursor = note.leadingLyricHyphenOffset - note.width
+
+    tex.sprint(string.format("\\rlap{\\hspace{%fbp}\\raisebox{-%fbp}{%s{\\fontsize{%s}{\\baselineskip}%s}}}", offset_from_cursor, pageSetup.lyricsVerticalOffset, color, font_size, hyphen))
+end
+
 local function print_note(note, pageSetup)
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", note.x))
     tex.sprint(string.format("\\makebox[%fbp]{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont", note.width))
 
-    if note.measureBarLeft then
-        print_measure_bar(note.measureBarLeft, note.computedMeasureBarLeftOffsetX, 0, note.computedMeasureBarLeftLeadingSpacing)
+    if note.measureBarLeft and not string.match(note.measureBarLeft, "Above$") then
+        print_measure_bar(note.measureBarLeft, note.computedMeasureBarLeftOffsetX, 0, note.computedMeasureBarLeftLeadingSpacing, note.measureBarLeftOffset)
     end
 
     if note.vareia then
-        tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap["vareia"]))
+        local offset_x = note.vareiaOffset and note.vareiaOffset.x or 0
+        local offset_y = note.vareiaOffset and note.vareiaOffset.y or 0
+
+        if offset_x ~= 0 then
+            tex.sprint(string.format("\\hspace{%fem}", offset_x))
+        end
+
+        if offset_y ~= 0 then
+            tex.sprint(string.format('\\raisebox{-%fem}{\\char"%s}', offset_y, glyphNameToCodepointMap["vareia"]))
+        else
+            tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap["vareia"]))
+        end
+
+        if offset_x ~= 0 then
+            tex.sprint(string.format("\\hspace{-%fem}", offset_x))
+        end
+
+        if note.vareiaInternalSpacing then
+            tex.sprint(string.format("\\hspace{%fbp}", note.vareiaInternalSpacing))
+        end
     end
 
     -- If the user specified an additional offset, we must manually position the marks
@@ -250,14 +321,16 @@ local function print_note(note, pageSetup)
         tex.sprint(string.format('\\textcolor{byzcoloraccidental}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.accidentalTertiary], offset.x))
     end
 
-    if note.isonOffset then
-        local offset = get_mark_offset(note.quantitativeNeume, note.ison, note.isonOffset)
-        tex.sprint(string.format('\\textcolor{byzcolorison}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.ison], offset.x))
-    end
+    local manually_position_indicators = note.noteIndicatorOffset or note.isonOffset
 
-    if note.noteIndicatorOffset then
+    if manually_position_indicators and note.noteIndicator then
         local offset = get_mark_offset(note.quantitativeNeume, note.noteIndicator, note.noteIndicatorOffset)
         tex.sprint(string.format('\\textcolor{byzcolornoteindicator}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.noteIndicator], offset.x))
+    end
+
+    if manually_position_indicators and note.ison then
+        local offset = get_mark_offset(note.quantitativeNeume, note.ison, note.isonOffset)
+        tex.sprint(string.format('\\textcolor{byzcolorison}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.ison], offset.x))
     end
 
     if note.koronisOffset then
@@ -275,8 +348,22 @@ local function print_note(note, pageSetup)
         tex.sprint(string.format('\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.tie], offset.x))
     end
 
+    if note.stavrosOffset then
+        local offset = get_mark_offset(note.quantitativeNeume, "stavrosAbove", note.stavrosOffset)
+        tex.sprint(string.format('\\textcolor{byzcolorcross}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap["stavrosAbove"], offset.x))
+    end
+
+    if note.measureBarLeft and string.match(note.measureBarLeft, "Above$") and note.measureBarLeftOffset then
+        local offset = get_mark_offset(note.quantitativeNeume, note.measureBarLeft, note.measureBarLeftOffset)
+        tex.sprint(string.format('\\textcolor{byzcolormeasurebar}{\\hspace{%fem}\\raisebox{-%fem}{\\char"%s}}\\hspace{-%fem}', offset.x, offset.y, glyphNameToCodepointMap[note.measureBarLeft], offset.x))
+    end
+
     -- Print the main neume
     tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.quantitativeNeume]))
+
+    if note.stavros and not note.stavrosOffset then
+        tex.sprint(string.format('\\textcolor{byzcolorcross}{\\char"%s}', glyphNameToCodepointMap["stavrosAbove"]))
+    end
 
     if note.vocalExpression then
         tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.vocalExpression]))
@@ -319,12 +406,12 @@ local function print_note(note, pageSetup)
         tex.sprint(string.format('\\textcolor{byzcoloraccidental}{\\char"%s}', glyphNameToCodepointMap[note.accidentalTertiary]))
     end
 
-    if note.ison and not note.isonOffset then
-        tex.sprint(string.format('\\textcolor{byzcolorison}{\\char"%s}', glyphNameToCodepointMap[note.ison]))
+    if note.noteIndicator and not manually_position_indicators then
+        tex.sprint(string.format('\\textcolor{byzcolornoteindicator}{\\char"%s}', glyphNameToCodepointMap[note.noteIndicator]))
     end
 
-    if note.noteIndicator and not note.noteIndicatorOffset then
-        tex.sprint(string.format('\\textcolor{byzcolornoteindicator}{\\char"%s}', glyphNameToCodepointMap[note.noteIndicator]))
+    if note.ison and not manually_position_indicators then
+        tex.sprint(string.format('\\textcolor{byzcolorison}{\\char"%s}', glyphNameToCodepointMap[note.ison]))
     end
 
     if note.koronis and not note.koronisOffset then
@@ -335,28 +422,33 @@ local function print_note(note, pageSetup)
         tex.sprint(string.format('\\textcolor{byzcolormeasurenumber}{\\char"%s}', glyphNameToCodepointMap[note.measureNumber]))
     end
 
+    if note.measureBarLeft and string.match(note.measureBarLeft, "Above$") and not note.measureBarLeftOffset then
+        tex.sprint(measure_bar_text(note.measureBarLeft))
+    end
+
     if note.tie and not note.tieOffset then
         tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.tie]))
     end
 
     -- Right measure bar is last
-    if note.measureBarRight then
-        print_measure_bar(note.measureBarRight, note.computedMeasureBarRightOffsetX, note.computedMeasureBarRightTrailingSpacing, 0)
+    if note.measureBarRight and not note.measureBarRightIsTransferred then
+        print_measure_bar(note.measureBarRight, note.computedMeasureBarRightOffsetX, note.computedMeasureBarRightTrailingSpacing, 0, note.measureBarRightOffset)
     end
 
     -- close \makebox{}
     tex.sprint("}")
 
+    -- Neanes positions a transferred right measure bar absolutely at the end
+    -- of the note box, so it must not affect the box width or lyric centering.
+    if note.measureBarRight and note.measureBarRightIsTransferred then
+        print_transferred_measure_bar(note.measureBarRight, note.computedMeasureBarRightOffsetX, note.computedMeasureBarRightTrailingSpacing, note.measureBarRightOffset)
+    end
+
+    print_leading_lyric_hyphen(note, pageSetup)
+
     if note.lyrics then
         local lyricPos = note.lyricsLeftAlign and "l" or "c"
-        local fontSize = note.lyricsFontSize and string.format("%fbp", note.lyricsFontSize) or "\\byzlyricsize"
-        local color = note.lyricsColor and string.format("\\textcolor[HTML]{%s}", note.lyricsColor) or "\\textcolor{byzcolorlyrics}"
-        local is_bold = note.lyricsFontWeight == "700" or pageSetup.lyricsDefaultFontWeight == "700"
-        local is_italic = note.lyricsFontStyle == "italic" or pageSetup.lyricsDefaultFontStyle == "italic"
-        local lyrics = escape_latex(note.lyrics)
-        lyrics = is_italic and string.format("\\textit{%s}", lyrics) or lyrics
-        lyrics = is_bold and string.format("\\textbf{%s}", lyrics) or lyrics
-        lyrics = note.lyricsFontFamily and string.format("{\\fontspec{%s}%s}", note.lyricsFontFamily, lyrics) or string.format("\\byzlyricfont{}{%s}", lyrics)
+        local fontSize, color, lyrics = get_formatted_lyrics(note, pageSetup, note.lyrics)
 
         local offset = 0
 
@@ -420,7 +512,21 @@ local function print_martyria(martyria, pageSetup)
     end
 
     if martyria.tempoLeft then
+        local offset = martyria.tempoLeftOffsetX or 0
+
+        if offset ~= 0 then
+            tex.sprint(string.format("\\hspace{%fbp}", offset))
+        end
+
         tex.sprint(string.format('\\textcolor{byzcolortempo}{\\char"%s}', glyphNameToCodepointMap[martyria.tempoLeft]))
+
+        if offset ~= 0 then
+            tex.sprint(string.format("\\hspace{-%fbp}", offset))
+        end
+
+        if martyria.tempoLeftSpacing then
+            tex.sprint(string.format("\\hspace{%fbp}", martyria.tempoLeftSpacing))
+        end
     end
 
     tex.sprint(string.format('\\char"%s\\char"%s', glyphNameToCodepointMap[martyria.note], glyphNameToCodepointMap[martyria.rootSign]))
@@ -437,7 +543,19 @@ local function print_martyria(martyria, pageSetup)
         print_measure_bar(martyria.measureBarLeft, martyria.computedMeasureBarLeftOffsetX, 0, martyria.computedMeasureBarLeftLeadingSpacing)
     end
 
+    if martyria.quantitativeNeume then
+        if martyria.quantitativeNeumeSpacing then
+            tex.sprint(string.format("\\hspace{%fbp}", martyria.quantitativeNeumeSpacing))
+        end
+
+        tex.sprint(string.format('\\textcolor{byzcolorneume}{\\char"%s}', glyphNameToCodepointMap[martyria.quantitativeNeume]))
+    end
+
     if martyria.tempoRight then
+        if martyria.tempoRightSpacing then
+            tex.sprint(string.format("\\hspace{%fbp}", martyria.tempoRightSpacing))
+        end
+
         tex.sprint(string.format('\\textcolor{byzcolortempo}{\\char"%s}', glyphNameToCodepointMap[martyria.tempoRight]))
     end
 
