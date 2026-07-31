@@ -621,7 +621,7 @@ end
 local function print_note(note, pageSetup)
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", note.x))
-    tex.sprint(string.format("\\makebox[%fbp]{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont", note.width))
+    tex.sprint(string.format("\\makebox[%fbp]{\\textcolor{byzcolorneume}{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont", note.width))
 
     if note.measureBarLeft and not string.match(note.measureBarLeft, "Above$") then
         print_measure_bar(note.measureBarLeft, note.computedMeasureBarLeftOffsetX, 0, note.computedMeasureBarLeftLeadingSpacing, note.measureBarLeftOffset)
@@ -734,14 +734,25 @@ local function print_note(note, pageSetup)
     end
 
     -- Print the main neume
-    tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.quantitativeNeume]))
+    if note.quantitativeNeume == "breath" then
+        tex.sprint(string.format('\\textcolor{byzcolorbreath}{\\char"%s}', glyphNameToCodepointMap[note.quantitativeNeume]))
+    elseif note.quantitativeNeume == "stavros" then
+        tex.sprint(string.format('\\textcolor{byzcolorcross}{\\char"%s}', glyphNameToCodepointMap[note.quantitativeNeume]))
+    else
+        tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.quantitativeNeume]))
+    end
 
     if note.stavros and not note.stavrosOffset then
         tex.sprint(string.format('\\textcolor{byzcolorcross}{\\char"%s}', glyphNameToCodepointMap["stavrosAbove"]))
     end
 
     if note.vocalExpression then
-        tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.vocalExpression]))
+        local vocal_expression_base = string.match(note.vocalExpression, "^[^.]+")
+        if vocal_expression_base == "heteron" or vocal_expression_base == "heteronConnecting" or vocal_expression_base == "endofonon" then
+            tex.sprint(string.format('\\textcolor{byzcolorheteron}{\\char"%s}', glyphNameToCodepointMap[note.vocalExpression]))
+        else
+            tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[note.vocalExpression]))
+        end
     end
 
     -- If the user did not specify an additional offset, latex+luacolor will position the marks correctly
@@ -810,8 +821,8 @@ local function print_note(note, pageSetup)
         print_measure_bar(note.measureBarRight, note.computedMeasureBarRightOffsetX, note.computedMeasureBarRightTrailingSpacing, 0, note.measureBarRightOffset)
     end
 
-    -- close \makebox{}
-    tex.sprint("}")
+    -- close \textcolor{} and \makebox{}
+    tex.sprint("}}")
 
     -- Neanes positions a transferred right measure bar absolutely at the end
     -- of the note box, so it must not affect the box width or lyric centering.
@@ -910,7 +921,7 @@ local function print_martyria(martyria, pageSetup)
     tex.sprint(string.format('\\char"%s\\char"%s', glyphNameToCodepointMap[martyria.note], glyphNameToCodepointMap[martyria.rootSign]))
 
     if martyria.fthora then
-        tex.sprint(string.format('\\textcolor{byzcolormartyria}{\\char"%s}', glyphNameToCodepointMap[martyria.fthora]))
+        tex.sprint(string.format('\\textcolor{byzcolorfthora}{\\char"%s}', glyphNameToCodepointMap[martyria.fthora]))
     end
 
     if martyria.tempo then
@@ -1030,7 +1041,7 @@ local function print_mode_key(modeKey, pageSetup)
         tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.fthoraAboveQuantitativeNeumeRight]))
     end
     if modeKey.tempo and not modeKey.tempoAlignRight then
-        tex.sprint(string.format('\\hspace{6bp}\\raisebox{0.45em}{\\char"%s}', glyphNameToCodepointMap[modeKey.tempo]))
+        tex.sprint(string.format('\\hspace{6bp}\\raisebox{0.45em}{\\textcolor{byzcolortempo}{\\char"%s}}', glyphNameToCodepointMap[modeKey.tempo]))
     end
 
     -- end \textcolor and \makebox
@@ -1044,7 +1055,7 @@ local function print_mode_key(modeKey, pageSetup)
         if modeKey.showAmbitus then
             tex.sprint(
                 string.format(
-                    '\\raisebox{3bp}{{\\sffamily{}(}\\raisebox{0.45em}{\\char"%s\\char"%s}\\hspace{7.5bp}{\\sffamily{}-}\\hspace{1.5bp}\\raisebox{0.45em}{\\char"%s\\char"%s}\\hspace{3bp}{\\sffamily{})}}',
+                    '\\raisebox{3bp}{{\\sffamily{}(}\\raisebox{0.45em}{\\textcolor{byzcolormartyria}{\\char"%s\\char"%s}}\\hspace{7.5bp}{\\sffamily{}-}\\hspace{1.5bp}\\raisebox{0.45em}{\\textcolor{byzcolormartyria}{\\char"%s\\char"%s}}\\hspace{3bp}{\\sffamily{})}}',
                     glyphNameToCodepointMap[modeKey.ambitusLowNote],
                     glyphNameToCodepointMap[modeKey.ambitusLowRootSign],
                     glyphNameToCodepointMap[modeKey.ambitusHighNote],
@@ -1058,7 +1069,7 @@ local function print_mode_key(modeKey, pageSetup)
         end
 
         if modeKey.tempo and modeKey.tempoAlignRight then
-            tex.sprint(string.format('\\raisebox{0.45em}{\\char"%s}', glyphNameToCodepointMap[modeKey.tempo]))
+            tex.sprint(string.format('\\raisebox{0.45em}{\\textcolor{byzcolortempo}{\\char"%s}}', glyphNameToCodepointMap[modeKey.tempo]))
         end
 
         -- end \textcolor and \makebox
@@ -1252,6 +1263,8 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\setlength{\\baselineskip}{%fbp}", data.pageSetup.lineHeight))
 
     tex.sprint(string.format("\\definecolor{byzcoloraccidental}{HTML}{%s}", data.pageSetup.colors.accidental))
+    tex.sprint(string.format("\\definecolor{byzcolorbreath}{HTML}{%s}", data.pageSetup.colors.breath or data.pageSetup.colors.neume))
+    tex.sprint(string.format("\\definecolor{byzcolorcross}{HTML}{%s}", data.pageSetup.colors.cross or data.pageSetup.colors.neume))
     tex.sprint(string.format("\\definecolor{byzcolorfthora}{HTML}{%s}", data.pageSetup.colors.fthora))
     tex.sprint(string.format("\\definecolor{byzcolorgorgon}{HTML}{%s}", data.pageSetup.colors.gorgon))
     tex.sprint(string.format("\\definecolor{byzcolorheteron}{HTML}{%s}", data.pageSetup.colors.heteron))
