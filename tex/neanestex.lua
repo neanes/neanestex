@@ -3,8 +3,8 @@ local neanestex = neanestex
 
 local err, warn, info, log = luatexbase.provides_module({
     name = "neanestex",
-    date = "2025/02/27",
-    version = "1.0.0",
+    date = "2026/07/30",
+    version = "1.1.0",
     description = "A package for inserting Byzantine Chant scores into LaTeX.",
     author = "danielgarthur",
     license = "GPL-3.0",
@@ -13,7 +13,14 @@ local err, warn, info, log = luatexbase.provides_module({
 local schema_version = 3
 -- Schema changes
 -- 1 to 2: Positive lyricsVerticalOffset now moves lyrics down, making it consistent with other offsets in the schema
--- 2 to 3: Glyph positioning includes layout-resolved spacing, offsets, transferred measure-bar placement, and leading lyric hyphens
+-- 2 to 3: Text typography moved to an interned table of fully resolved text
+-- styles. Elements reference the final style they render with. Exact font face
+-- names and structured OpenType feature settings are preserved. Alignment is
+-- spelled out everywhere, including on mode keys, which used to abbreviate it
+-- to a single letter. Every v3 text style carries the exact postscriptName.
+-- Family selection plus recognizable bold/italic axes is only the v1/v2
+-- compatibility path. Glyph positioning includes layout-resolved spacing,
+-- offsets, transferred measure-bar placement, and leading lyric hyphens.
 
 local lualibs = require("lualibs")
 local json = utilities.json
@@ -28,6 +35,22 @@ local neume_font_metadata_file_map_default = {
     ["NeanesRTL"] = "neanesrtlengraving.metadata.json",
     ["NeanesStathisSeries"] = "neanesstathisseriesengraving.metadata.json",
 }
+
+local DEFAULT_TEXT_STYLE_ID = "default-text"
+local LYRICS_STYLE_ID = "lyrics"
+local DROP_CAP_STYLE_ID = "drop-cap"
+
+local text_style_definitions = {}
+local text_style_schema_version = schema_version
+
+-- The distinct font selectors one score references, declared up front. A v1/v2
+-- family selector uses bold/italic NFSS axes; a v3 selector is one required
+-- PostScript face and OpenType feature combination. The serial is never reset so
+-- a macro name is unique across every score in the document, whatever grouping
+-- the surrounding LaTeX applies.
+local font_selector_macros = {}
+local font_selector_declarations = {}
+local font_selector_serial = 0
 
 local function read_json(filename)
     local file = io.open(filename, "r")
@@ -67,12 +90,17 @@ local function load_font_data(font)
     }
 end
 
+local function get_neume_font_data(font_family)
+    if neume_font_data_map[font_family] == nil then
+        neume_font_data_map[font_family] = load_font_data(font_family)
+    end
+
+    return neume_font_data_map[font_family]
+end
+
 local function set_neume_font_family(font_family)
     neume_font_family = font_family
-
-    if neume_font_data_map[neume_font_family] == nil then
-        neume_font_data_map[neume_font_family] = load_font_data(neume_font_family)
-    end
+    get_neume_font_data(neume_font_family)
 end
 
 local function set_neume_font_file(font_family, filepath)
@@ -81,6 +109,12 @@ end
 
 local function set_neume_font_metadata_file(font_family, filepath)
     neume_font_metadata_file_map[font_family] = filepath
+
+    -- Font data is cached by family, so changing its metadata must discard data
+    -- loaded from the previous path. Reload it immediately so an unavailable or
+    -- invalid override fails at the configuration command rather than at use.
+    neume_font_data_map[font_family] = nil
+    get_neume_font_data(font_family)
 end
 
 local function get_neume_font(font_family)
@@ -95,12 +129,11 @@ local function get_neume_font(font_family)
 end
 
 local function codepoint_from_glyph_name(glyph_name)
-    local data = neume_font_data_map[neume_font_family]
-
-    if data == nil then
-        err("Font data has not been loaded yet. Did you forget to call \\byzsetneumefont?")
+    if neume_font_family == nil then
+        return err("No neume font family was selected. Did you forget to call \\byzsetneumefontfamily?")
     end
 
+    local data = get_neume_font_data(neume_font_family)
     local codepoint = data.glyph_name_to_codepoint_map[glyph_name]
 
     if codepoint == nil then
@@ -167,6 +200,361 @@ local function escape_latex(str)
     return str:gsub("[\\%$%&%#_%^{}~\n]", replacements):gsub("\u{E280}", replacements["\u{E280}"]):gsub("\u{E281}", replacements["\u{E281}"]):gsub("\u{1D0B4}", replacements["\u{1D0B4}"]):gsub("\u{1D0B5}", replacements["\u{1D0B5}"])
 end
 
+-- Whitespace-tokenized so "Semibold" is not read as "Bold".
+local function font_style_has_token(font_style, expected)
+    for token in string.gmatch(font_style or "", "%S+") do
+        if string.lower(token) == expected then
+            return true
+        end
+    end
+
+    return false
+end
+
+-- The NFSS axes a style label names.
+local function font_style_axes(font_style)
+    return font_style_has_token(font_style, "bold"), font_style_has_token(font_style, "italic") or font_style_has_token(font_style, "oblique")
+end
+
+local function legacy_font_style(weight, style)
+    local bold = weight == "700" or weight == 700 or weight == "bold"
+    local italic = style == "italic" or (style and string.match(style, "^oblique"))
+
+    if bold and italic then
+        return "Bold Italic"
+    elseif bold then
+        return "Bold"
+    elseif italic then
+        return "Italic"
+    else
+        return "Regular"
+    end
+end
+
+-- Schema v3 spells alignment out; v1 and v2 abbreviated it to one letter. Fold
+-- the old spelling into the new one so everything downstream sees just the one
+-- vocabulary.
+local function normalize_alignment(alignment)
+    if alignment == "c" then
+        return "center"
+    elseif alignment == "r" then
+        return "right"
+    elseif alignment == "l" then
+        return "left"
+    end
+
+    return alignment
+end
+
+-- The one-letter position \makebox wants. Justified text has no \makebox
+-- equivalent, so it sets flush left like unaligned text.
+local function alignment_position(alignment)
+    if alignment == "center" then
+        return "c"
+    elseif alignment == "right" then
+        return "r"
+    else
+        return "l"
+    end
+end
+
+-- v1 and v2 keyed the three built-in styles off a per-element-kind name in
+-- page setup. The style id is ours; the key is theirs.
+local LEGACY_STYLE_SPECS = {
+    { id = DEFAULT_TEXT_STYLE_ID, key = "textBox" },
+    { id = LYRICS_STYLE_ID, key = "lyrics" },
+    { id = DROP_CAP_STYLE_ID, key = "dropCap" },
+}
+
+local function create_legacy_text_styles(page_setup)
+    local styles = {}
+
+    for _, spec in ipairs(LEGACY_STYLE_SPECS) do
+        styles[#styles + 1] = {
+            id = spec.id,
+            alignment = "left",
+            fontFamily = page_setup.fontFamilies[spec.key],
+            fontSize = page_setup.fontSizes[spec.key],
+            fontStyle = legacy_font_style(page_setup[spec.key .. "DefaultFontWeight"], page_setup[spec.key .. "DefaultFontStyle"]),
+            color = page_setup.colors[spec.key],
+            -- Drop caps had no text decoration before v3, so this is nil there.
+            textDecoration = page_setup[spec.key .. "DefaultTextDecoration"] or "none",
+        }
+    end
+
+    return styles
+end
+
+local function load_text_styles(data)
+    text_style_definitions = {}
+    text_style_schema_version = data.schemaVersion
+
+    local styles = data.textStyles
+    if not styles or data.schemaVersion < 3 then
+        styles = create_legacy_text_styles(data.pageSetup)
+    end
+
+    for _, style in ipairs(styles) do
+        text_style_definitions[style.id] = style
+    end
+end
+
+local function get_legacy_text_style(style_id)
+    return text_style_definitions[style_id] or text_style_definitions[DEFAULT_TEXT_STYLE_ID] or {}
+end
+
+local function legacy_element_style(element, prefix, paragraph_style_id)
+    local function value(name)
+        if prefix == "" then
+            return element[name]
+        end
+
+        return element[prefix .. name:sub(1, 1):upper() .. name:sub(2)]
+    end
+
+    local base = get_legacy_text_style(paragraph_style_id)
+    local font_style = base.fontStyle
+    local weight = value("fontWeight")
+    local style = value("fontStyle")
+
+    if weight or style then
+        local bold, italic = font_style_axes(base.fontStyle)
+        font_style = legacy_font_style(weight or (bold and "700" or "400"), style or (italic and "italic" or "normal"))
+    end
+
+    -- None of these fields can hold false, so `or` is the whole merge.
+    return {
+        alignment = normalize_alignment(value("alignment")) or base.alignment,
+        fontFamily = value("fontFamily") or base.fontFamily,
+        fontSize = value("fontSize") or base.fontSize,
+        fontStyle = font_style,
+        color = value("color") or base.color,
+        textDecoration = value("textDecoration") or base.textDecoration,
+    }
+end
+
+local function raw_font_feature(tag, value)
+    if type(tag) ~= "string" or not string.match(tag, "^[%a%d][%a%d][%a%d][%a%d]$") then
+        warn("Ignoring a font feature with an invalid OpenType tag")
+        return nil
+    end
+
+    if type(value) ~= "number" or value % 1 ~= 0 or value < 0 or value > 65535 then
+        warn("Ignoring font feature " .. tag .. " with an invalid value")
+        return nil
+    end
+
+    if value == 0 then
+        return "-" .. tag
+    elseif value == 1 then
+        return "+" .. tag
+    else
+        -- No "+" prefix: luaotfload reads "+tag=N" as XeTeX syntax, whose
+        -- alternate indices are zero-based, and increments N. Our values are
+        -- already one-based, so the bare "tag=N" form is the one that means
+        -- what we intend.
+        return string.format("%s=%d", tag, value)
+    end
+end
+
+local function font_raw_features(style)
+    local settings = style.fontFeatures or {}
+    local features = {}
+
+    if type(settings) ~= "table" then
+        warn("Ignoring fontFeatures because it is not an object")
+        return ""
+    end
+
+    for tag, value in pairs(settings) do
+        local feature = raw_font_feature(tag, value)
+        if feature then
+            features[#features + 1] = { tag = tag, raw = feature }
+        end
+    end
+
+    -- JSON object order is not significant. Sort by tag so equivalent feature
+    -- maps always produce the same RawFeature string and font-selector key.
+    table.sort(features, function(a, b)
+        return a.tag < b.tag
+    end)
+
+    local raw_features = {}
+    for _, feature in ipairs(features) do
+        raw_features[#raw_features + 1] = feature.raw
+    end
+
+    return table.concat(raw_features, ",")
+end
+
+-- Control sequence names are letters only, so the serial is spelled in letters
+-- and the reference is terminated with {} rather than a space, which would eat
+-- a leading space in the content that follows.
+local function font_macro_name(serial)
+    local letters = ""
+
+    repeat
+        letters = string.char(97 + serial % 26) .. letters
+        serial = math.floor(serial / 26)
+    until serial == 0
+
+    return "\\byzfont" .. letters
+end
+
+local function font_style_commands(style)
+    local bold, italic = font_style_axes(style.fontStyle)
+
+    if bold and italic then
+        return "\\bfseries\\itshape"
+    elseif bold then
+        return "\\bfseries"
+    elseif italic then
+        return "\\itshape"
+    end
+
+    return ""
+end
+
+-- fontspec rebuilds a selector and re-parses its options on every \fontspec, at
+-- a cost of roughly a millisecond, and a score references only a handful of
+-- distinct family/face/feature combinations. Declare each one once per score
+-- and let the elements reference it by name. The reference is cached on the
+-- style, which is freshly parsed per score, so it cannot outlive the
+-- declarations it names.
+local function register_font_selector(style)
+    if style.font_selector then
+        return style.font_selector
+    end
+
+    local is_v3 = text_style_schema_version >= 3
+    local declaration_command = is_v3 and "\\newfontface" or "\\newfontfamily"
+    local font_name = is_v3 and style.postscriptName or style.fontFamily
+
+    local raw_features = font_raw_features(style)
+    local font_options = raw_features ~= "" and string.format("[RawFeature={%s}]", raw_features) or ""
+    -- declaration_command distinguishes an exact face from a family, so it also
+    -- keeps the two kinds of selector apart in the cache.
+    local key = declaration_command .. "\0" .. font_options .. "\0" .. font_name
+    local macro = font_selector_macros[key]
+
+    if not macro then
+        font_selector_serial = font_selector_serial + 1
+        macro = font_macro_name(font_selector_serial)
+        font_selector_macros[key] = macro
+        font_selector_declarations[#font_selector_declarations + 1] = string.format("%s%s%s{%s}", declaration_command, macro, font_options, font_name)
+    end
+
+    style.font_selector = macro .. "{}" .. (not is_v3 and font_style_commands(style) or "")
+
+    return style.font_selector
+end
+
+-- Print time. Every selector was registered by prepare_element_styles, before
+-- include_score flushed the declarations, so a miss here means an element is
+-- being printed that the pre-pass did not resolve. Say so, rather than emitting
+-- a reference to a control sequence that was never declared.
+local function font_selection(style)
+    return assert(style.font_selector, "No font selector was registered for this text style")
+end
+
+local function decorate_content(result, style)
+    if style.textDecoration == "underline" then
+        result = string.format("\\underLine{%s}", result)
+    end
+
+    if style.strokeWidth and style.strokeWidth > 0 then
+        local stroke_color = style.strokeColor
+        if not stroke_color or stroke_color == "currentcolor" then
+            stroke_color = style.color or "000000"
+        end
+
+        local stroke_color_option
+        if string.match(stroke_color, "^%x%x%x%x%x%x$") then
+            stroke_color_option = string.format("[HTML]{%s}", stroke_color)
+        else
+            stroke_color_option = stroke_color
+        end
+
+        result = string.format("\\textpdfrender{TextRenderingMode=FillStroke,LineWidth=%fbp,StrokeColor={%s}}{%s}", style.strokeWidth, stroke_color_option, result)
+    end
+
+    return result
+end
+
+local function styled_content(content, style)
+    local result = decorate_content(escape_latex(content), style)
+
+    return string.format("{%s%s}", font_selection(style), result)
+end
+
+local function style_color_command(style, command)
+    return style.color and string.format("%s[HTML]{%s}", command, style.color) or command .. "{black}"
+end
+
+-- The size and leading always travel together, so every element emits them as
+-- one fragment.
+-- TODO: Implement paragraph-style lineHeight faithfully in NeanesTeX. Until
+-- then, ignore it and use conventional text leading rather than the score-wide
+-- \baselineskip, which represents the distance between staves.
+local function style_font_setup(style)
+    local size = style.fontSize
+    assert(type(size) == "number", "Text style fontSize must be a number")
+
+    return string.format("\\fontsize{%fbp}{%fbp}", size, size * 1.2)
+end
+
+-- The style an element renders in, or nil for one that prints no text. Classify
+-- the element once, then adapt once: schema v3 looks up the complete style
+-- Neanes selected for it, while v1 and v2 need the field prefix and built-in
+-- style their sparse typography was spread across. Keeping this separate from
+-- the traversal below means a new element type is one branch here rather than
+-- another level of nesting.
+local function resolve_element_style(element)
+    local style_id, prefix, legacy_style_id
+
+    if element.type == "note" and (element.lyrics or element.isFullMelisma) then
+        style_id, prefix, legacy_style_id = element.lyricsStyleId, "lyrics", LYRICS_STYLE_ID
+    elseif element.type == "dropcap" then
+        style_id, prefix, legacy_style_id = element.styleId, "", DROP_CAP_STYLE_ID
+    elseif element.type == "textbox" and element.inline then
+        style_id, prefix, legacy_style_id = element.styleId, "", LYRICS_STYLE_ID
+    elseif element.type == "textbox" and (element.content ~= "" or element.multipanel) then
+        style_id, prefix, legacy_style_id = element.styleId, "", DEFAULT_TEXT_STYLE_ID
+    else
+        return nil
+    end
+
+    if text_style_schema_version < 3 then
+        return legacy_element_style(element, prefix, legacy_style_id)
+    end
+
+    return assert(text_style_definitions[style_id], "Unknown schema v3 text style id: " .. tostring(style_id))
+end
+
+-- Resolve every styled element once, before anything is printed, and cache the
+-- result on the element. This is what lets the score declare its font families
+-- up front, and it keeps the schema-version adaptation in one pass instead of
+-- one branch per element type at print time. Elements that print nothing are
+-- skipped so a score never declares a font it does not use.
+local function prepare_element_styles(sections)
+    font_selector_macros = {}
+    font_selector_declarations = {}
+
+    for _, section in ipairs(sections) do
+        for _, line in ipairs(section.lines) do
+            for _, element in ipairs(line.elements) do
+                local style = resolve_element_style(element)
+
+                if style then
+                    element.resolved_style = style
+                    -- The declaration itself is emitted by include_score.
+                    register_font_selector(style)
+                end
+            end
+        end
+    end
+end
+
 local function measure_bar_text(glyph_name, manual_offset)
     local result = string.format('\\textcolor{byzcolormeasurebar}{\\char"%s}', glyphNameToCodepointMap[glyph_name])
 
@@ -217,30 +605,17 @@ local function print_transferred_measure_bar(glyph_name, offset, spacing_before,
     tex.sprint(string.format("\\rlap{\\hspace{%fbp}{\\fontsize{\\byzneumesize}{\\baselineskip}\\byzneumefont\\hspace{%fem}%s}}", position, manual_x, measure_bar_text(glyph_name, manual_offset)))
 end
 
-local function get_formatted_lyrics(note, pageSetup, text)
-    local font_size = note.lyricsFontSize and string.format("%fbp", note.lyricsFontSize) or "\\byzlyricsize"
-    local color = note.lyricsColor and string.format("\\textcolor[HTML]{%s}", note.lyricsColor) or "\\textcolor{byzcolorlyrics}"
-    local font_weight = note.lyricsFontWeight or pageSetup.lyricsDefaultFontWeight
-    local font_style = note.lyricsFontStyle or pageSetup.lyricsDefaultFontStyle
-    local text_decoration = note.lyricsTextDecoration or pageSetup.lyricsDefaultTextDecoration
-    local content = escape_latex(text)
-    content = font_style == "italic" and string.format("\\textit{%s}", content) or content
-    content = font_weight == "700" and string.format("\\textbf{%s}", content) or content
-    content = text_decoration == "underline" and string.format("\\underline{%s}", content) or content
-    content = note.lyricsFontFamily and string.format("{\\fontspec{%s}%s}", note.lyricsFontFamily, content) or string.format("\\byzlyricfont{}{%s}", content)
-
-    return font_size, color, content
-end
-
 local function print_leading_lyric_hyphen(note, pageSetup)
     if note.leadingLyricHyphenOffset == nil then
         return
     end
 
-    local font_size, color, hyphen = get_formatted_lyrics(note, pageSetup, "-")
+    local style = note.resolved_style
+    local color = style_color_command(style, "\\textcolor")
+    local hyphen = styled_content("-", style)
     local offset_from_cursor = note.leadingLyricHyphenOffset - note.width
 
-    tex.sprint(string.format("\\rlap{\\hspace{%fbp}\\raisebox{-%fbp}{%s{\\fontsize{%s}{\\baselineskip}%s}}}", offset_from_cursor, pageSetup.lyricsVerticalOffset, color, font_size, hyphen))
+    tex.sprint(string.format("\\rlap{\\hspace{%fbp}\\raisebox{-%fbp}{%s{%s%s}}}", offset_from_cursor, pageSetup.lyricsVerticalOffset, color, style_font_setup(style), hyphen))
 end
 
 local function print_note(note, pageSetup)
@@ -448,7 +823,9 @@ local function print_note(note, pageSetup)
 
     if note.lyrics then
         local lyricPos = note.lyricsLeftAlign and "l" or "c"
-        local fontSize, color, lyrics = get_formatted_lyrics(note, pageSetup, note.lyrics)
+        local style = note.resolved_style
+        local color = style_color_command(style, "\\textcolor")
+        local lyrics = decorate_content(escape_latex(note.lyrics), style)
 
         local offset = 0
 
@@ -457,7 +834,7 @@ local function print_note(note, pageSetup)
         end
 
         tex.sprint(string.format("\\hspace{-%fbp}", note.width - offset))
-        tex.sprint(string.format("\\raisebox{-%fbp}{%s{\\makebox[%fbp][%s]{\\fontsize{%s}{\\baselineskip}%s", pageSetup.lyricsVerticalOffset, color, note.width - offset, lyricPos, fontSize, lyrics))
+        tex.sprint(string.format("\\raisebox{-%fbp}{%s{\\makebox[%fbp][%s]{%s%s%s", pageSetup.lyricsVerticalOffset, color, note.width - offset, lyricPos, style_font_setup(style), font_selection(style), lyrics))
 
         -- Melismas
         if note.melismaWidth and note.melismaWidth > 0 then
@@ -473,8 +850,9 @@ local function print_note(note, pageSetup)
         -- close \raisebox{\makebox{\textcolor{}}}
         tex.sprint("}}}")
     elseif note.isFullMelisma then
+        local style = note.resolved_style
         tex.sprint(string.format("\\hspace{-%fbp}", note.width))
-        tex.sprint(string.format("\\raisebox{-%fbp}{\\makebox[%fbp][l]{", pageSetup.lyricsVerticalOffset, note.width))
+        tex.sprint(string.format("\\raisebox{-%fbp}{%s{\\makebox[%fbp][l]{%s%s", pageSetup.lyricsVerticalOffset, style_color_command(style, "\\textcolor"), note.width, style_font_setup(style), font_selection(style)))
 
         if note.isHyphen then
             for _, hyphenOffset in ipairs(note.hyphenOffsets) do
@@ -484,8 +862,8 @@ local function print_note(note, pageSetup)
             tex.sprint(string.format("\\rule{%fbp}{%fbp}\\hspace{-%fbp}", note.melismaWidth, pageSetup.lyricsMelismaThickness, note.melismaWidth))
         end
 
-        -- close \raisebox{\makebox{}}
-        tex.sprint("}}")
+        -- close \raisebox{\textcolor{\makebox{}}}
+        tex.sprint("}}}")
     end
 
     tex.sprint(string.format("\\hspace{-%fbp}", note.width))
@@ -591,20 +969,15 @@ local function print_tempo(tempo, pageSetup)
 end
 
 local function print_drop_cap(dropCap, pageSetup)
-    local font_size = dropCap.fontSize and string.format("%fbp", dropCap.fontSize) or "\\byzdropcapsize"
-    local color = dropCap.color and string.format("\\textcolor[HTML]{%s}", dropCap.color) or "\\textcolor{byzcolordropcap}"
-    local is_bold = dropCap.fontWeight == "700" or pageSetup.dropCapDefaultFontWeight == "700"
-    local is_italic = dropCap.fontStyle == "italic" or pageSetup.dropCapDefaultFontStyle == "italic"
-    local content = escape_latex(dropCap.content)
-    content = is_italic and string.format("\\textit{%s}", content) or content
-    content = is_bold and string.format("\\textbf{%s}", content) or content
-    content = dropCap.fontFamily and string.format("{\\fontspec{%s}%s}", dropCap.fontFamily, content) or string.format("\\byzdropcapfont{}{%s}", content)
+    local style = dropCap.resolved_style
+    local color = style_color_command(style, "\\textcolor")
+    local content = styled_content(dropCap.content, style)
 
     local verticalAdjustment = dropCap.verticalAdjustment and dropCap.verticalAdjustment or 0
 
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", dropCap.x))
-    tex.sprint(string.format("\\raisebox{-%fbp}{{%s{\\fontsize{%s}{\\baselineskip}%s}}}", pageSetup.lyricsVerticalOffset + verticalAdjustment, color, font_size, content))
+    tex.sprint(string.format("\\raisebox{-%fbp}{{%s{%s%s}}}", pageSetup.lyricsVerticalOffset + verticalAdjustment, color, style_font_setup(style), content))
     tex.sprint(string.format("\\hspace{-%fbp}", dropCap.width))
     tex.sprint(string.format("\\hspace{%fbp}", -dropCap.x))
     tex.sprint("}")
@@ -621,7 +994,7 @@ local function print_mode_key(modeKey, pageSetup)
     end
 
     tex.sprint("\\mbox{")
-    tex.sprint(string.format("\\makebox[%fbp][%s]{", modeKey.width, modeKey.alignment))
+    tex.sprint(string.format("\\makebox[%fbp][%s]{", modeKey.width, alignment_position(normalize_alignment(modeKey.alignment))))
     tex.sprint(string.format("%s{\\fontsize{%s}{\\baselineskip}\\byzneumefont", color, font_size))
 
     tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap["modeWordEchos"]))
@@ -706,20 +1079,19 @@ local function print_mode_key(modeKey, pageSetup)
     tex.sprint(string.format("\\vspace{-\\baselineskip}\\vspace{%fbp}", height))
 end
 
-local function print_text_box_inline(textBox, pageSetup)
-    local font_size = textBox.fontSize and string.format("%fbp", textBox.fontSize) or "\\byzlyricsize"
-    local color = textBox.color and string.format("\\textcolor[HTML]{%s}", textBox.color) or "\\textcolor{byzcolorlyrics}"
-    local is_bold = textBox.fontWeight == "700" or pageSetup.lyricsDefaultFontWeight == "700"
-    local is_italic = textBox.fontStyle == "italic" or pageSetup.lyricsDefaultFontStyle == "italic"
-    local content = escape_latex(textBox.content)
-    content = is_italic and string.format("\\textit{%s}", content) or content
-    content = is_bold and string.format("\\textbf{%s}", content) or content
-    content = textBox.fontFamily and string.format("{\\fontspec{%s}%s}", textBox.fontFamily, content) or string.format("\\byzlyricfont{}{%s}", content)
+local function print_text_box_inline(textBox)
+    local style = textBox.resolved_style
+    local color = style_color_command(style, "\\textcolor")
+    local position = alignment_position(style.alignment)
+    local content = styled_content(textBox.content, style)
+    if textBox.contentBottom and textBox.contentBottom ~= "" then
+        content = string.format("\\shortstack[%s]{%s\\\\%s}", position, content, styled_content(textBox.contentBottom, style))
+    end
 
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", textBox.x))
-    tex.sprint(string.format("\\makebox[%fbp][%s]{", textBox.width, textBox.alignment))
-    tex.sprint(string.format("%s{\\fontsize{%s}{\\baselineskip}%s", color, font_size, content))
+    tex.sprint(string.format("\\makebox[%fbp][%s]{", textBox.width, position))
+    tex.sprint(string.format("%s{%s%s", color, style_font_setup(style), content))
 
     -- end \textcolor and \makebox
     tex.sprint("}}")
@@ -730,26 +1102,36 @@ local function print_text_box_inline(textBox, pageSetup)
     tex.sprint("}")
 end
 
-local function print_text_box(textBox, pageSetup)
+local function print_text_box(textBox)
     if textBox.inline then
-        print_text_box_inline(textBox, pageSetup)
+        print_text_box_inline(textBox)
         return
     end
 
-    if textBox.content == "" then
+    -- An empty, non-multipanel text box prints nothing, which is exactly the
+    -- case resolve_element_style leaves unstyled. Ask it rather than restating
+    -- the condition, so the two cannot drift apart.
+    local style = textBox.resolved_style
+
+    if not style then
         tex.sprint("\\vspace{-\\baselineskip}")
         tex.sprint(string.format("\\vspace{%fbp}", textBox.height))
         return
     end
 
-    local font_size = textBox.fontSize and string.format("%fbp", textBox.fontSize) or "\\byztextboxsize"
-    local color = textBox.color and string.format("\\color[HTML]{%s}", textBox.color) or "\\color{byzcolorlyrics}"
-    local is_bold = textBox.fontWeight == "700" or pageSetup.textBoxDefaultFontWeight == "700"
-    local is_italic = textBox.fontStyle == "italic" or pageSetup.textBoxDefaultFontStyle == "italic"
-    local content = escape_latex(textBox.content)
-    content = is_italic and string.format("\\textit{%s}", content) or content
-    content = is_bold and string.format("\\textbf{%s}", content) or content
-    content = textBox.fontFamily and string.format("{\\fontspec{%s}%s}", textBox.fontFamily, content) or string.format("\\byztextboxfont{}{%s}", content)
+    local color = style_color_command(style, "\\color")
+    local content
+
+    if textBox.multipanel then
+        content = string.format(
+            "\\makebox[\\linewidth][l]{%s}\\hspace{-\\linewidth}\\makebox[\\linewidth][c]{%s}\\hspace{-\\linewidth}\\makebox[\\linewidth][r]{%s}",
+            styled_content(textBox.contentLeft or "", style),
+            styled_content(textBox.contentCenter or "", style),
+            styled_content(textBox.contentRight or "", style)
+        )
+    else
+        content = styled_content(textBox.content, style)
+    end
 
     if textBox.marginTop then
         tex.sprint("\\vspace{-\\baselineskip}")
@@ -761,14 +1143,15 @@ local function print_text_box(textBox, pageSetup)
     tex.sprint(string.format("\\hspace{%fbp}", textBox.x))
     tex.sprint(string.format("\\parbox[b][%fbp][c]{%fbp}{", textBox.height, textBox.width))
 
-    if textBox.alignment == "c" then
+    if style.alignment == "center" then
         tex.sprint("\\centering")
-    end
-    if textBox.alignment == "r" then
-        tex.sprint("\\hfill")
+    elseif style.alignment == "right" then
+        tex.sprint("\\raggedleft")
+    elseif style.alignment == "left" then
+        tex.sprint("\\raggedright")
     end
 
-    tex.sprint(string.format("%s{\\fontsize{%s}{\\baselineskip}%s", color, font_size, content))
+    tex.sprint(string.format("%s{%s%s", color, style_font_setup(style), content))
 
     -- end \textcolor and \parbox
     tex.sprint("}}")
@@ -797,6 +1180,8 @@ local function include_score(filename, sectionName)
         warn(string.format("The score %s uses schema version %d. This version of neanestex only supports schema versions <= %d", filename, data.schemaVersion, schema_version))
     end
 
+    load_text_styles(data)
+
     -- Find the section(s)
     local sections = {}
 
@@ -823,13 +1208,12 @@ local function include_score(filename, sectionName)
         sections[1] = section
     end
 
-    -- Load the font metadata
-    if neume_font_data_map[data.pageSetup.fontFamilies.neume] == nil then
-        neume_font_data_map[data.pageSetup.fontFamilies.neume] = load_font_data(data.pageSetup.fontFamilies.neume)
-    end
+    prepare_element_styles(sections)
 
-    glyphNameToCodepointMap = neume_font_data_map[data.pageSetup.fontFamilies.neume].glyph_name_to_codepoint_map
-    font_metadata = neume_font_data_map[data.pageSetup.fontFamilies.neume].font_metadata
+    -- Load the font metadata
+    local neume_font_data = get_neume_font_data(data.pageSetup.fontFamilies.neume)
+    glyphNameToCodepointMap = neume_font_data.glyph_name_to_codepoint_map
+    font_metadata = neume_font_data.font_metadata
 
     -- Check that the metadata version matches the score's font version
     local metadata_font_version = font_metadata.fontVersion
@@ -856,27 +1240,23 @@ local function include_score(filename, sectionName)
     -- open a new section so that our variables do not persist forever
     tex.sprint("{")
 
+    for _, declaration in ipairs(font_selector_declarations) do
+        tex.sprint(declaration)
+    end
+
     tex.sprint(string.format("\\setlength{\\byzneumesize}{%fbp}", data.pageSetup.fontSizes.neume))
     tex.sprint(string.format("\\setlength{\\byzmodekeysize}{%fbp}", data.pageSetup.fontSizes.modeKey))
-    tex.sprint(string.format("\\setlength{\\byzlyricsize}{%fbp}", data.pageSetup.fontSizes.lyrics))
-    tex.sprint(string.format("\\setlength{\\byzdropcapsize}{%fbp}", data.pageSetup.fontSizes.dropCap))
-    tex.sprint(string.format("\\setlength{\\byztextboxsize}{%fbp}", data.pageSetup.fontSizes.textBox))
 
     tex.sprint(string.format("\\renewfontfamily{\\byzneumefont}{%s}", get_neume_font(data.pageSetup.fontFamilies.neume)))
-    tex.sprint(string.format("\\renewfontfamily{\\byzlyricfont}{%s}", data.pageSetup.fontFamilies.lyrics))
-    tex.sprint(string.format("\\renewfontfamily{\\byzdropcapfont}{%s}", data.pageSetup.fontFamilies.dropCap))
-    tex.sprint(string.format("\\renewfontfamily{\\byztextboxfont}{%s}", data.pageSetup.fontFamilies.textBox))
 
     tex.sprint(string.format("\\setlength{\\baselineskip}{%fbp}", data.pageSetup.lineHeight))
 
     tex.sprint(string.format("\\definecolor{byzcoloraccidental}{HTML}{%s}", data.pageSetup.colors.accidental))
-    tex.sprint(string.format("\\definecolor{byzcolordropcap}{HTML}{%s}", data.pageSetup.colors.dropCap))
     tex.sprint(string.format("\\definecolor{byzcolorfthora}{HTML}{%s}", data.pageSetup.colors.fthora))
     tex.sprint(string.format("\\definecolor{byzcolorgorgon}{HTML}{%s}", data.pageSetup.colors.gorgon))
     tex.sprint(string.format("\\definecolor{byzcolorheteron}{HTML}{%s}", data.pageSetup.colors.heteron))
     tex.sprint(string.format("\\definecolor{byzcolorison}{HTML}{%s}", data.pageSetup.colors.ison))
     tex.sprint(string.format("\\definecolor{byzcolorkoronis}{HTML}{%s}", data.pageSetup.colors.koronis))
-    tex.sprint(string.format("\\definecolor{byzcolorlyrics}{HTML}{%s}", data.pageSetup.colors.lyrics))
     tex.sprint(string.format("\\definecolor{byzcolormartyria}{HTML}{%s}", data.pageSetup.colors.martyria))
     tex.sprint(string.format("\\definecolor{byzcolormeasurebar}{HTML}{%s}", data.pageSetup.colors.measureBar))
     tex.sprint(string.format("\\definecolor{byzcolormeasurenumber}{HTML}{%s}", data.pageSetup.colors.measureNumber))
@@ -884,7 +1264,6 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\definecolor{byzcolorneume}{HTML}{%s}", data.pageSetup.colors.neume))
     tex.sprint(string.format("\\definecolor{byzcolornoteindicator}{HTML}{%s}", data.pageSetup.colors.noteIndicator))
     tex.sprint(string.format("\\definecolor{byzcolortempo}{HTML}{%s}", data.pageSetup.colors.tempo))
-    tex.sprint(string.format("\\definecolor{byzcolortextbox}{HTML}{%s}", data.pageSetup.colors.textBox))
 
     first_line = true
 
@@ -916,7 +1295,7 @@ local function include_score(filename, sectionName)
                     print_mode_key(element, data.pageSetup)
                 end
                 if element.type == "textbox" then
-                    print_text_box(element, data.pageSetup)
+                    print_text_box(element)
                 end
             end
         end
