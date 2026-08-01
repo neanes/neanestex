@@ -5,19 +5,15 @@
 \RequirePackage{luacode}
 \RequirePackage{luacolor}
 \RequirePackage{fontspec}
+\RequirePackage{lua-ul}
+\RequirePackage{pdfrender}
 \RequireLuaTeX
 
 \newfontfamily\byzneumefont{Almouzios}
-\newfontfamily\byzlyricfont{Alegreya}
-\newfontfamily\byzdropcapfont{Alegreya}
-\newfontfamily\byztextboxfont{Alegreya}
 % \newfontfamily\byzneumefont{Neanes}
-% \newfontfamily\byzlyricfont{Source Serif 4}
-% \newfontfamily\byzdropcapfont{Source Serif 4}
-% \newfontfamily\byztextboxfont{Source Serif 4}
 
 \begin{luacode*}
-    dofile(kpse.find_file("neanestex.lua", "tex"))
+  dofile(kpse.find_file("neanestex.lua", "tex"))
 \end{luacode*}
 
 % Font sizes
@@ -27,24 +23,15 @@
 \newlength{\byzmodekeysize}
 \setlength{\byzmodekeysize}{20bp}
 
-\newlength{\byzlyricsize}
-\setlength{\byzlyricsize}{12bp}
-
-\newlength{\byzdropcapsize}
-\setlength{\byzdropcapsize}{60bp}
-
-\newlength{\byztextboxsize}
-\setlength{\byztextboxsize}{20bp}
-
 % Colors
 \definecolor{byzcoloraccidental}{HTML}{ED0000}
-\definecolor{byzcolordropcap}{HTML}{ED0000}
+\definecolor{byzcolorbreath}{HTML}{000000}
+\definecolor{byzcolorcross}{HTML}{000000}
 \definecolor{byzcolorfthora}{HTML}{ED0000}
 \definecolor{byzcolorgorgon}{HTML}{ED0000}
 \definecolor{byzcolorheteron}{HTML}{ED0000}
 \definecolor{byzcolorison}{HTML}{ED0000}
 \definecolor{byzcolorkoronis}{HTML}{ED0000}
-\definecolor{byzcolorlyrics}{HTML}{000000}
 \definecolor{byzcolormartyria}{HTML}{ED0000}
 \definecolor{byzcolormeasurebar}{HTML}{ED0000}
 \definecolor{byzcolormeasurenumber}{HTML}{000000}
@@ -52,40 +39,38 @@
 \definecolor{byzcolorneume}{HTML}{000000}
 \definecolor{byzcolornoteindicator}{HTML}{ED0000}
 \definecolor{byzcolortempo}{HTML}{ED0000}
-\definecolor{byzcolortextbox}{HTML}{000000}
 
 % Draws a score
-% If section name is blank, the default section will be used. Ex: \neanesscore{example.byztex}{} 
+% If section name is blank, the default section will be used. Ex: \neanesscore{example.byztex}{}
 % If section name is *, all sections will be used. Ex: \neanesscore{example.byztex}{*}
-% Otherwise only the specified section is drawn. Ex: \neanesscore{example.byztex}{olihc-1} 
+% Otherwise only the specified section is drawn. Ex: \neanesscore{example.byztex}{olihc-1}
 \newcommand{\neanesscore}[2]{% #1 = filename, #2 = sectionname
-    \directlua{neanestex.include_score("#1", "#2")}%
+  \directlua{neanestex.include_score("#1", "#2")}%
 }
 
 % Set the neume font used for commands like \byzcodepoint and \byzglyph.
 % Note that \neanesscore will not use this value, but rather the values
 % found in the file's page setup.
 \newcommand{\byzsetneumefontfamily}[1]{% #1 = fontfamily
-    \directlua{neanestex.set_neume_font_family("#1")}%
+  \directlua{neanestex.set_neume_font_family("#1")}%
 }
 
 % Set the neume font file
 \newcommand{\byzsetneumefontfile}[2]{% #1 = fontfamily, #1 = filepath
-    \directlua{neanestex.set_neume_font_file("#1", "#2")}%
+  \directlua{neanestex.set_neume_font_file("#1", "#2")}%
 }
 
 % Set the neume font metadata file
 \newcommand{\byzsetneumefontmetadatafile}[2]{% #1 = fontfamily, #1 = filepath
-    \directlua{neanestex.set_neume_font_metadata_file("#1", "#2")}%
+  \directlua{neanestex.set_neume_font_metadata_file("#1", "#2")}%
 }
-
 
 % Gets the codepoint for a glyph
 \newcommand{\byzcodepoint}[1]{% #1 = glyphname
-    \directlua{neanestex.codepoint_from_glyph_name("#1")}%
+  \directlua{neanestex.codepoint_from_glyph_name("#1")}%
 }
 
 % Draws a glyph by glyphname
 \newcommand{\byzglyph}[1]{% #1 = glyphname
-    \char"\byzcodepoint{#1}%
+  \char"\byzcodepoint{#1}%
 }

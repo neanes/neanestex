@@ -1,51 +1,96 @@
 {
-  "appVersion": "0.4.109",
-  "schemaVersion": 2,
+  "appVersion": "0.5.50",
+  "schemaVersion": 3,
   "sectionNames": [],
   "fontVersions": {
-    "Neanes": "1.0.3",
-    "NeanesRTL": "1.0.3",
-    "NeanesStathisSeries": "1.0.3",
-    "Almouzios": "1.0.3"
+    "Almouzios": "1.0.7"
   },
+  "textStyles": [
+    {
+      "id": "resolved-1",
+      "alignment": "center",
+      "fontFamily": "Alegreya",
+      "fontSize": 18,
+      "fontStyle": "Bold",
+      "postscriptName": "Alegreya-Bold",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "resolved-2",
+      "alignment": "center",
+      "fontFamily": "Alegreya",
+      "fontSize": 16,
+      "fontStyle": "Medium",
+      "postscriptName": "Alegreya-Medium",
+      "color": "800000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "drop-cap",
+      "alignment": "left",
+      "fontFamily": "Alegreya",
+      "fontSize": 40,
+      "fontStyle": "Bold",
+      "postscriptName": "Alegreya-Bold",
+      "color": "800000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "lyrics",
+      "alignment": "left",
+      "fontFamily": "Alegreya",
+      "fontSize": 16,
+      "fontStyle": "Medium",
+      "postscriptName": "Alegreya-Medium",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    }
+  ],
   "pageSetup": {
     "lineHeight": 60,
     "fontFamilies": {
-      "dropCap": "Alegreya",
-      "lyrics": "Alegreya Medium",
-      "neume": "Almouzios",
-      "textBox": "Alegreya Medium"
+      "neume": "Almouzios"
     },
     "fontSizes": {
-      "dropCap": 40,
-      "lyrics": 16,
       "modeKey": 26,
-      "neume": 26,
-      "textBox": 16
+      "neume": 26
     },
-    "dropCapDefaultFontWeight": "700",
-    "lyricsVerticalOffset": 26,
+    "lyricsVerticalOffset": 27.75,
     "lyricsMelismaSpacing": 1.8,
     "lyricsMelismaThickness": 0.75,
     "colors": {
       "accidental": "800000",
       "breath": "000000",
       "cross": "000000",
-      "dropCap": "800000",
       "fthora": "800000",
       "gorgon": "800000",
       "heteron": "800000",
       "ison": "800000",
       "koronis": "800000",
-      "lyrics": "000000",
       "martyria": "800000",
       "measureBar": "000000",
       "measureNumber": "000000",
       "modeKey": "800000",
       "neume": "000000",
       "noteIndicator": "800000",
-      "tempo": "800000",
-      "textBox": "000000"
+      "tempo": "800000"
     }
   },
   "sections": [
@@ -59,11 +104,8 @@
               "x": 0,
               "width": 503.2756,
               "height": 22.5,
-              "alignment": "c",
               "content": "ΚΟΝΤΑΚΙΟΝ ΠΡΟΦΗΤΗ ΗΛΙΑ",
-              "fontFamily": "Alegreya",
-              "fontSize": 18,
-              "fontWeight": "700"
+              "styleId": "resolved-1"
             }
           ]
         },
@@ -74,9 +116,8 @@
               "x": 0,
               "width": 503.2756,
               "height": 22.5,
-              "alignment": "c",
               "content": "Χουρμουζίου Χαρτοφύλακος (†1840)",
-              "color": "800000"
+              "styleId": "resolved-2"
             }
           ]
         },
@@ -85,8 +126,8 @@
             {
               "type": "modekey",
               "width": 503.2756,
-              "height": 33,
-              "alignment": "c",
+              "height": 31,
+              "alignment": "center",
               "martyria": "modeSecond",
               "note": "modeDi",
               "fthoraAboveNote": "fthoraSoftChromaticDiAbove"
@@ -99,7 +140,8 @@
               "type": "dropcap",
               "x": 0,
               "width": 28.9171,
-              "content": "Π"
+              "content": "Π",
+              "styleId": "drop-cap"
             },
             {
               "type": "note",
@@ -107,7 +149,8 @@
               "width": 33.7119,
               "quantitativeNeume": "elafron",
               "ison": "isonIndicatorUnison",
-              "lyrics": "ρο"
+              "lyrics": "ρο",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -115,15 +158,18 @@
               "width": 35.2974,
               "quantitativeNeume": "ison",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.6599,
               "lyrics": "φη",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
               "x": 101.8857,
               "width": 33.7379,
               "quantitativeNeume": "oligonKentimataBelow",
-              "lyrics": "η"
+              "lyrics": "η",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -131,39 +177,44 @@
               "width": 32.9581,
               "quantitativeNeume": "ison",
               "ison": "isonIndicatorDi",
-              "lyrics": "τα"
+              "lyrics": "τα",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
               "x": 171.2213,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
               "x": 176.6116,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "και"
+              "lyrics": "και",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
               "x": 198.063,
-              "width": 4.0706,
+              "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
               "x": 202.3741,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "προ"
+              "lyrics": "προ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -172,24 +223,28 @@
               "quantitativeNeume": "petasti",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.6599,
               "lyrics": "ο",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
               "x": 274.9066,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "πτα"
+              "lyrics": "πτα",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
               "x": 297.9736,
-              "width": 5.6862,
+              "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
@@ -197,45 +252,52 @@
               "width": 35.2974,
               "quantitativeNeume": "ison",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.6599,
               "lyrics": "των",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
               "x": 338.9019,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
               "x": 343.2129,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "με"
+              "lyrics": "με",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
               "x": 377.4908,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "γα"
+              "lyrics": "γα",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
               "x": 411.7687,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "λουρ"
+              "lyrics": "λουρ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
               "x": 432.1407,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "γι"
+              "lyrics": "γι",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -244,8 +306,10 @@
               "quantitativeNeume": "oligon",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.6599,
               "lyrics": "ων",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             }
           ]
         },
@@ -256,167 +320,190 @@
               "x": 0,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "του"
+              "lyrics": "του",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 33.4273,
+              "x": 33.2393,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 36.8878,
+              "x": 36.5117,
               "width": 21.3916,
               "quantitativeNeume": "apostrofos",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.1406,
               "lyrics": "Θε",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 58.7486,
+              "x": 58.1844,
               "width": 33.8159,
               "quantitativeNeume": "petasti",
-              "lyrics": "ου"
+              "lyrics": "ου",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 93.0337,
+              "x": 92.2814,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 96.4942,
+              "x": 95.5538,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "Η"
+              "lyrics": "Η",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 116.0157,
+              "x": 114.8872,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "λι"
+              "lyrics": "λι",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 150.2228,
+              "x": 148.9062,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "α"
+              "lyrics": "α",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 183.6501,
+              "x": 182.1455,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 187.1106,
+              "x": 185.4179,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "με"
+              "lyrics": "με",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 206.6321,
+              "x": 204.7513,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "γα"
+              "lyrics": "γα",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 240.8392,
+              "x": 238.7703,
               "width": 36.0772,
               "quantitativeNeume": "oligonKentimaBelow",
               "vocalExpression": "psifiston",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.1406,
               "lyrics": "λω",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 277.3856,
+              "x": 275.1287,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "ω"
+              "lyrics": "ω",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 296.9071,
+              "x": 294.4621,
               "width": 21.3916,
               "quantitativeNeume": "apostrofos",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.1406,
               "lyrics": "νυ",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 318.7679,
+              "x": 316.1348,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
               "time": "klasmaAbove",
-              "lyrics": "με"
+              "lyrics": "με",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "martyria",
-              "x": 338.2894,
-              "width": 18.1945,
+              "x": 335.4682,
+              "width": 25.9922,
               "note": "martyriaNoteDi",
               "rootSign": "martyriaSoftChromaticDiBelow"
             },
             {
               "type": "note",
-              "x": 360.8012,
+              "x": 361.7416,
               "width": 33.7119,
               "quantitativeNeume": "elafron",
               "ison": "isonIndicatorUnison",
-              "lyrics": "ο"
+              "lyrics": "ο",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 394.9823,
+              "x": 395.7346,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 398.4428,
+              "x": 399.007,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "τω"
+              "lyrics": "τω",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 431.8701,
+              "x": 432.2463,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 435.3306,
+              "x": 435.5187,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "φθεγ"
+              "lyrics": "φθεγ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -424,7 +511,8 @@
               "width": 33.7379,
               "quantitativeNeume": "oligon",
               "ison": "isonIndicatorDi",
-              "lyrics": "μα"
+              "lyrics": "μα",
+              "lyricsStyleId": "lyrics"
             }
           ]
         },
@@ -435,158 +523,181 @@
               "x": 0,
               "width": 33.8159,
               "quantitativeNeume": "petasti",
-              "lyrics": "τι"
+              "lyrics": "τι",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 34.2198,
+              "x": 34.1234,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 39.8619,
+              "x": 39.6692,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "σου"
+              "lyrics": "σου",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 61.5651,
-              "width": 5.2383,
+              "x": 61.276,
+              "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 64.9603,
+              "x": 64.5748,
               "width": 36.0772,
               "quantitativeNeume": "oligon",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.1537,
               "lyrics": "στη",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 101.4414,
+              "x": 100.9595,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "σας"
+              "lyrics": "σας",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 134.8034,
+              "x": 134.2251,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 138.1986,
+              "x": 137.5239,
               "width": 21.3916,
               "quantitativeNeume": "apostrofos",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.1537,
               "lyrics": "τα",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 159.994,
+              "x": 159.223,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 163.3892,
+              "x": 162.5217,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "υ"
+              "lyrics": "υ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 196.7512,
+              "x": 195.7874,
               "width": 32.9581,
               "quantitativeNeume": "ison",
-              "lyrics": "δα"
+              "lyrics": "δα",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 230.1132,
+              "x": 229.053,
               "width": 36.1552,
               "quantitativeNeume": "petasti",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.1537,
               "lyrics": "τορ",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 266.6723,
+              "x": 265.5157,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "ρυ"
+              "lyrics": "ρυ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 286.1284,
+              "x": 284.8755,
               "width": 35.2974,
               "quantitativeNeume": "ison",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.1537,
               "lyrics": "τα",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 321.8297,
+              "x": 320.4804,
               "width": 2.9913,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 325.2249,
+              "x": 323.7792,
               "width": 33.8159,
               "quantitativeNeume": "petastiIson",
               "ison": "isonIndicatorVou",
-              "lyrics": "νε"
+              "lyrics": "νε",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 359.4447,
+              "x": 357.9025,
               "width": 41.9774,
               "quantitativeNeume": "apostrofosSyndesmos",
               "gorgon": "gorgonAbove",
-              "lyrics": "ε"
+              "lyrics": "ε",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 401.826,
+              "x": 400.1875,
               "width": 37.6367,
               "quantitativeNeume": "oligonIsonKentimata",
               "gorgon": "gorgonAbove",
-              "lyrics": "ε"
+              "lyrics": "ε",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 439.8666,
+              "x": 439.963,
               "width": 43.9528,
               "quantitativeNeume": "ison",
               "vareia": true,
               "lyrics": "ε",
-              "lyricsHorizontalOffset": 10.9947
+              "lyricsHorizontalOffset": 10.9947,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
@@ -594,7 +705,8 @@
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
               "gorgon": "gorgonAbove",
-              "lyrics": "ε"
+              "lyrics": "ε",
+              "lyricsStyleId": "lyrics"
             }
           ]
         },
@@ -606,173 +718,196 @@
               "width": 32.9581,
               "quantitativeNeume": "ison",
               "time": "klasmaAbove",
-              "lyrics": "φη"
+              "lyrics": "φη",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "martyria",
-              "x": 32.9581,
-              "width": 18.1945,
+              "x": 33.0468,
+              "width": 25.9922,
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             },
             {
               "type": "note",
-              "x": 55.0007,
+              "x": 59.8776,
               "width": 33.7379,
               "quantitativeNeume": "oligonKentimaBelow",
               "vocalExpression": "psifiston",
               "ison": "isonIndicatorUnison",
-              "lyrics": "πρε"
+              "lyrics": "πρε",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 89.6249,
+              "x": 94.5905,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "σβευ"
+              "lyrics": "σβευ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 108.6772,
+              "x": 113.7314,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "ε"
+              "lyrics": "ε",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 127.7295,
-              "width": 2.9913,
+              "x": 132.8724,
+              "width": 1.5,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 130.7208,
+              "x": 134.461,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "υ"
+              "lyrics": "υ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 149.7731,
+              "x": 153.602,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "περ"
+              "lyrics": "περ",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 183.511,
-              "width": 2.9913,
+              "x": 187.4285,
+              "width": 1.5,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 186.5023,
+              "x": 189.0171,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "η"
+              "lyrics": "η",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 220.2402,
+              "x": 222.8437,
               "width": 33.8159,
               "quantitativeNeume": "petasti",
-              "lyrics": "μων"
+              "lyrics": "μων",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 254.056,
-              "width": 2.9913,
+              "x": 256.7482,
+              "width": 1.5,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 258.1186,
+              "x": 259.4081,
               "width": 19.0523,
               "quantitativeNeume": "apostrofos",
-              "lyrics": "τον"
+              "lyrics": "τον",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 278.2422,
-              "width": 4.0626,
+              "x": 279.6204,
+              "width": 1.5,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 281.2335,
+              "x": 281.209,
               "width": 36.0772,
               "quantitativeNeume": "oligon",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.0443,
               "lyrics": "μο",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 317.3107,
+              "x": 317.3748,
               "width": 33.7119,
               "quantitativeNeume": "elafron",
-              "lyrics": "νον"
+              "lyrics": "νον",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "textbox",
-              "x": 351.0226,
-              "width": 2.9913,
+              "x": 351.1754,
+              "width": 1.5,
               "height": 34.5,
-              "alignment": "l",
               "inline": true,
-              "content": ""
+              "content": "",
+              "contentBottom": "",
+              "styleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 354.0139,
+              "x": 352.764,
               "width": 33.7379,
               "quantitativeNeume": "oligon",
-              "lyrics": "Φι"
+              "lyrics": "Φι",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 387.7518,
+              "x": 386.5905,
               "width": 36.0772,
               "quantitativeNeume": "oligonKentimataAbove",
               "measureNumber": "measureNumber3",
               "measureBarLeft": "barlineSingle",
+              "computedMeasureBarLeftOffsetX": -0.0443,
               "lyrics": "λαν",
-              "lyricsHorizontalOffset": 2.3393
+              "lyricsHorizontalOffset": 2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 423.829,
+              "x": 422.7564,
               "width": 21.3916,
               "quantitativeNeume": "apostrofos",
               "measureBarRight": "barlineSingle",
+              "computedMeasureBarRightOffsetX": 0.0443,
               "lyrics": "θρω",
-              "lyricsHorizontalOffset": -2.3393
+              "lyricsHorizontalOffset": -2.3393,
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "note",
-              "x": 445.2205,
+              "x": 444.2366,
               "width": 32.9581,
               "quantitativeNeume": "ison",
               "time": "dipli",
-              "lyrics": "πον"
+              "lyrics": "πον",
+              "lyricsStyleId": "lyrics"
             },
             {
               "type": "martyria",
-              "x": 478.1787,
-              "width": 18.1945,
+              "x": 477.2834,
+              "width": 25.9922,
               "note": "martyriaNoteDi",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
