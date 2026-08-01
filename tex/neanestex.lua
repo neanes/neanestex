@@ -34,6 +34,7 @@ local neume_font_metadata_file_map_default = {
     ["Neanes"] = "neanesengraving.metadata.json",
     ["NeanesRTL"] = "neanesrtlengraving.metadata.json",
     ["NeanesStathisSeries"] = "neanesstathisseriesengraving.metadata.json",
+    ["Almouzios"] = "almouzios.metadata.json",
 }
 
 local DEFAULT_TEXT_STYLE_ID = "default-text"
