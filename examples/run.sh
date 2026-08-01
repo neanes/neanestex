@@ -1,6 +1,6 @@
 # neanes
-# ~/Projects/neanes/dist/neanes-cli --silent-latex ~/Projects/neanes-examples/kontakion_prophet_elias/kontakion_prophet_elias_almouzios.byzx
-~/Projects/neanes/dist/neanes-cli --silent-latex --latex-include-mode-keys --latex-include-text-boxes ~/Projects/neanes-examples/kontakion_prophet_elias/kontakion_prophet_elias_almouzios.byzx
+# ~/Projects/neanes/release/neanes-cli --silent-latex ~/Projects/neanes-examples/kontakion_prophet_elias/kontakion_prophet_elias_almouzios.byzx
+~/Projects/neanes/release/neanes-cli --silent-latex --latex-include-mode-keys --latex-include-text-boxes ~/Projects/neanes-examples/kontakion_prophet_elias/kontakion_prophet_elias_almouzios.byzx
 
 # neanes-examples
 cp -f ~/Projects/neanes-examples/kontakion_prophet_elias/kontakion_prophet_elias_almouzios.byzx ~/Projects/neanestex/examples/kontakion_prophet_elias_almouzios.byzx
