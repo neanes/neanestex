@@ -10,13 +10,13 @@ Create a TeX document. See the `examples/` directory for a starting point.
 
 Either copy the contents of `tex/` to your TeX Live local packages folder, or copy the contents to the same location as your TeX document.
 
-Download the neume fonts and metadata JSON files from the [Neanes repository](https://github.com/neanes/neanes/tree/master/src/assets/fonts) and place them in the same location as your TeX document. Also download and install any additional text fonts that you want to use from the repository and install them in your operating system, or in TeX Live.
+Download the neume engraving fonts and metadata JSON files from the [Neanes repository](https://github.com/neanes/neanes/tree/master/src/assets/fonts) and place them in the same location as your TeX document. Also download and install any additional text fonts that you want to use from the repository and install them in your operating system, or in TeX Live.
 
 Specify the font and metadata files in your document.
 
 ```latex
-\byzsetneumefontfile{Neanes}{Neanes.otf}
-\byzsetneumefontmetadatafile{Neanes}{neanes.metadata.json}
+\byzsetneumefontfile{Neanes}{NeanesEngraving.otf}
+\byzsetneumefontmetadatafile{Neanes}{neanesengraving.metadata.json}
 ```
 
 In Neanes, export your scores by choosing `File -> Export As -> Export as Latex` in the file menu. Save the exported `.byztex` files in the same directory as your TeX document.
@@ -42,12 +42,12 @@ Rich text boxes and images do not currently export. This will probably not be in
 
 ### Score Sections
 
-In order to insert a larger score into your document that contains many text breaks between parts, you may either create multiple Neanes files and insert each one at the correct location, or you may use a single file and assign section names in Neanes. To assign a section name, click an element such as a mode key, text box, or neume and enter a section name in the bottom toolbar.
+In order to insert a larger score into your document that contains many text breaks between parts, you may either create multiple Neanes files and insert each one at the correct location, or you may use a single file and assign section names in Neanes. To assign a section name, click on a text box and set the Running Marker Role to `Section` in the properties pane toolbar. The section name will be the text in the text box, unless you specify Override Text.
 
 You can then insert a single section of a larger score into your document.
 
 ```latex
-\neanesscore{score.byztex}{section_name}
+\neanesscore{score.byztex}{Section Name}
 ```
 
-Be aware that you should not put more than one section name on the same line. Also note that you may place a section name on a mode key or text box even if you choose not to export those elements. The exported file will still correctly generate the sections.
+Note that you may place a section name on a text box even if you choose not to export those elements. The exported file will still correctly generate the sections.

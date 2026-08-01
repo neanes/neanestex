@@ -1,0 +1,2999 @@
+{
+  "appVersion": "0.5.49",
+  "schemaVersion": 3,
+  "sectionNames": [
+    "greek",
+    "cyrillic"
+  ],
+  "fontVersions": {
+    "Neanes": "1.0.9"
+  },
+  "textStyles": [
+    {
+      "id": "title",
+      "alignment": "center",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 14,
+      "fontStyle": "Display Semibold",
+      "postscriptName": "SourceSerif4Display-Semibold",
+      "color": "000080",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "default-text",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "matrix-002",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1
+      }
+    },
+    {
+      "id": "matrix-003",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1,
+        "c2sc": 1
+      }
+    },
+    {
+      "id": "matrix-004",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-005",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-006",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-007",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-008",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "frac": 1
+      }
+    },
+    {
+      "id": "matrix-009",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "zero": 1
+      }
+    },
+    {
+      "id": "matrix-010",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ordn": 1
+      }
+    },
+    {
+      "id": "matrix-012",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "liga": 0,
+        "clig": 0
+      }
+    },
+    {
+      "id": "matrix-013",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "dlig": 1
+      }
+    },
+    {
+      "id": "matrix-014",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "hlig": 1
+      }
+    },
+    {
+      "id": "matrix-017",
+      "alignment": "center",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Display Semibold",
+      "postscriptName": "SourceSerif4Display-Semibold",
+      "color": "000080",
+      "strokeWidth": 0.2,
+      "strokeColor": "800000",
+      "lineHeight": 1.35,
+      "textDecoration": "underline",
+      "fontFeatures": {
+        "onum": 1
+      }
+    },
+    {
+      "id": "matrix-018",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "matrix-019",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1
+      }
+    },
+    {
+      "id": "matrix-020",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1,
+        "c2sc": 1
+      }
+    },
+    {
+      "id": "matrix-021",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-022",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-089",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1
+      }
+    },
+    {
+      "id": "matrix-090",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-023",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-024",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-025",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "frac": 1
+      }
+    },
+    {
+      "id": "matrix-026",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "zero": 1
+      }
+    },
+    {
+      "id": "matrix-027",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ordn": 1
+      }
+    },
+    {
+      "id": "matrix-029",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "liga": 0,
+        "clig": 0
+      }
+    },
+    {
+      "id": "matrix-030",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "dlig": 1
+      }
+    },
+    {
+      "id": "matrix-031",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "hlig": 1
+      }
+    },
+    {
+      "id": "matrix-033",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "hist": 1
+      }
+    },
+    {
+      "id": "matrix-034",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "matrix-035",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1
+      }
+    },
+    {
+      "id": "matrix-036",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1,
+        "c2sc": 1
+      }
+    },
+    {
+      "id": "matrix-037",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-038",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "lnum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-039",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "matrix-040",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "onum": 1,
+        "tnum": 1
+      }
+    },
+    {
+      "id": "matrix-041",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "frac": 1
+      }
+    },
+    {
+      "id": "matrix-042",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "zero": 1
+      }
+    },
+    {
+      "id": "matrix-043",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ordn": 1
+      }
+    },
+    {
+      "id": "matrix-045",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "hlig": 1
+      }
+    },
+    {
+      "id": "matrix-046",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "dlig": 1
+      }
+    },
+    {
+      "id": "matrix-048",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "hist": 1
+      }
+    },
+    {
+      "id": "matrix-049",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss01": 1
+      }
+    },
+    {
+      "id": "matrix-050",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss02": 1
+      }
+    },
+    {
+      "id": "matrix-051",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss05": 1
+      }
+    },
+    {
+      "id": "matrix-052",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss06": 1
+      }
+    },
+    {
+      "id": "matrix-053",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss12": 1
+      }
+    },
+    {
+      "id": "matrix-054",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss14": 1
+      }
+    },
+    {
+      "id": "matrix-055",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss15": 1
+      }
+    },
+    {
+      "id": "matrix-056",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "cv01": 1
+      }
+    },
+    {
+      "id": "matrix-057",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "salt": 1
+      }
+    },
+    {
+      "id": "matrix-058",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "swsh": 1,
+        "cswh": 1
+      }
+    },
+    {
+      "id": "matrix-059",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ornm": 1
+      }
+    },
+    {
+      "id": "matrix-060",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "nalt": 1
+      }
+    },
+    {
+      "id": "matrix-084",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "salt": 2
+      }
+    },
+    {
+      "id": "matrix-085",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "swsh": 2,
+        "cswh": 2
+      }
+    },
+    {
+      "id": "matrix-086",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ornm": 2
+      }
+    },
+    {
+      "id": "matrix-087",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "nalt": 2
+      }
+    },
+    {
+      "id": "matrix-088",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss03": 1,
+        "cv27": 1
+      }
+    },
+    {
+      "id": "matrix-061",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "matrix-062",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss11": 1
+      }
+    },
+    {
+      "id": "matrix-063",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss01": 1
+      }
+    },
+    {
+      "id": "matrix-064",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss02": 1
+      }
+    },
+    {
+      "id": "matrix-065",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss05": 1
+      }
+    },
+    {
+      "id": "matrix-066",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss06": 1
+      }
+    },
+    {
+      "id": "matrix-067",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss12": 1
+      }
+    },
+    {
+      "id": "matrix-068",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss14": 1
+      }
+    },
+    {
+      "id": "matrix-069",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "cv01": 1
+      }
+    },
+    {
+      "id": "matrix-070",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss15": 1
+      }
+    },
+    {
+      "id": "matrix-071",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "salt": 1
+      }
+    },
+    {
+      "id": "matrix-072",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "swsh": 1,
+        "cswh": 1
+      }
+    },
+    {
+      "id": "matrix-073",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ornm": 1
+      }
+    },
+    {
+      "id": "matrix-074",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "nalt": 1
+      }
+    },
+    {
+      "id": "matrix-075",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "pcap": 1
+      }
+    },
+    {
+      "id": "matrix-076",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "pcap": 1,
+        "c2pc": 1
+      }
+    },
+    {
+      "id": "matrix-077",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "titl": 1
+      }
+    },
+    {
+      "id": "matrix-078",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "unic": 1
+      }
+    },
+    {
+      "id": "matrix-079",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "afrc": 1
+      }
+    },
+    {
+      "id": "matrix-080",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "liga": 0,
+        "clig": 0,
+        "calt": 0
+      }
+    },
+    {
+      "id": "resolved-1",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "006000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss05": 1
+      }
+    },
+    {
+      "id": "resolved-2",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "600060",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "lyrics",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "000000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1,
+        "onum": 1,
+        "pnum": 1
+      }
+    },
+    {
+      "id": "drop-cap",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 38,
+      "fontStyle": "Display Semibold",
+      "postscriptName": "SourceSerif4Display-Semibold",
+      "color": "800000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1
+      }
+    },
+    {
+      "id": "surface-dropcap-custom",
+      "alignment": "left",
+      "fontFamily": "GFS Didot",
+      "fontSize": 38,
+      "fontStyle": "Regular",
+      "postscriptName": "GFSDidot-Regular",
+      "color": "800000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "smcp": 1,
+        "c2sc": 1
+      }
+    },
+    {
+      "id": "resolved-3",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 38,
+      "fontStyle": "Italic",
+      "postscriptName": "OldStandard-Italic",
+      "color": "006000",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss11": 1
+      }
+    },
+    {
+      "id": "resolved-4",
+      "alignment": "left",
+      "fontFamily": "Old Standard",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "OldStandard-Regular",
+      "color": "600060",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.15,
+      "textDecoration": "none",
+      "fontFeatures": {
+        "ss02": 1
+      }
+    }
+  ],
+  "pageSetup": {
+    "lineHeight": 54.72,
+    "martyriaVerticalOffset": 3,
+    "fontFamilies": {
+      "neume": "Neanes"
+    },
+    "fontSizes": {
+      "modeKey": 20,
+      "neume": 20
+    },
+    "lyricsVerticalOffset": 17.4,
+    "lyricsMelismaSpacing": 1.8,
+    "lyricsMelismaThickness": 0.75,
+    "colors": {
+      "accidental": "800000",
+      "breath": "000000",
+      "cross": "000000",
+      "fthora": "800000",
+      "gorgon": "800000",
+      "heteron": "800000",
+      "ison": "800000",
+      "koronis": "800000",
+      "martyria": "800000",
+      "measureBar": "800000",
+      "measureNumber": "000000",
+      "modeKey": "800000",
+      "neume": "000000",
+      "noteIndicator": "800000",
+      "tempo": "800000"
+    }
+  },
+  "sections": [
+    {
+      "default": true,
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 24,
+              "content": "NeanesTeX v3 OpenType end-to-end matrix",
+              "styleId": "title"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Default text root: Abc 0123 office",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source Serif Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-002"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-003"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-004"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-005"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-006"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-007"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / frac: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-008"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / zero: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-009"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / ordn: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-010"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-012"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-013"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-014"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / dlig+calt interaction (dlig absent): Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-013"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Source / exact Display Semibold + decoration/stroke: Exact face 0123 office",
+              "styleId": "matrix-017"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "GFS Didot Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-018"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-019"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-020"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-021"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-022"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / lnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-089"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / tnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-090"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-023"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-024"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / frac absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-025"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / zero absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-026"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / ordn absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-027"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-018"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-029"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-030"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-031"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-018"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Didot / hist: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-033"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Regular / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-034"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / smcp: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-035"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / smcp+c2sc: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-036"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / lnum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-037"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / lnum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-038"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / onum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-039"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / onum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-040"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / frac: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-041"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / zero absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-042"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ordn absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-043"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / liga: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-034"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / Greek hlig: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-045"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / dlig German-LangSys only: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-046"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / calt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-034"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / hist absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-048"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-049"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-050"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-051"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-052"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-053"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-054"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss15: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-055"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-056"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-057"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-058"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-059"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-060"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / salt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-084"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / swash alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-085"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ornm alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-086"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / nalt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-087"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard / ss03+cv27: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-088"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-061"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss11: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-062"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-063"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-064"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-065"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-066"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-067"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-068"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-069"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ss15 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-070"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-071"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-072"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-073"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Old Standard Italic / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
+              "styleId": "matrix-074"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-075"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / all petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-076"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / titling caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-077"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / unicase: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-078"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / stacked fractions: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-079"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / ligatures none: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "matrix-080"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / no discretionary ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Translator completeness / no historical ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Text box paragraph style: Gg theta θ",
+              "styleId": "matrix-050"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Text box element override: Gg theta θ",
+              "styleId": "resolved-1"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "Text box explicit normal reset: Gg theta θ",
+              "styleId": "resolved-2"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 250,
+              "height": 36.75,
+              "inline": true,
+              "content": "Inline text box inherits Lyrics",
+              "contentBottom": "bottom panel 0123 office",
+              "styleId": "lyrics"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "",
+              "multipanel": true,
+              "contentLeft": "left 0123",
+              "contentCenter": "center ffi",
+              "contentRight": "right ABC",
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "modekey",
+              "width": 468,
+              "height": 36.75,
+              "alignment": "center",
+              "martyria": "modeFirst.salt01",
+              "note": "modePa"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "dropcap",
+              "x": 0,
+              "width": 23.4032,
+              "verticalAdjustment": -4.025,
+              "content": "A",
+              "styleId": "drop-cap"
+            },
+            {
+              "type": "note",
+              "x": 26.4849,
+              "width": 26.3296,
+              "quantitativeNeume": "oligonKentimataAbove",
+              "gorgon": "gorgonAbove",
+              "ison": "isonIndicatorPa",
+              "lyrics": "Default inherited 0123 office",
+              "lyricsLeftAlign": true,
+              "lyricsStyleId": "lyrics"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "dropcap",
+              "x": 0,
+              "width": 19.1861,
+              "verticalAdjustment": -1.4,
+              "content": "B",
+              "styleId": "surface-dropcap-custom"
+            },
+            {
+              "type": "note",
+              "x": 92.3453,
+              "width": 11.6154,
+              "quantitativeNeume": "apostrofos",
+              "lyrics": "Custom paragraph theta θ 0123",
+              "lyricsStyleId": "matrix-051"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "dropcap",
+              "x": 0,
+              "width": 25.4548,
+              "verticalAdjustment": 2.725,
+              "content": "C",
+              "styleId": "resolved-3"
+            },
+            {
+              "type": "note",
+              "x": 95.822,
+              "width": 26.7295,
+              "quantitativeNeume": "oligon",
+              "lyrics": "Element override Gg theta θ 0123",
+              "lyricsStyleId": "resolved-4"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 0,
+              "width": 26.7295,
+              "quantitativeNeume": "oligon",
+              "vocalExpression": "psifiston",
+              "lyrics": "Lyric style continuation 3 0123 office",
+              "lyricsLeftAlign": true,
+              "lyricsStyleId": "lyrics"
+            },
+            {
+              "type": "note",
+              "x": 369.319,
+              "width": 11.6154,
+              "quantitativeNeume": "apostrofos",
+              "time": "apli",
+              "vocalExpression": "antikenoma",
+              "ison": "isonIndicatorUnison",
+              "melismaWidth": 6.6283,
+              "isHyphen": true,
+              "hyphenOffsets": [
+                1.2806
+              ],
+              "lyrics": "Lyric style continuation 4 0123 office",
+              "lyricsStyleId": "matrix-051"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 0,
+              "width": 37.8253,
+              "quantitativeNeume": "ison",
+              "vareia": true,
+              "vareiaInternalSpacing": 0.6,
+              "leadingLyricHyphenOffset": 3.6864,
+              "lyrics": "Lyric style continuation 5 0123 office",
+              "lyricsLeftAlign": true,
+              "lyricsHorizontalOffset": 10.716,
+              "lyricsStyleId": "lyrics"
+            },
+            {
+              "type": "note",
+              "x": 290.3876,
+              "width": 24.6503,
+              "quantitativeNeume": "petastiOligon",
+              "measureNumber": "measureNumber4",
+              "lyrics": "Lyric style continuation 6 0123 office",
+              "lyricsLeftAlign": true,
+              "lyricsStyleId": "matrix-051"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 91.2206,
+              "width": 26.7295,
+              "quantitativeNeume": "oligonKentimaAbove",
+              "time": "klasmaBelow",
+              "ison": "isonIndicatorPa",
+              "melismaWidth": 5.9908,
+              "isHyphen": true,
+              "hyphenOffsets": [
+                1.2806
+              ],
+              "lyrics": "Lyric style continuation 7 0123 office",
+              "lyricsStyleId": "lyrics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "greek",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 21,
+              "content": "Greek-script OpenType checks",
+              "marginTop": 4.5,
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / normal: θού ϑ ζ",
+              "styleId": "matrix-034"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / smcp: θού ϑ ζ",
+              "styleId": "matrix-035"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / smcp+c2sc: θού ϑ ζ",
+              "styleId": "matrix-036"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / hlig: θού ϑ ζ",
+              "styleId": "matrix-045"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / ss02: θού ϑ ζ",
+              "styleId": "matrix-050"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / cv01: θού ϑ ζ",
+              "styleId": "matrix-056"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek / salt: θού ϑ ζ",
+              "styleId": "matrix-057"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek italic / ss11: θού ϑ ζ",
+              "styleId": "matrix-062"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Greek italic / salt: θού ϑ ζ",
+              "styleId": "matrix-071"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cyrillic",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 21,
+              "content": "Cyrillic-script OpenType checks",
+              "marginTop": 4.5,
+              "styleId": "default-text"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic / normal: ИН б дпт ґ",
+              "styleId": "matrix-034"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic / smcp: ИН б дпт ґ",
+              "styleId": "matrix-035"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic / smcp+c2sc: ИН б дпт ґ",
+              "styleId": "matrix-036"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic / ss05: ИН б дпт ґ",
+              "styleId": "matrix-051"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic / salt: ИН б дпт ґ",
+              "styleId": "matrix-057"
+            }
+          ]
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 15,
+              "content": "Cyrillic italic / ss11: ИН б дпт ґ",
+              "styleId": "matrix-062"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

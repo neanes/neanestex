@@ -1,0 +1,41 @@
+---
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7.0.1
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v24.1.0
+
+      - name: Install tex-fmt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tex-fmt
+
+      - name: Check TeX formatting
+        run: tex-fmt --check ./**/*.sty
+
+      - name: Check Lua formatting
+        uses: JohnnyMorganz/stylua-action@v5.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: 2.5.2
+          args: --check .

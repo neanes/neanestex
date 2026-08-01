@@ -13,15 +13,15 @@
 
 % Set the precise paths to the neume font and metadata
 % Using a specific file helps with backwards compatibility.
-\byzsetneumefontfile{Neanes}{Neanes.otf}
-\byzsetneumefontmetadatafile{Neanes}{neanes.metadata.json}
+\byzsetneumefontfile{Neanes}{NeanesEngraving.otf}
+\byzsetneumefontmetadatafile{Neanes}{neanesengraving.metadata.json}
 
 % Prints a modekey with the greek "echos"
 \newenvironment{modekey}{%
     \begin{center}%
         \color[HTML]{800000}%
         \fontsize{20bp}{\baselineskip}%
-        \fontspec{Neanes.otf}
+        \fontspec{Neanes}
         \byzglyph{modeWordEchos}%
 }%
 {%
@@ -82,7 +82,7 @@
     \byzglyph{modePlagal}\byzglyph{modePlagalSecond}\byzglyph{modeVou}\byzglyph{fthoraSoftChromaticDiAbove}
 \end{modekey}
 \aftermodekeysp
-\neanesscore{funeral-service-blameless.byztex}{stasis-1}
+\neanesscore{funeral-service-blameless.byztex}{Stasis 1}
 
 \afterscoresp
 
@@ -92,7 +92,7 @@
     \byzglyph{modePlagal}\byzglyph{modePlagalFirst}\byzglyph{modePa}
 \end{modekey}
 \aftermodekeysp
-\neanesscore{funeral-service-blameless.byztex}{stasis-2}
+\neanesscore{funeral-service-blameless.byztex}{Stasis 2}
 
 \afterscoresp
 
@@ -102,6 +102,6 @@
     \byzglyph{modePlagal}\byzglyph{modePlagalFourth}\byzglyph{oligonKentimaAbove}\byzglyph{fthoraDiatonicNiLowAbove}
 \end{modekey}
 \aftermodekeysp
-\neanesscore{funeral-service-blameless.byztex}{stasis-3}
+\neanesscore{funeral-service-blameless.byztex}{Stasis 3}
 
 \end{document}
