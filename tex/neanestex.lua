@@ -454,7 +454,8 @@ end
 -- being printed that the pre-pass did not resolve. Say so, rather than emitting
 -- a reference to a control sequence that was never declared.
 local function font_selection(style)
-    return assert(style.font_selector, "No font selector was registered for this text style")
+    assert(style.font_selector, "No font selector was registered for this text style")
+    return style.font_selector
 end
 
 local function decorate_content(result, style)
@@ -491,16 +492,30 @@ local function style_color_command(style, command)
     return style.color and string.format("%s[HTML]{%s}", command, style.color) or command .. "{black}"
 end
 
--- The size and leading always travel together, so every element emits them as
--- one fragment.
--- TODO: Implement paragraph-style lineHeight faithfully in NeanesTeX. Until
--- then, ignore it and use conventional text leading rather than the score-wide
--- \baselineskip, which represents the distance between staves.
+local function style_leading(style)
+    local line_height = style.lineHeight
+
+    if line_height == nil or line_height == "normal" then
+        return style.fontSize * 1.2
+    end
+
+    if type(line_height) ~= "number" or line_height ~= line_height or line_height < 0 or line_height >= math.huge then
+        error(string.format('Text style "%s" lineHeight must be a non-negative number or "normal"; got %s', tostring(style.id), tostring(line_height)))
+    end
+
+    return style.fontSize * line_height
+end
+
+-- Paragraph leading belongs to the text style. The score-wide \baselineskip is
+-- staff spacing and must not leak into text elements. The size and leading
+-- travel together so every styled element selects both through this fragment.
 local function style_font_setup(style)
     local size = style.fontSize
     assert(type(size) == "number", "Text style fontSize must be a number")
 
-    return string.format("\\fontsize{%fbp}{%fbp}", size, size * 1.2)
+    -- TeX otherwise replaces small or overlapping leading (including zero)
+    -- with \lineskip. Keep the requested baseline distance authoritative.
+    return string.format("\\fontsize{%fbp}{%fbp}\\lineskiplimit=-\\maxdimen", size, style_leading(style))
 end
 
 -- The style an element renders in, or nil for one that prints no text. Classify
@@ -1094,15 +1109,22 @@ local function print_text_box_inline(textBox)
     local style = textBox.resolved_style
     local color = style_color_command(style, "\\textcolor")
     local position = alignment_position(style.alignment)
-    local content = styled_content(textBox.content, style)
+    local content = decorate_content(escape_latex(textBox.content), style)
+
     if textBox.contentBottom and textBox.contentBottom ~= "" then
-        content = string.format("\\shortstack[%s]{%s\\\\%s}", position, content, styled_content(textBox.contentBottom, style))
+        local left_fill = position == "l" and "" or "\\hss"
+        local right_fill = position == "r" and "" or "\\hss"
+        local bottom = decorate_content(escape_latex(textBox.contentBottom), style)
+
+        -- \shortstack hardcodes its own interline settings. Consecutive hboxes
+        -- in a vbox use the leading installed by style_font_setup instead.
+        content = string.format("\\vbox{\\hbox to %fbp{%s%s%s}\\hbox to %fbp{%s%s%s}}", textBox.width, left_fill, content, right_fill, textBox.width, left_fill, bottom, right_fill)
     end
 
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", textBox.x))
     tex.sprint(string.format("\\makebox[%fbp][%s]{", textBox.width, position))
-    tex.sprint(string.format("%s{%s%s", color, style_font_setup(style), content))
+    tex.sprint(string.format("%s{%s%s%s", color, style_font_setup(style), font_selection(style), content))
 
     -- end \textcolor and \makebox
     tex.sprint("}}")
@@ -1141,7 +1163,7 @@ local function print_text_box(textBox)
             styled_content(textBox.contentRight or "", style)
         )
     else
-        content = styled_content(textBox.content, style)
+        content = decorate_content(escape_latex(textBox.content), style)
     end
 
     if textBox.marginTop then
@@ -1152,7 +1174,7 @@ local function print_text_box(textBox)
 
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", textBox.x))
-    tex.sprint(string.format("\\parbox[b][%fbp][c]{%fbp}{", textBox.height, textBox.width))
+    tex.sprint(string.format("\\parbox[b][%fbp][t]{%fbp}{", textBox.height, textBox.width))
 
     if style.alignment == "center" then
         tex.sprint("\\centering")
@@ -1162,10 +1184,20 @@ local function print_text_box(textBox)
         tex.sprint("\\raggedright")
     end
 
-    tex.sprint(string.format("%s{%s%s", color, style_font_setup(style), content))
+    tex.sprint(string.format("%s{%s", color, style_font_setup(style)))
 
-    -- end \textcolor and \parbox
-    tex.sprint("}}")
+    if textBox.multipanel then
+        tex.sprint(content)
+    else
+        -- Keep the selected font in scope until \par builds every line and
+        -- inserts the style's requested baseline glue.
+        tex.sprint(font_selection(style))
+        tex.sprint(content)
+    end
+
+    -- End the paragraph while its text leading is still in scope, then close
+    -- \color and \parbox.
+    tex.sprint("\\par}}")
     tex.sprint(string.format("\\hspace{-%fbp}", textBox.width))
 
     -- end \mbox
