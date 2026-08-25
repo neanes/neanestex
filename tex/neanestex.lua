@@ -16,11 +16,14 @@ local schema_version = 3
 -- 2 to 3: Text typography moved to an interned table of fully resolved text
 -- styles. Elements reference the final style they render with. Exact font face
 -- names and structured OpenType feature settings are preserved. Alignment is
--- spelled out everywhere, including on mode keys, which used to abbreviate it
+-- spelled out everywhere, including on initial martyriæ, which used to abbreviate it
 -- to a single letter. Every v3 text style carries the exact postscriptName.
 -- Family selection plus recognizable bold/italic axes is only the v1/v2
 -- compatibility path. Glyph positioning includes layout-resolved spacing,
 -- offsets, transferred measure-bar placement, and leading lyric hyphens.
+-- Score lines may preserve the paragraph boundaries used by Neanes during
+-- Knuth-Plass layout. The field is optional for compatibility with older v3
+-- exports.
 
 local lualibs = require("lualibs")
 local json = utilities.json
@@ -1283,6 +1286,15 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\renewfontfamily{\\byzneumefont}{%s}", get_neume_font(data.pageSetup.fontFamilies.neume)))
 
     tex.sprint(string.format("\\setlength{\\baselineskip}{%fbp}", data.pageSetup.lineHeight))
+    -- Paragraph spacing is set here, after the line height, so that it can be
+    -- expressed as a fraction of the score's own \baselineskip.  The natural
+    -- width is zero so that a score reproduces the line spacing set in Neanes
+    -- exactly, whatever \parskip the surrounding document uses.  The stretch is
+    -- for \flushbottom: a score's lines sit on a rigid \baselineskip, so the
+    -- paragraph gaps are the only place the page builder can find give, and a
+    -- score has both taller lines and fewer paragraph breaks per page than
+    -- prose does.
+    tex.sprint("\\setlength{\\parskip}{0pt plus 0.1\\baselineskip}")
 
     tex.sprint(string.format("\\definecolor{byzcoloraccidental}{HTML}{%s}", data.pageSetup.colors.accidental))
     tex.sprint(string.format("\\definecolor{byzcolorbreath}{HTML}{%s}", data.pageSetup.colors.breath or data.pageSetup.colors.neume))
@@ -1300,43 +1312,51 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\definecolor{byzcolornoteindicator}{HTML}{%s}", data.pageSetup.colors.noteIndicator))
     tex.sprint(string.format("\\definecolor{byzcolortempo}{HTML}{%s}", data.pageSetup.colors.tempo))
 
-    first_line = true
+    local paragraph_open = false
 
-    for section_index, section in ipairs(sections) do
-        for line_index, line in ipairs(section.lines) do
-            if #line.elements > 0 and not first_line then
-                tex.sprint("\\newline")
-            else
-                first_line = false
-            end
-
+    for _, section in ipairs(sections) do
+        for _, line in ipairs(section.lines) do
             if #line.elements > 0 then
-                tex.sprint("\\noindent")
-            end
-            for _, element in ipairs(line.elements) do
-                if element.type == "note" then
-                    print_note(element, data.pageSetup)
+                if paragraph_open then
+                    tex.sprint("\\newline")
+                else
+                    tex.sprint("\\noindent")
                 end
-                if element.type == "martyria" then
-                    print_martyria(element, data.pageSetup)
+
+                for _, element in ipairs(line.elements) do
+                    if element.type == "note" then
+                        print_note(element, data.pageSetup)
+                    end
+                    if element.type == "martyria" then
+                        print_martyria(element, data.pageSetup)
+                    end
+                    if element.type == "tempo" then
+                        print_tempo(element, data.pageSetup)
+                    end
+                    if element.type == "dropcap" then
+                        print_drop_cap(element, data.pageSetup)
+                    end
+                    if element.type == "modekey" then
+                        print_mode_key(element, data.pageSetup)
+                    end
+                    if element.type == "textbox" then
+                        print_text_box(element)
+                    end
                 end
-                if element.type == "tempo" then
-                    print_tempo(element, data.pageSetup)
-                end
-                if element.type == "dropcap" then
-                    print_drop_cap(element, data.pageSetup)
-                end
-                if element.type == "modekey" then
-                    print_mode_key(element, data.pageSetup)
-                end
-                if element.type == "textbox" then
-                    print_text_box(element)
+
+                paragraph_open = true
+
+                if line.paragraphEnd then
+                    tex.sprint("\\par")
+                    paragraph_open = false
                 end
             end
         end
     end
 
-    tex.sprint("\\par")
+    if paragraph_open then
+        tex.sprint("\\par")
+    end
     -- close the section
     tex.sprint("}")
 end

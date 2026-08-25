@@ -414,7 +414,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -651,7 +652,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -919,7 +921,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1224,7 +1227,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1540,7 +1544,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1871,7 +1876,8 @@
               "note": "martyriaNoteVou",
               "rootSign": "martyriaSoftChromaticDiBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2316,7 +2322,8 @@
               "quantitativeNeume": "apostrofos",
               "time": "dipli"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     },
@@ -2716,7 +2723,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -3113,7 +3121,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -3347,7 +3356,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -3621,7 +3631,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -3936,7 +3947,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -4189,7 +4201,8 @@
               "note": "martyriaNoteDi",
               "rootSign": "martyriaDeltaDottedBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -4687,7 +4700,8 @@
               "quantitativeNeume": "apostrofos",
               "time": "klasmaAbove"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     },
@@ -5183,7 +5197,8 @@
               "note": "martyriaNoteGa",
               "rootSign": "martyriaDeltaBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -5488,7 +5503,8 @@
               "note": "martyriaNoteGa",
               "rootSign": "martyriaDeltaBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -5848,7 +5864,8 @@
               "note": "martyriaNoteGa",
               "rootSign": "martyriaDeltaBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -6209,7 +6226,8 @@
               "note": "martyriaNoteGa",
               "rootSign": "martyriaDeltaBelow"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -6692,7 +6710,8 @@
               "quantitativeNeume": "oligonKentimataBelow",
               "time": "klasmaAbove"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     }

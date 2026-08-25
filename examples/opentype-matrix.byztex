@@ -1478,7 +1478,8 @@
               "content": "NeanesTeX v3 OpenType end-to-end matrix",
               "styleId": "title"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1490,7 +1491,8 @@
               "content": "Default text root: Abc 0123 office",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1502,7 +1504,8 @@
               "content": "Source Serif Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1514,7 +1517,8 @@
               "content": "Source / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-002"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1526,7 +1530,8 @@
               "content": "Source / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-003"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1538,7 +1543,8 @@
               "content": "Source / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-004"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1550,7 +1556,8 @@
               "content": "Source / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-005"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1562,7 +1569,8 @@
               "content": "Source / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-006"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1574,7 +1582,8 @@
               "content": "Source / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-007"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1586,7 +1595,8 @@
               "content": "Source / frac: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-008"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1598,7 +1608,8 @@
               "content": "Source / zero: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-009"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1610,7 +1621,8 @@
               "content": "Source / ordn: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-010"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1622,7 +1634,8 @@
               "content": "Source / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1634,7 +1647,8 @@
               "content": "Source / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-012"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1646,7 +1660,8 @@
               "content": "Source / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-013"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1658,7 +1673,8 @@
               "content": "Source / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-014"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1670,7 +1686,8 @@
               "content": "Source / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1682,7 +1699,8 @@
               "content": "Source / dlig+calt interaction (dlig absent): Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-013"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1694,7 +1712,8 @@
               "content": "Source / exact Display Semibold + decoration/stroke: Exact face 0123 office",
               "styleId": "matrix-017"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1706,7 +1725,8 @@
               "content": "GFS Didot Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-018"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1718,7 +1738,8 @@
               "content": "Didot / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-019"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1730,7 +1751,8 @@
               "content": "Didot / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-020"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1742,7 +1764,8 @@
               "content": "Didot / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-021"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1754,7 +1777,8 @@
               "content": "Didot / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-022"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1766,7 +1790,8 @@
               "content": "Didot / lnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-089"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1778,7 +1803,8 @@
               "content": "Didot / tnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-090"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1790,7 +1816,8 @@
               "content": "Didot / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-023"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1802,7 +1829,8 @@
               "content": "Didot / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-024"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1814,7 +1842,8 @@
               "content": "Didot / frac absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-025"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1826,7 +1855,8 @@
               "content": "Didot / zero absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-026"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1838,7 +1868,8 @@
               "content": "Didot / ordn absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-027"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1850,7 +1881,8 @@
               "content": "Didot / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-018"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1862,7 +1894,8 @@
               "content": "Didot / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-029"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1874,7 +1907,8 @@
               "content": "Didot / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-030"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1886,7 +1920,8 @@
               "content": "Didot / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-031"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1898,7 +1933,8 @@
               "content": "Didot / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-018"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1910,7 +1946,8 @@
               "content": "Didot / hist: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-033"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1922,7 +1959,8 @@
               "content": "Old Standard Regular / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-034"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1934,7 +1972,8 @@
               "content": "Old Standard / smcp: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-035"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1946,7 +1985,8 @@
               "content": "Old Standard / smcp+c2sc: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-036"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1958,7 +1998,8 @@
               "content": "Old Standard / lnum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-037"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1970,7 +2011,8 @@
               "content": "Old Standard / lnum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-038"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1982,7 +2024,8 @@
               "content": "Old Standard / onum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-039"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -1994,7 +2037,8 @@
               "content": "Old Standard / onum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-040"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2006,7 +2050,8 @@
               "content": "Old Standard / frac: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-041"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2018,7 +2063,8 @@
               "content": "Old Standard / zero absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-042"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2030,7 +2076,8 @@
               "content": "Old Standard / ordn absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-043"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2042,7 +2089,8 @@
               "content": "Old Standard / liga: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-034"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2054,7 +2102,8 @@
               "content": "Old Standard / Greek hlig: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-045"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2066,7 +2115,8 @@
               "content": "Old Standard / dlig German-LangSys only: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-046"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2078,7 +2128,8 @@
               "content": "Old Standard / calt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-034"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2090,7 +2141,8 @@
               "content": "Old Standard / hist absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-048"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2102,7 +2154,8 @@
               "content": "Old Standard / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-049"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2114,7 +2167,8 @@
               "content": "Old Standard / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-050"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2126,7 +2180,8 @@
               "content": "Old Standard / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-051"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2138,7 +2193,8 @@
               "content": "Old Standard / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-052"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2150,7 +2206,8 @@
               "content": "Old Standard / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-053"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2162,7 +2219,8 @@
               "content": "Old Standard / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-054"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2174,7 +2232,8 @@
               "content": "Old Standard / ss15: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-055"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2186,7 +2245,8 @@
               "content": "Old Standard / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-056"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2198,7 +2258,8 @@
               "content": "Old Standard / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-057"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2210,7 +2271,8 @@
               "content": "Old Standard / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-058"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2222,7 +2284,8 @@
               "content": "Old Standard / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-059"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2234,7 +2297,8 @@
               "content": "Old Standard / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-060"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2246,7 +2310,8 @@
               "content": "Old Standard / salt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-084"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2258,7 +2323,8 @@
               "content": "Old Standard / swash alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-085"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2270,7 +2336,8 @@
               "content": "Old Standard / ornm alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-086"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2282,7 +2349,8 @@
               "content": "Old Standard / nalt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-087"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2294,7 +2362,8 @@
               "content": "Old Standard / ss03+cv27: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-088"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2306,7 +2375,8 @@
               "content": "Old Standard Italic / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-061"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2318,7 +2388,8 @@
               "content": "Old Standard Italic / ss11: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-062"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2330,7 +2401,8 @@
               "content": "Old Standard Italic / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-063"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2342,7 +2414,8 @@
               "content": "Old Standard Italic / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-064"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2354,7 +2427,8 @@
               "content": "Old Standard Italic / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-065"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2366,7 +2440,8 @@
               "content": "Old Standard Italic / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-066"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2378,7 +2453,8 @@
               "content": "Old Standard Italic / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-067"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2390,7 +2466,8 @@
               "content": "Old Standard Italic / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-068"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2402,7 +2479,8 @@
               "content": "Old Standard Italic / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-069"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2414,7 +2492,8 @@
               "content": "Old Standard Italic / ss15 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-070"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2426,7 +2505,8 @@
               "content": "Old Standard Italic / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-071"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2438,7 +2518,8 @@
               "content": "Old Standard Italic / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-072"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2450,7 +2531,8 @@
               "content": "Old Standard Italic / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-073"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2462,7 +2544,8 @@
               "content": "Old Standard Italic / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
               "styleId": "matrix-074"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2474,7 +2557,8 @@
               "content": "Translator completeness / petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-075"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2486,7 +2570,8 @@
               "content": "Translator completeness / all petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-076"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2498,7 +2583,8 @@
               "content": "Translator completeness / titling caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-077"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2510,7 +2596,8 @@
               "content": "Translator completeness / unicase: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-078"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2522,7 +2609,8 @@
               "content": "Translator completeness / stacked fractions: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-079"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2534,7 +2622,8 @@
               "content": "Translator completeness / ligatures none: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "matrix-080"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2546,7 +2635,8 @@
               "content": "Translator completeness / no discretionary ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2558,7 +2648,8 @@
               "content": "Translator completeness / no historical ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2570,7 +2661,8 @@
               "content": "Text box paragraph style: Gg theta θ",
               "styleId": "matrix-050"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2582,7 +2674,8 @@
               "content": "Text box element override: Gg theta θ",
               "styleId": "resolved-1"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2594,7 +2687,8 @@
               "content": "Text box explicit normal reset: Gg theta θ",
               "styleId": "resolved-2"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2608,7 +2702,8 @@
               "contentBottom": "bottom panel 0123 office",
               "styleId": "lyrics"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2624,7 +2719,8 @@
               "contentRight": "right ABC",
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2636,7 +2732,8 @@
               "martyria": "modeFirst.salt01",
               "note": "modePa"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2659,7 +2756,8 @@
               "lyricsLeftAlign": true,
               "lyricsStyleId": "lyrics"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2679,7 +2777,8 @@
               "lyrics": "Custom paragraph theta θ 0123",
               "lyricsStyleId": "matrix-051"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2699,7 +2798,8 @@
               "lyrics": "Element override Gg theta θ 0123",
               "lyricsStyleId": "resolved-4"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2775,7 +2875,8 @@
               "lyrics": "Lyric style continuation 7 0123 office",
               "lyricsStyleId": "lyrics"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     },
@@ -2793,7 +2894,8 @@
               "marginTop": 4.5,
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2805,7 +2907,8 @@
               "content": "Greek / normal: θού ϑ ζ",
               "styleId": "matrix-034"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2817,7 +2920,8 @@
               "content": "Greek / smcp: θού ϑ ζ",
               "styleId": "matrix-035"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2829,7 +2933,8 @@
               "content": "Greek / smcp+c2sc: θού ϑ ζ",
               "styleId": "matrix-036"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2841,7 +2946,8 @@
               "content": "Greek / hlig: θού ϑ ζ",
               "styleId": "matrix-045"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2853,7 +2959,8 @@
               "content": "Greek / ss02: θού ϑ ζ",
               "styleId": "matrix-050"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2865,7 +2972,8 @@
               "content": "Greek / cv01: θού ϑ ζ",
               "styleId": "matrix-056"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2877,7 +2985,8 @@
               "content": "Greek / salt: θού ϑ ζ",
               "styleId": "matrix-057"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2889,7 +2998,8 @@
               "content": "Greek italic / ss11: θού ϑ ζ",
               "styleId": "matrix-062"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2901,7 +3011,8 @@
               "content": "Greek italic / salt: θού ϑ ζ",
               "styleId": "matrix-071"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     },
@@ -2919,7 +3030,8 @@
               "marginTop": 4.5,
               "styleId": "default-text"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2931,7 +3043,8 @@
               "content": "Cyrillic / normal: ИН б дпт ґ",
               "styleId": "matrix-034"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2943,7 +3056,8 @@
               "content": "Cyrillic / smcp: ИН б дпт ґ",
               "styleId": "matrix-035"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2955,7 +3069,8 @@
               "content": "Cyrillic / smcp+c2sc: ИН б дпт ґ",
               "styleId": "matrix-036"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2967,7 +3082,8 @@
               "content": "Cyrillic / ss05: ИН б дпт ґ",
               "styleId": "matrix-051"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2979,7 +3095,8 @@
               "content": "Cyrillic / salt: ИН б дпт ґ",
               "styleId": "matrix-057"
             }
-          ]
+          ],
+          "paragraphEnd": true
         },
         {
           "elements": [
@@ -2991,7 +3108,8 @@
               "content": "Cyrillic italic / ss11: ИН б дпт ґ",
               "styleId": "matrix-062"
             }
-          ]
+          ],
+          "paragraphEnd": true
         }
       ]
     }

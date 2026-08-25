@@ -44,6 +44,8 @@
 % If section name is *, all sections will be used. Ex: \neanesscore{example.byztex}{*}
 % Otherwise only the specified section is drawn. Ex: \neanesscore{example.byztex}{olihc-1}
 \newcommand{\neanesscore}[2]{% #1 = filename, #2 = sectionname
+  % End any surrounding text paragraph before emitting the score's paragraphs.
+  \par%
   \directlua{neanestex.include_score("#1", "#2")}%
 }
 

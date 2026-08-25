@@ -36,7 +36,7 @@ Generate a PDF with `lualatex my-doc.tex`.
 
 ### Supported Score Elements
 
-When exporting a score from Neanes, mode keys and text boxes are not exported by default, although you can choose to do so. However, it is recommended that you instead use LaTeX to create your own text boxes and mode key signatures.
+When exporting a score from Neanes, initial martyriæ and text boxes are not exported by default, although you can choose to do so. However, it is recommended that you instead use LaTeX to create your own text boxes and initial martyriæ.
 
 Rich text boxes and images do not currently export. This will probably not be included in this package since LaTeX handles rich text and images better than Neanes. Also note that text boxes with multiple blank lines will not export properly.
 
