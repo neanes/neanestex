@@ -1,5 +1,5 @@
 {
-  "appVersion": "0.5.49",
+  "appVersion": "0.5.52",
   "schemaVersion": 3,
   "sectionNames": [
     "Stasis 1",
@@ -3210,10 +3210,10 @@
               "width": 23.5707,
               "quantitativeNeume": "petastiIson",
               "time": "klasmaBelow",
-              "melismaWidth": 13.5014,
+              "melismaWidth": 18.8057,
               "isHyphen": true,
               "hyphenOffsets": [
-                4.8787
+                7.5308
               ],
               "lyrics": "stat",
               "lyricsStyleId": "lyrics"
