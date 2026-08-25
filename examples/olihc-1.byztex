@@ -1,5 +1,5 @@
 {
-  "appVersion": "0.5.49",
+  "appVersion": "0.5.52",
   "schemaVersion": 3,
   "sectionNames": [],
   "fontVersions": {
@@ -818,10 +818,10 @@
               "x": 158.8223,
               "width": 26.3296,
               "quantitativeNeume": "oligonKentimataAbove",
-              "melismaWidth": 22.2373,
+              "melismaWidth": 22.4116,
               "isHyphen": true,
               "hyphenOffsets": [
-                9.2466
+                9.3338
               ],
               "lyrics": "pli",
               "lyricsStyleId": "lyrics"
