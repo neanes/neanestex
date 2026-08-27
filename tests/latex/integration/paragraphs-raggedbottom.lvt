@@ -1,0 +1,16 @@
+\input regression-test.tex\relax
+
+% Run the ragged-bottom fixture with paragraph assertions installed after the
+% package under test is loaded.
+\AddToHook{package/neanestex/after}{%
+  \RequirePackage{neanestest}%
+  \NeanesInstrumentScore{%
+    \NeanesCheckNum{example emits seven musical paragraphs}
+    {\NeanesScoreParagraphCount}{7}%
+    \NeanesVDistRange{raggedbottom preserves natural musical paragraph gaps}
+    {score-paragraph-1}{score-paragraph-2}
+    {2\NeanesScoreBaseline-0.02pt}
+    {2\NeanesScoreBaseline+0.02pt}%
+  }%
+}
+\input{paragraphs-raggedbottom.tex}

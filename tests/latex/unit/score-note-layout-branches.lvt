@@ -1,0 +1,37 @@
+\input regression-test.tex\relax
+
+% Less common note-layout paths retain their output and exported geometry.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\definecolor{expected-neume}{HTML}{112233}
+\definecolor{expected-cross}{HTML}{334455}
+\definecolor{expected-lyrics}{HTML}{445566}
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{note-layout-branches.byztex}{}}
+\NeanesUseBox
+
+\NeanesGlyphCount{manually positioned vareia renders once}{\NeanesGlyph{vareia}}{1}
+\NeanesGlyphColor{manually positioned vareia retains the neume color}
+{\NeanesGlyph{vareia}}{expected-neume}
+\NeanesGlyphOffset{vareia retains its manual offset}
+{\NeanesGlyph{ison}}{1}{\NeanesGlyph{vareia}}{1}{-4.738pt}{-4.015pt}{0.02pt}
+
+\NeanesGlyphCount{automatic stavros renders once}{\NeanesGlyph{stavrosAbove}}{1}
+\NeanesGlyphColor{automatic stavros uses the cross color}
+{\NeanesGlyph{stavrosAbove}}{expected-cross}
+
+\NeanesRuleSize{syllable melisma renders its exported rule}
+{65.7587bp}{0.75bp}{0pt}{0.01pt}
+\NeanesGlyphCount{hyphenated syllable renders every exported hyphen}{-}{1}
+\NeanesGlyphFont{syllable hyphens use the resolved lyric face}
+{-}{Source Serif 4}
+\NeanesGlyphSize{syllable hyphens use the resolved lyric size}
+{-}{10bp}{0.01pt}
+\NeanesGlyphColor{syllable hyphens use the resolved lyric color}
+{-}{expected-lyrics}
+\end{document}

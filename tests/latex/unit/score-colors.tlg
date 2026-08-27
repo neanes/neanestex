@@ -1,0 +1,20 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | ordinary neume uses neume color | 1 occurrence(s) of ""; wanted color "0.06668 0.13333 0.2 rg 0.06668 0.13333 0.2 RG"
+PASS | breath uses breath color | 1 occurrence(s) of ""; wanted color "0.13333 0.2 0.26668 rg 0.13333 0.2 0.26668 RG"
+PASS | cross uses cross color | 1 occurrence(s) of ""; wanted color "0.2 0.26668 0.33333 rg 0.2 0.26668 0.33333 RG"
+PASS | heteron uses heteron color | 1 occurrence(s) of ""; wanted color "0.26668 0.33333 0.4 rg 0.26668 0.33333 0.4 RG"
+PASS | gorgon uses gorgon color | 1 occurrence(s) of ""; wanted color "0.00784 0.00784 0.00784 rg 0.00784 0.00784 0.00784 RG"
+PASS | accidental uses accidental color | 1 occurrence(s) of ""; wanted color "0.00392 0.00392 0.00392 rg 0.00392 0.00392 0.00392 RG"
+PASS | note indicator uses note-indicator color | 1 occurrence(s) of ""; wanted color "0.02745 0.02745 0.02745 rg 0.02745 0.02745 0.02745 RG"
+PASS | ison indicator uses ison color | 1 occurrence(s) of ""; wanted color "0.01176 0.01176 0.01176 rg 0.01176 0.01176 0.01176 RG"
+PASS | koronis uses koronis color | 1 occurrence(s) of ""; wanted color "0.0157 0.0157 0.0157 rg 0.0157 0.0157 0.0157 RG"
+PASS | measure number uses measure-number color | 1 occurrence(s) of ""; wanted color "0.02353 0.02353 0.02353 rg 0.02353 0.02353 0.02353 RG"
+PASS | measure bars use measure-bar color | 1 occurrence(s) of ""; wanted color "0.01962 0.01962 0.01962 rg 0.01962 0.01962 0.01962 RG"
+PASS | martyria fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
+PASS | martyria and ambitus use martyria color | 3 occurrence(s) of ""; wanted color "0.4 0.46667 0.53333 rg 0.4 0.46667 0.53333 RG"
+PASS | mode key uses mode-key color | 2 occurrence(s) of ""; wanted color "0.46667 0.53333 0.6 rg 0.46667 0.53333 0.6 RG"
+PASS | inline and right-aligned tempi use tempo color | 2 occurrence(s) of ""; wanted color "0.53333 0.6 0.66667 rg 0.53333 0.6 0.66667 RG"
+TOTAL | 15 | 0
+***************
+Compilation 1 of test file completed with exit status 0

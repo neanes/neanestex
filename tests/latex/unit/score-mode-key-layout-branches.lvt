@@ -1,0 +1,21 @@
+\input regression-test.tex\relax
+
+% Plagal and right-aligned mode-key output is observable in the finished box.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\definecolor{expected-mode-key}{HTML}{556677}
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{mode-key-layout-branches.byztex}{}}
+\NeanesUseBox
+
+\NeanesGlyphCount{plagal mode marker renders once}{\NeanesGlyph{modePlagal}}{1}
+\NeanesGlyphColor{plagal mode marker uses the mode-key color}
+{\NeanesGlyph{modePlagal}}{expected-mode-key}
+\NeanesGlyphXRange{right-aligned mode key begins in the right side of its box}
+{\NeanesGlyph{modeWordEchos}}{1}{300bp}{468bp}
+\end{document}

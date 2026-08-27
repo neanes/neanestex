@@ -1,0 +1,8 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | named selection emits seven paragraphs | got 7, expected 7
+PASS | named selection preserves its content order | ordered blame@12, Bless@104, teach@160, tutes@209
+PASS | named selection excludes other named-section content | needle "hands" absent in haystack "T he blame - less in the way.   Al - le - lu - i -  a. Bless - ed art Thou, O Lord, teach me   Thy sta -  tutes. Al -  le - lu - i -  a.  M y soul hath  longed to de - sire Thy judg - ments  at all    times. Al -  le - lu - i -  a.  M y soul hath slum - bered from des - pon - den -  cy, strength - en me  with Thy  words. Al -  le - lu - i -  a.  I n - cline my heart un - to thy test - i - mo -   nies and not un - to  greed - i -  ness. Al -  le - lu - i -  a.  D es - pon - den - cy took hold up - on    me be - cause of the sin - ners who for - sook Thy  law. Al -  le - lu - i -  a.  I  am a par - tak -   er with all them that fear    Thee, and with  them that keep Thy  com - mand -  ments. Al -  le - lu - i -  a.  G lo - ry to the Fa -  ther and to the Son and to the Ho - ly Spir -  it.  Both now and ev - er and un - to the a - ges of a -  -ges. A - men.  Al - le - lu - i - a.   "
+TOTAL | 3 | 0
+***************
+Compilation 1 of test file completed with exit status 0

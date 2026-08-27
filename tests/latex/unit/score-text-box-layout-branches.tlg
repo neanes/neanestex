@@ -1,0 +1,11 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | plain block text box emits its exported height | glue 20.075pt present
+PASS | block text box emits its top margin | glue 7.026pt present
+PASS | block text box adds its bottom margin to its height | glue 29.109pt present
+PASS | empty block text box emits its exported height | glue 13.049pt present
+PASS | right-aligned block text reaches the rendered box | needle "R", haystack "I After inline.   Before plain. P    After plain.   Before margins.   M    After margins.   Before empty.     After empty. R "
+PASS | right-aligned block text reaches the right side of its box | x origin 461.914pt, expected 401.500pt .. 469.755pt
+TOTAL | 6 | 0
+***************
+Compilation 1 of test file completed with exit status 0

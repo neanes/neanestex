@@ -1,0 +1,46 @@
+\input regression-test.tex\relax
+
+% Public commands load their dependencies, render named glyphs, and keep score
+% configuration local to the score.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+\NeanesPackageLoaded{xcolor dependency is loaded}{xcolor}
+\NeanesPackageLoaded{fontspec dependency is loaded}{fontspec}
+\NeanesPackageLoaded{underline dependency is loaded}{lua-ul}
+\NeanesPackageLoaded{stroke dependency is loaded}{pdfrender}
+\NeanesCheckDim{default neume size}{\byzneumesize}{20bp}{0pt}
+\NeanesCheckDim{default mode-key size}{\byzmodekeysize}{20bp}{0pt}
+
+\setbox\neanestestbox=\vbox{%
+  \hbox{{\fontsize{20bp}{20bp}\byzneumefont\byzglyph{ison}}}%
+}
+\NeanesCheckDim{named glyph has its configured advance}
+{\wd\neanestestbox}{27.22pt}{0.05pt}
+\NeanesUseBox
+% Literal codepoints on purpose: these assertions pin the glyph-name to
+% codepoint mapping itself, so addressing them with \NeanesGlyph -- which
+% resolves through that same mapping -- would make them tautological.
+\NeanesGlyphFont{named glyph uses the selected neume font}
+{\Uchar"E000}{Neanes}
+\NeanesGlyphSize{named glyph uses the requested size}
+{\Uchar"E000}{20bp}{0.01pt}
+
+\setlength{\byzneumesize}{31bp}
+\setlength{\byzmodekeysize}{29bp}
+\setlength{\parskip}{7pt}
+\setbox\neanestestbox=\vbox{\neanesscore{no-lyric.byztex}{}}
+\NeanesUseBox
+\NeanesGlyphSize{score uses its exported neume size}
+{\Uchar"E000}{20bp}{0.01pt}
+\NeanesCheckDim{score restores the surrounding neume size}
+{\byzneumesize}{31bp}{0pt}
+\NeanesCheckDim{score restores the surrounding mode-key size}
+{\byzmodekeysize}{29bp}{0pt}
+\NeanesCheckDim{score restores the surrounding paragraph skip}
+{\parskip}{7pt}{0pt}
+\end{document}

@@ -1,0 +1,130 @@
+{
+  "appVersion": "0.5.53",
+  "schemaVersion": 3,
+  "sectionNames": [],
+  "fontVersions": {
+    "Neanes": "1.0.9"
+  },
+  "textStyles": [],
+  "pageSetup": {
+    "lineHeight": 54.72,
+    "martyriaVerticalOffset": 3,
+    "fontFamilies": {
+      "neume": "Neanes"
+    },
+    "fontSizes": {
+      "modeKey": 20,
+      "neume": 20
+    },
+    "lyricsVerticalOffset": 18.15,
+    "lyricsMelismaSpacing": 1.8,
+    "lyricsMelismaThickness": 0.75,
+    "colors": {
+      "accidental": "010101",
+      "breath": "223344",
+      "cross": "334455",
+      "fthora": "556677",
+      "gorgon": "020202",
+      "heteron": "445566",
+      "ison": "030303",
+      "koronis": "040404",
+      "martyria": "667788",
+      "measureBar": "050505",
+      "measureNumber": "060606",
+      "modeKey": "778899",
+      "neume": "112233",
+      "noteIndicator": "070707",
+      "tempo": "8899AA"
+    }
+  },
+  "sections": [
+    {
+      "default": true,
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 0,
+              "width": 27.1093,
+              "quantitativeNeume": "ison"
+            },
+            {
+              "type": "note",
+              "x": 30.3485,
+              "width": 2.7589,
+              "quantitativeNeume": "breath"
+            },
+            {
+              "type": "note",
+              "x": 36.3466,
+              "width": 6.9173,
+              "quantitativeNeume": "stavros"
+            },
+            {
+              "type": "note",
+              "x": 46.7057,
+              "width": 33.1483,
+              "quantitativeNeume": "oligon",
+              "koronis": true,
+              "gorgon": "gorgonAbove",
+              "vocalExpression": "heteron",
+              "accidental": "diesis2",
+              "ison": "isonIndicatorPa",
+              "noteIndicator": "noteIndicatorVou",
+              "measureNumber": "measureNumber2",
+              "measureBarLeft": "barlineSingle",
+              "measureBarRight": "barlineDouble",
+              "computedMeasureBarLeftOffsetX": -0.4195,
+              "computedMeasureBarRightOffsetX": 8.0705,
+              "computedMeasureBarLeftLeadingSpacing": 2.8003
+            },
+            {
+              "type": "martyria",
+              "x": 92.4925,
+              "width": 6.1776,
+              "note": "martyriaNotePa",
+              "rootSign": "martyriaAlphaBelow",
+              "fthora": "fthoraDiatonicPaAbove"
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "modekey",
+              "width": 468,
+              "height": 36.75,
+              "alignment": "left",
+              "martyria": "modeFirst",
+              "note": "modePa",
+              "tempo": "agogiMetria",
+              "showAmbitus": true,
+              "ambitusHighNote": "martyriaNotePa",
+              "ambitusHighRootSign": "martyriaAlphaBelow",
+              "ambitusLowNote": "martyriaNotePa",
+              "ambitusLowRootSign": "martyriaAlphaBelow"
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "modekey",
+              "width": 468,
+              "height": 36.75,
+              "alignment": "left",
+              "martyria": "modeFirst",
+              "note": "modePa",
+              "tempo": "agogiMetria",
+              "tempoAlignRight": true
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    }
+  ]
+}

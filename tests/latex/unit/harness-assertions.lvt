@@ -1,0 +1,76 @@
+\input regression-test.tex\relax
+
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{fontspec}
+% This document only builds a box, so the kernel's final \clearpage has no
+% page to ship.  The harness records assertions later, in enddocument/end.
+\AddToHook{enddocument/afterlastpage}[neanestest/no-page-check]{%
+  \NeanesCheckNum{harness adds no page}{\ReadonlyShipoutCounter}{0}%
+}
+\usepackage{neanestest}
+
+\begin{document}
+\NeanesCheckDim{exact dimension}{10pt}{10pt}{0pt}
+\NeanesCheckDimRange{dimension range}{10pt}{9pt}{11pt}
+\setbox\neanestestbox=\vbox{
+  \noindent\neanesanchor{first}{\color{red}Alpha\rlap{X}\hspace{10pt}%
+  \raisebox{3pt}{Y}\makebox[17pt][l]{Z}\rule{13pt}{2pt}}\par
+  \penalty321
+  \vskip7pt
+  \noindent\neanesanchor{second}Beta%
+  \directlua{%
+    local late = node.new("whatsit", "late_lua")
+    late.data = function() end
+    node.write(late)
+    local literal = node.new("whatsit", "pdf_literal")
+    literal.mode = 2
+    literal.data = "harness-pdf-literal"
+    node.write(literal)
+  }\par
+}
+\NeanesUseBox
+\NeanesPenaltyBetween{penalty inspection}{first}{second}{321}
+\NeanesGlueWidthBetween{glue inspection}{first}{second}{7pt}{0.02pt}
+\NeanesNoGlueWidthBetween{absent glue inspection}{first}{second}{19pt}{0.02pt}
+\NeanesGlyphFont{matching glyph font}{A}{LMRoman}
+\NeanesGlyphFontNot{excluded glyph font}{A}{Neanes}
+\NeanesGlyphSize{glyph size}{A}{10pt}{0.01pt}
+\NeanesGlyphCount{glyph count}{X}{1}
+\NeanesPdfLiteral{PDF literal inspection}{harness-pdf-literal}
+\NeanesRuleSize{rule size}{13pt}{2pt}{0pt}{0.01pt}
+\NeanesGlyphXRange{glyph horizontal range}{X}{1}{0pt}{100pt}
+\NeanesGlyphOuterBoxWidth{glyph outer box width}{Z}{1}{17pt}{0.01pt}
+\NeanesGlyphOffset{glyph position}{X}{1}{Y}{1}{10pt}{-3pt}{0.01pt}
+\NeanesGlyphColor{glyph color}{A}{red}
+\NeanesAnyGlyph{font presence}{LMRoman}{10pt}
+\NeanesNoGlyphSmaller{minimum glyph size}{10pt}
+\NeanesBoxColor{box color}{red}
+\NeanesBoxText{box text}{Alpha}
+\NeanesBoxTextAbsent{absent box text}{Gamma}
+\NeanesBoxTextOrder{box text order}{Alpha,Beta}
+
+\setbox\neanestestbox=\vbox{%
+  \noindent\shortstack{J\\J}\quad
+  \parbox[b]{30pt}{\setlength{\baselineskip}{14pt}K\par K}\par
+}
+\NeanesUseBox
+\NeanesGlyphOffset{shortstack vertical position}{J}{1}{J}{2}{0pt}{10.05pt}{0.01pt}
+\NeanesGlyphOffset{parbox vertical position}{K}{1}{K}{2}{0pt}{14pt}{0.01pt}
+
+\setbox\neanestestbox=\vbox{%
+  \vbox{\hbox{U}}%
+  \noindent\rlap{U}\rlap{V}\par
+}
+\NeanesUseBox
+\NeanesGlyphCount{global occurrence count}{U}{2}
+\NeanesGlyphOffset{positioned occurrence keeps global index}
+{U}{2}{V}{1}{0pt}{0pt}{0.01pt}
+
+\setbox\neanestestbox=\vbox{Refilled box.}
+\directlua{%
+  local ok = pcall(neanestest.check_box_text,
+  "stale snapshot must not record", "Refilled")
+  neanestest.check_num("stale snapshot rejected", ok and 1 or 0, 0)
+}
+\end{document}

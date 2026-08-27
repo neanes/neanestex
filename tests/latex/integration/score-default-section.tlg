@@ -1,0 +1,9 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | default selection emits one paragraph | got 1, expected 1
+PASS | default selection preserves its content order | ordered cried@41, voice@610, sup@678, pli@691, ca@707, tion@739
+PASS | default score remains in the surrounding document flow | score-before=p1 score-after=p1
+PASS | default score occupies visible vertical space | vdist 411.035pt, expected 100.000pt .. 500.000pt
+TOTAL | 4 | 0
+***************
+Compilation 1 of test file completed with exit status 0

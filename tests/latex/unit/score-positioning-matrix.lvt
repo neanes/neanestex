@@ -1,0 +1,114 @@
+\input regression-test.tex\relax
+
+% Exported optional marks retain their semantic colors and exact geometry.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\definecolor{expected-accidental}{HTML}{010101}
+\definecolor{expected-cross}{HTML}{334455}
+\definecolor{expected-fthora}{HTML}{556677}
+\definecolor{expected-gorgon}{HTML}{020202}
+\definecolor{expected-ison}{HTML}{030303}
+\definecolor{expected-koronis}{HTML}{040404}
+\definecolor{expected-measure-bar}{HTML}{050505}
+\definecolor{expected-measure-number}{HTML}{060606}
+\definecolor{expected-neume}{HTML}{112233}
+\definecolor{expected-note-indicator}{HTML}{070707}
+\definecolor{expected-tempo}{HTML}{8899AA}
+\definecolor{expected-mode-key}{HTML}{654321}
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{positioning-matrix.byztex}{}}
+\NeanesUseBox
+
+\NeanesGlyphCount{secondary gorgon renders once}{\NeanesGlyph{trigorgonDottedRightSecondary}}{1}
+\NeanesGlyphCount{secondary fthora renders once}{\NeanesGlyph{fthoraSoftChromaticDiSecondary}}{1}
+\NeanesGlyphCount{tertiary fthora renders once}{\NeanesGlyph{fthoraEnharmonicTertiary}}{1}
+\NeanesGlyphCount{secondary accidental renders once}{\NeanesGlyph{diesis4Secondary}}{1}
+\NeanesGlyphCount{tertiary accidental renders once}{\NeanesGlyph{diesis6Tertiary}}{1}
+\NeanesGlyphCount{tie renders once}{\NeanesGlyph{yfenAbove}}{1}
+\NeanesGlyphCount{offset stavros renders once}{\NeanesGlyph{stavrosAbove}}{1}
+\NeanesGlyphCount{extended mode-key second note renders once}{\NeanesGlyph{modeVou}}{1}
+\NeanesGlyphCount{extended mode-key second neume renders once}{\NeanesGlyph{petasti}}{1}
+
+\NeanesGlyphColor{secondary gorgon uses gorgon color}
+{\NeanesGlyph{trigorgonDottedRightSecondary}}{expected-gorgon}
+\NeanesGlyphColor{secondary fthora uses fthora color}
+{\NeanesGlyph{fthoraSoftChromaticDiSecondary}}{expected-fthora}
+\NeanesGlyphColor{tertiary fthora uses fthora color}
+{\NeanesGlyph{fthoraEnharmonicTertiary}}{expected-fthora}
+\NeanesGlyphColor{secondary accidental uses accidental color}
+{\NeanesGlyph{diesis4Secondary}}{expected-accidental}
+\NeanesGlyphColor{tertiary accidental uses accidental color}
+{\NeanesGlyph{diesis6Tertiary}}{expected-accidental}
+\NeanesGlyphColor{manual tie inherits neume color}
+{\NeanesGlyph{yfenAbove}}{expected-neume}
+\NeanesGlyphColor{manual ison indicator uses ison color}
+{\NeanesGlyph{isonIndicatorGa}}{expected-ison}
+\NeanesGlyphColor{manual note indicator uses note-indicator color}
+{\NeanesGlyph{noteIndicatorPa}}{expected-note-indicator}
+\NeanesGlyphColor{manual koronis uses koronis color}
+{\NeanesGlyph{koronis}}{expected-koronis}
+\NeanesGlyphColor{manual measure number uses measure-number color}
+{\NeanesGlyph{measureNumber3}}{expected-measure-number}
+\NeanesGlyphColor{manual measure bar uses measure-bar color}
+{\NeanesGlyph{barlineDoubleAbove}}{expected-measure-bar}
+\NeanesGlyphColor{right measure bars use measure-bar color}
+{\NeanesGlyph{barlineDouble}}{expected-measure-bar}
+\NeanesGlyphColor{manual stavros uses cross color}
+{\NeanesGlyph{stavrosAbove}}{expected-cross}
+\NeanesGlyphColor{left martyria tempo uses tempo color}
+{\NeanesGlyph{agogiMetria}}{expected-tempo}
+\NeanesGlyphColor{right martyria tempo uses tempo color}
+{\NeanesGlyph{agogiGorgi}}{expected-tempo}
+\NeanesGlyphColor{mode key honors its element color}
+{\NeanesGlyph{modeWordVarys}}{expected-mode-key}
+\NeanesGlyphSize{mode key honors its element font size}
+{\NeanesGlyph{modeWordVarys}}{24bp}{0.01pt}
+
+% Expected offsets are populated from the fixed exporter fixture and font
+% metadata. They address final glyph origins, including anchor placement.
+\NeanesGlyphOffset{time mark keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{gorgonDottedLeft}}{1}{39.528pt}{5.219pt}{0.02pt}
+\NeanesGlyphOffset{primary gorgon keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{digorgonDottedRight}}{1}{41.535pt}{-0.803pt}{0.02pt}
+\NeanesGlyphOffset{secondary gorgon keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{trigorgonDottedRightSecondary}}{1}{16.201pt}{3.232pt}{0.02pt}
+\NeanesGlyphOffset{primary fthora keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{fthoraDiatonicPaAbove}}{1}{41.033pt}{-6.002pt}{0.02pt}
+\NeanesGlyphOffset{secondary fthora keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{fthoraSoftChromaticDiSecondary}}{1}{11.864pt}{2.048pt}{0.02pt}
+\NeanesGlyphOffset{tertiary fthora keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{fthoraEnharmonicTertiary}}{1}{5.962pt}{4.617pt}{0.02pt}
+\NeanesGlyphOffset{primary accidental keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{diesis2}}{1}{0.261pt}{6.605pt}{0.02pt}
+\NeanesGlyphOffset{secondary accidental keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{diesis4Secondary}}{1}{35.673pt}{-8.050pt}{0.02pt}
+\NeanesGlyphOffset{tertiary accidental keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{diesis6Tertiary}}{1}{9.194pt}{-2.630pt}{0.02pt}
+\NeanesGlyphOffset{ison indicator keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{isonIndicatorGa}}{1}{17.445pt}{-7.086pt}{0.02pt}
+\NeanesGlyphOffset{note indicator keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{noteIndicatorPa}}{1}{8.853pt}{-0.421pt}{0.02pt}
+\NeanesGlyphOffset{tie keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{yfenAbove}}{1}{42.519pt}{6.825pt}{0.02pt}
+\NeanesGlyphOffset{measure number keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{measureNumber3}}{1}{10.459pt}{-9.174pt}{0.02pt}
+\NeanesGlyphOffset{above measure bar keeps its exported offset}
+{\NeanesGlyph{oligonRunningElafronKentimata}}{1}{\NeanesGlyph{barlineDoubleAbove}}{1}{17.425pt}{-23.207pt}{0.02pt}
+\NeanesGlyphOffset{stavros keeps its exported offset}
+{\NeanesGlyph{runningElafron}}{1}{\NeanesGlyph{stavrosAbove}}{1}{15.096pt}{-3.272pt}{0.02pt}
+\NeanesGlyphOffset{koronis keeps its exported offset}
+{\NeanesGlyph{runningElafron}}{1}{\NeanesGlyph{koronis}}{1}{24.753pt}{8.552pt}{0.02pt}
+\NeanesGlyphOffset{transferred measure bar keeps its exported offset}
+{\NeanesGlyph{ison}}{1}{\NeanesGlyph{barlineDouble}}{1}{32.827pt}{0pt}{0.02pt}
+\NeanesGlyphOuterBoxWidth{transferred measure bar preserves note element width}
+{\NeanesGlyph{ison}}{1}{0pt}{0.01pt}
+\NeanesGlyphOffset{left martyria tempo retains its relative position}
+{\NeanesGlyph{martyriaNotePa}}{1}{\NeanesGlyph{agogiMetria}}{1}{-13.153pt}{0pt}{0.02pt}
+\NeanesGlyphOffset{right martyria tempo follows the quantitative neume}
+{\NeanesGlyph{oligon}}{1}{\NeanesGlyph{agogiGorgi}}{1}{48.827pt}{0pt}{0.02pt}
+\end{document}

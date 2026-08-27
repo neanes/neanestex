@@ -1,0 +1,51 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | secondary gorgon renders once | 1 occurrence(s) of "", expected 1
+PASS | secondary fthora renders once | 1 occurrence(s) of "", expected 1
+PASS | tertiary fthora renders once | 1 occurrence(s) of "", expected 1
+PASS | secondary accidental renders once | 1 occurrence(s) of "", expected 1
+PASS | tertiary accidental renders once | 1 occurrence(s) of "", expected 1
+PASS | tie renders once | 1 occurrence(s) of "", expected 1
+PASS | offset stavros renders once | 1 occurrence(s) of "", expected 1
+PASS | extended mode-key second note renders once | 1 occurrence(s) of "", expected 1
+PASS | extended mode-key second neume renders once | 1 occurrence(s) of "", expected 1
+PASS | secondary gorgon uses gorgon color | 1 occurrence(s) of ""; wanted color "0.00784 0.00784 0.00784 rg 0.00784 0.00784 0.00784 RG"
+PASS | secondary fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
+PASS | tertiary fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
+PASS | secondary accidental uses accidental color | 1 occurrence(s) of ""; wanted color "0.00392 0.00392 0.00392 rg 0.00392 0.00392 0.00392 RG"
+PASS | tertiary accidental uses accidental color | 1 occurrence(s) of ""; wanted color "0.00392 0.00392 0.00392 rg 0.00392 0.00392 0.00392 RG"
+PASS | manual tie inherits neume color | 1 occurrence(s) of ""; wanted color "0.06668 0.13333 0.2 rg 0.06668 0.13333 0.2 RG"
+PASS | manual ison indicator uses ison color | 1 occurrence(s) of ""; wanted color "0.01176 0.01176 0.01176 rg 0.01176 0.01176 0.01176 RG"
+PASS | manual note indicator uses note-indicator color | 1 occurrence(s) of ""; wanted color "0.02745 0.02745 0.02745 rg 0.02745 0.02745 0.02745 RG"
+PASS | manual koronis uses koronis color | 1 occurrence(s) of ""; wanted color "0.0157 0.0157 0.0157 rg 0.0157 0.0157 0.0157 RG"
+PASS | manual measure number uses measure-number color | 1 occurrence(s) of ""; wanted color "0.02353 0.02353 0.02353 rg 0.02353 0.02353 0.02353 RG"
+PASS | manual measure bar uses measure-bar color | 1 occurrence(s) of ""; wanted color "0.01962 0.01962 0.01962 rg 0.01962 0.01962 0.01962 RG"
+PASS | right measure bars use measure-bar color | 3 occurrence(s) of ""; wanted color "0.01962 0.01962 0.01962 rg 0.01962 0.01962 0.01962 RG"
+PASS | manual stavros uses cross color | 1 occurrence(s) of ""; wanted color "0.2 0.26668 0.33333 rg 0.2 0.26668 0.33333 RG"
+PASS | left martyria tempo uses tempo color | 1 occurrence(s) of ""; wanted color "0.53333 0.6 0.66667 rg 0.53333 0.6 0.66667 RG"
+PASS | right martyria tempo uses tempo color | 1 occurrence(s) of ""; wanted color "0.53333 0.6 0.66667 rg 0.53333 0.6 0.66667 RG"
+PASS | mode key honors its element color | 1 occurrence(s) of ""; wanted color "0.39609 0.26276 0.12941 rg 0.39609 0.26276 0.12941 RG"
+PASS | mode key honors its element font size | 1 occurrence(s) of "" at 24.090pt +/- 0.010pt
+PASS | time mark keeps its exported offset | offset (39.528pt, 5.219pt), expected (39.528pt, 5.219pt) +/- 0.020pt
+PASS | primary gorgon keeps its exported offset | offset (41.535pt, -0.803pt), expected (41.535pt, -0.803pt) +/- 0.020pt
+PASS | secondary gorgon keeps its exported offset | offset (16.201pt, 3.232pt), expected (16.201pt, 3.232pt) +/- 0.020pt
+PASS | primary fthora keeps its exported offset | offset (41.033pt, -6.002pt), expected (41.033pt, -6.002pt) +/- 0.020pt
+PASS | secondary fthora keeps its exported offset | offset (11.864pt, 2.048pt), expected (11.864pt, 2.048pt) +/- 0.020pt
+PASS | tertiary fthora keeps its exported offset | offset (5.962pt, 4.617pt), expected (5.962pt, 4.617pt) +/- 0.020pt
+PASS | primary accidental keeps its exported offset | offset (0.261pt, 6.605pt), expected (0.261pt, 6.605pt) +/- 0.020pt
+PASS | secondary accidental keeps its exported offset | offset (35.673pt, -8.050pt), expected (35.673pt, -8.050pt) +/- 0.020pt
+PASS | tertiary accidental keeps its exported offset | offset (9.194pt, -2.630pt), expected (9.194pt, -2.630pt) +/- 0.020pt
+PASS | ison indicator keeps its exported offset | offset (17.445pt, -7.086pt), expected (17.445pt, -7.086pt) +/- 0.020pt
+PASS | note indicator keeps its exported offset | offset (8.853pt, -0.421pt), expected (8.853pt, -0.421pt) +/- 0.020pt
+PASS | tie keeps its exported offset | offset (42.519pt, 6.825pt), expected (42.519pt, 6.825pt) +/- 0.020pt
+PASS | measure number keeps its exported offset | offset (10.459pt, -9.174pt), expected (10.459pt, -9.174pt) +/- 0.020pt
+PASS | above measure bar keeps its exported offset | offset (17.425pt, -23.207pt), expected (17.425pt, -23.207pt) +/- 0.020pt
+PASS | stavros keeps its exported offset | offset (15.096pt, -3.272pt), expected (15.096pt, -3.272pt) +/- 0.020pt
+PASS | koronis keeps its exported offset | offset (24.753pt, 8.552pt), expected (24.753pt, 8.552pt) +/- 0.020pt
+PASS | transferred measure bar keeps its exported offset | offset (32.827pt, 0.000pt), expected (32.827pt, 0.000pt) +/- 0.020pt
+PASS | transferred measure bar preserves note element width | outer box width 0.000pt, expected 0.000pt +/- 0.010pt
+PASS | left martyria tempo retains its relative position | offset (-13.153pt, 0.000pt), expected (-13.153pt, 0.000pt) +/- 0.020pt
+PASS | right martyria tempo follows the quantitative neume | offset (48.827pt, 0.000pt), expected (48.827pt, 0.000pt) +/- 0.020pt
+TOTAL | 46 | 0
+***************
+Compilation 1 of test file completed with exit status 0

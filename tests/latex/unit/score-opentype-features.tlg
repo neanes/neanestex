@@ -1,0 +1,22 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | small-cap features reach Source Serif | font "Source Serif 4" requests exactly +smcp,+c2sc
+PASS | proportional lining figures reach Source Serif | font "Source Serif 4" requests exactly +lnum,+pnum
+PASS | tabular lining figures reach Source Serif | font "Source Serif 4" requests exactly +lnum,+tnum
+PASS | proportional old-style figures reach Source Serif | font "Source Serif 4" requests exactly +onum,+pnum
+PASS | tabular old-style figures reach Source Serif | font "Source Serif 4" requests exactly +onum,+tnum
+PASS | fractions reach Source Serif | font "Source Serif 4" requests exactly +frac
+PASS | slashed zero reaches Source Serif | font "Source Serif 4" requests exactly +zero
+PASS | ordinals reach Source Serif | font "Source Serif 4" requests exactly +ordn
+PASS | disabled ligatures reach Source Serif | font "Source Serif 4" requests exactly -liga,-clig
+PASS | discretionary ligatures reach Source Serif | font "Source Serif 4" requests exactly +dlig
+PASS | historical ligatures reach Source Serif | font "Source Serif 4" requests exactly +hlig
+PASS | petite-cap features reach Source Serif | font "Source Serif 4" requests exactly +pcap,+c2pc
+PASS | titling capitals reach Source Serif | font "Source Serif 4" requests exactly +titl
+PASS | unicase reaches Source Serif | font "Source Serif 4" requests exactly +unic
+PASS | alternate fractions reach Source Serif | font "Source Serif 4" requests exactly +afrc
+PASS | combined disabled features reach Source Serif | font "Source Serif 4" requests exactly -liga,-clig,-calt
+PASS | historical forms reach GFS Didot | font "GFSDidot-Regular" requests exactly +hist
+TOTAL | 17 | 0
+***************
+Compilation 1 of test file completed with exit status 0

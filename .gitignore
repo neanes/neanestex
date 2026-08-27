@@ -1,5 +1,2 @@
-*.aux
-*.log
-example1.pdf
-examples/build.sh
-examples/opentype-matrix.pdf
+# TeX output
+/build/

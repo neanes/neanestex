@@ -1,0 +1,348 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neanestest}[2026/08/25 NeanesTeX test harness]
+
+% Assertion layer for *.lvt documents.  The Lua engine (neanestest.lua) is
+% copied beside this file into the test directory, so kpathsea finds it the
+% same way neanestex.sty finds its own Lua half.
+\RequirePackage{luacode}
+
+\begin{luacode*}
+  neanestest = dofile(kpse.find_file("neanestest.lua", "tex"))
+\end{luacode*}
+
+% Run deferred assertions after the kernel has shipped the genuine last page
+% and completed its other end-of-document work.  The harness must not add
+% material or force a shipout of its own.  Start the normalized record through
+% l3build's regression-test.tex driver; its patched end primitive supplies the
+% matching \END after this final hook returns.
+\AddToHook{enddocument/end}[neanestest/finish]{%
+  \directlua{neanestest.run_deferred()}%
+  \START
+  \directlua{neanestest.finish()}%
+}
+
+% Box register shared by all box-level assertions.
+\newbox\neanestestbox
+
+%----------------------------------------------------------------------
+% Fixture setup
+%----------------------------------------------------------------------
+
+% The bundled engraving font, its metadata, and the family that the package's
+% own glyph-name lookup resolves against, all of which the build copies beside
+% every test run.  Naming them once keeps the asset list in build.lua the only
+% other place these filenames appear.
+\NewDocumentCommand \NeanesUseBundledNeumeFont { } {%
+  \byzsetneumefontfile{Neanes}{NeanesEngraving.otf}%
+  \byzsetneumefontmetadatafile{Neanes}{neanesengraving.metadata.json}%
+  \byzsetneumefontfamily{Neanes}%
+}
+
+% \NeanesGlyph{name}: the character the package maps `name` to.  Addressing a
+% neume by name rather than by its private-use codepoint keeps glyphnames.json
+% the single owner of that map: a font revision that moves a glyph then fails
+% here as an unknown name, instead of leaving a hex literal that silently
+% matches nothing.  It expands to the character, so it serves as the character
+% argument of any assertion below.
+%
+% Two deliberate details.  \numexpr, because \Uchar does not absorb a bare
+% \relax terminator under \luastring expansion and the \relax would reach Lua
+% inside the string.  \newcommand rather than \NewExpandableDocumentCommand,
+% because that wrapper's expansion protocol prefixes the character with a
+% space.  This is how the package itself defines \byzglyph.
+\newcommand{\NeanesGlyph}[1]{\Uchar\numexpr"\byzcodepoint{#1}\relax}
+
+%----------------------------------------------------------------------
+% Score paragraph instrumentation
+%
+% Two ways to observe the paragraphs one \neanesscore emits.  Both hooks are
+% installed here but stay inert until a test turns its flag on, so loading the
+% harness never perturbs a document's paragraph building.
+%
+% They share \NeanesScoreParagraphCount but count differently -- one filters by
+% group level, the other takes every paragraph -- so they are mutually
+% exclusive.  A document must use one or the other, never both.
+%----------------------------------------------------------------------
+
+\newcount\NeanesScoreParagraphCount
+\newdimen\NeanesScoreBaseline
+\newcount\neanes@scorelevel
+\newif\ifneanes@countscore
+\newif\ifneanes@instrumentscore
+
+% Section selection: count only the paragraphs the score itself opens, which
+% are the ones one group level inside the call.
+\AddToHook{para/begin}[neanestest/count-score-paragraphs]{%
+  \ifneanes@countscore
+  \ifnum\currentgrouplevel=\numexpr\neanes@scorelevel+1\relax
+  \global\advance\NeanesScoreParagraphCount 1\relax
+  \fi
+  \fi
+}
+
+% \NeanesScoreParagraphs{file}{section}: render the score and leave the number
+% of paragraphs it emitted in \NeanesScoreParagraphCount.
+\NewDocumentCommand \NeanesScoreParagraphs { m m } {%
+  \global\NeanesScoreParagraphCount=0\relax
+  \neanes@scorelevel=\currentgrouplevel
+  \neanes@countscoretrue
+  \neanesscore{#1}{#2}%
+  \neanes@countscorefalse
+}
+
+% Page layout: count every paragraph of the score, capture the leading in force
+% at the first, and mark the first two so their shipped positions are testable.
+\AddToHook{para/begin}[neanestest/instrument-score]{%
+  \ifneanes@instrumentscore
+  \global\advance\NeanesScoreParagraphCount 1\relax
+  \ifnum\NeanesScoreParagraphCount=1\relax
+  \global\NeanesScoreBaseline=\baselineskip
+  \fi
+  \ifnum\NeanesScoreParagraphCount<3\relax
+  \neanesmark{score-paragraph-\the\NeanesScoreParagraphCount}%
+  \fi
+  \fi
+}
+
+% \NeanesInstrumentScore{assertions}: patch \neanesscore so that every score in
+% an unmodified example document is instrumented and followed by `assertions`.
+\NewDocumentCommand \NeanesInstrumentScore { m } {%
+  \NewCommandCopy \neanes@originalscore \neanesscore
+  \RenewDocumentCommand \neanesscore { m m } {%
+    \global\NeanesScoreParagraphCount=0\relax
+    \neanes@instrumentscoretrue
+    \neanes@originalscore{##1}{##2}%
+    \neanes@instrumentscorefalse
+    #1%
+  }%
+}
+
+% Dimen arguments reach Lua as scaled points.
+\NewExpandableDocumentCommand \neanes@dim { m } { \number\dimexpr#1\relax }
+
+% Ask the active color driver for the exact PDF operation of a named color, so
+% that color assertions compare like with like.  Built-in black is normally
+% emitted in the gray model (0 g 0 G), while a named color may be a spot
+% separation; converting expectations to a common process model would lose
+% precisely the distinction these assertions guard.
+\NewDocumentCommand \neanes@setcolorop { m } {%
+  \setbox\z@=\hbox{%
+    \color{#1}%
+    \xdef\neanes@colorop{\current@color}%
+  }%
+}
+
+%----------------------------------------------------------------------
+% Shipout marks
+%----------------------------------------------------------------------
+
+% \neanesmark{name}: record the page number and vertical position of this
+% point at shipout.  The name is expanded here, not at shipout.
+\NewDocumentCommand \neanesmark { m } {%
+  \begingroup
+  \edef\neanes@tmp{\noexpand\latelua{neanestest.mark("#1")}}%
+  \neanes@tmp
+  \endgroup
+}
+
+%----------------------------------------------------------------------
+% Box anchors
+%----------------------------------------------------------------------
+
+% \neanesanchor{name}: position marker for box-level assertions.  Inside a
+% paragraph it lands inside the line box; in vertical mode it becomes its
+% own whatsit (and, being non-discardable, manufactures a legal breakpoint
+% at following glue -- keep anchors inline in breakability regions).
+\NewDocumentCommand \neanesanchor { m } { \special{neanes:#1} }
+
+%----------------------------------------------------------------------
+% Immediate assertions
+%----------------------------------------------------------------------
+
+% Numbers (counts, penalties): \NeanesCheckNum{name}{<number>}{<expected>}
+\NewDocumentCommand \NeanesCheckNum { m m m } {%
+  \directlua{neanestest.check_num(\luastring{#1}, \number#2, \number#3)}%
+}
+
+% Dimens: \NeanesCheckDim{name}{<dimexpr>}{<expected dimexpr>}{<tol dimexpr>}
+\NewDocumentCommand \NeanesCheckDim { m m m m } {%
+  \directlua{neanestest.check_dim(\luastring{#1},
+  \neanes@dim{#2}, \neanes@dim{#3}, \neanes@dim{#4})}%
+}
+
+\NewDocumentCommand \NeanesCheckDimRange { m m m m } {%
+  \directlua{neanestest.check_dim_range(\luastring{#1},
+  \neanes@dim{#2}, \neanes@dim{#3}, \neanes@dim{#4})}%
+}
+
+% Loaded-file assertions keep optional module boundaries observable.
+\NewDocumentCommand \NeanesPackageLoaded { m m } {%
+  \@ifpackageloaded{#2}
+  {\NeanesCheckNum{#1}{1}{1}}
+  {\NeanesCheckNum{#1}{0}{1}}%
+}
+
+%----------------------------------------------------------------------
+% Box-level assertions (operate on \neanestestbox)
+%----------------------------------------------------------------------
+
+% Snapshot \neanestestbox for every assertion below.  One walk collects the
+% top-level vertical list along with each glyph's font, size, color and
+% position, so a test with many assertions inspects the box once.  Refill the
+% box and this must be called again.
+\NewDocumentCommand \NeanesUseBox {}
+{ \directlua{neanestest.use_box(\number\neanestestbox)} }
+
+% Diagnostic only: no test asserts on it, it exists to make a failing one
+% legible.
+\NewDocumentCommand \NeanesDumpTrace {}
+{ \directlua{neanestest.dump_trace()} }
+
+\NewDocumentCommand \NeanesBaselineGap { m m m m m } {%
+  \directlua{neanestest.check_baseline_gap(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\NewDocumentCommand \NeanesPenaltyBetween { m m m m } {%
+  \directlua{neanestest.check_penalty_between(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, \number#4)}%
+}
+
+\NewDocumentCommand \NeanesGlueWidthBetween { m m m m m } {%
+  \directlua{neanestest.check_glue_width_between(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\NewDocumentCommand \NeanesNoGlueWidthBetween { m m m m m } {%
+  \directlua{neanestest.check_no_glue_width_between(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+% Glyph and color assertions read the snapshot's glyph list, which covers
+% \neanestestbox recursively.  The trailing boolean of check_glyph_font selects
+% "every occurrence matches" versus "no occurrence matches".
+\NewDocumentCommand \NeanesGlyphFont { m m m } {%
+  \directlua{neanestest.check_glyph_font(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, true)}%
+}
+
+\NewDocumentCommand \NeanesGlyphFontNot { m m m } {%
+  \directlua{neanestest.check_glyph_font(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, false)}%
+}
+
+\NewDocumentCommand \NeanesGlyphSize { m m m m } {%
+  \directlua{neanestest.check_glyph_size(\luastring{#1},
+  \luastring{#2}, \neanes@dim{#3}, \neanes@dim{#4})}%
+}
+
+\NewDocumentCommand \NeanesGlyphCount { m m m } {%
+  \directlua{neanestest.check_glyph_count(\luastring{#1},
+  \luastring{#2}, \number#3)}%
+}
+
+% The two font assertions name a face by its exact full name, because faces
+% nest by prefix and a substring would let the wrong one answer.
+% \NeanesFontFeatures wants the face's whole requested feature set;
+% \NeanesFontScript holds for every face of that name in the box.
+\NewDocumentCommand \NeanesFontFeatures { m m m } {%
+  \directlua{neanestest.check_font_features(\luastring{#1},
+  \luastring{#2}, \luastring{#3})}%
+}
+
+\NewDocumentCommand \NeanesFontScript { m m m } {%
+  \directlua{neanestest.check_font_script(\luastring{#1},
+  \luastring{#2}, \luastring{#3})}%
+}
+
+\NewDocumentCommand \NeanesPdfLiteral { m m } {%
+  \directlua{neanestest.check_pdf_literal(\luastring{#1},
+  \luastring{#2})}%
+}
+
+\NewDocumentCommand \NeanesPdfColorstack { m m } {%
+  \directlua{neanestest.check_pdf_colorstack(\luastring{#1},
+  \luastring{#2})}%
+}
+
+\NewDocumentCommand \NeanesRuleSize { m m m m m } {%
+  \directlua{neanestest.check_rule_size(\luastring{#1},
+      \neanes@dim{#2}, \neanes@dim{#3},
+  \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\NewDocumentCommand \NeanesGlyphXRange { m m m m m } {%
+  \directlua{neanestest.check_glyph_x_range(\luastring{#1},
+      \luastring{#2}, \number#3,
+  \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\NewDocumentCommand \NeanesGlyphOuterBoxWidth { m m m m m } {%
+  \directlua{neanestest.check_glyph_outer_box_width(\luastring{#1},
+      \luastring{#2}, \number#3,
+  \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\NewDocumentCommand \NeanesGlyphOffset { m m m m m m m m } {%
+  \directlua{neanestest.check_glyph_offset(\luastring{#1},
+      \luastring{#2}, \number#3,
+  \luastring{#4}, \number#5, \neanes@dim{#6}, \neanes@dim{#7}, \neanes@dim{#8})}%
+}
+
+\NewDocumentCommand \NeanesGlyphColor { m m m } {%
+  \begingroup
+  \neanes@setcolorop{#3}%
+  \directlua{neanestest.check_glyph_color(\luastring{#1},
+  \luastring{#2}, \luastring{\neanes@colorop})}%
+  \endgroup
+}
+
+\NewDocumentCommand \NeanesAnyGlyph { m m m } {%
+  \directlua{neanestest.check_any_glyph(\luastring{#1},
+  \luastring{#2}, \neanes@dim{#3})}%
+}
+
+\NewDocumentCommand \NeanesNoGlyphSmaller { m m } {%
+  \directlua{neanestest.check_no_glyph_smaller(\luastring{#1},
+  \neanes@dim{#2})}%
+}
+
+% \NeanesBoxColor{name}{<color name>}: a color-stack push in \neanestestbox
+% selects the named color.
+\NewDocumentCommand \NeanesBoxColor { m m } {%
+  \begingroup
+  \neanes@setcolorop{#2}%
+  \directlua{neanestest.check_color(\luastring{#1},
+  \luastring{\neanes@colorop})}%
+  \endgroup
+}
+
+\NewDocumentCommand \NeanesBoxText { m m } {%
+  \directlua{neanestest.check_box_text(\luastring{#1},
+  \luastring{#2})}%
+}
+
+\NewDocumentCommand \NeanesBoxTextAbsent { m m } {%
+  \directlua{neanestest.check_box_text_absent(\luastring{#1},
+  \luastring{#2})}%
+}
+
+\NewDocumentCommand \NeanesBoxTextOrder { m m } {%
+  \directlua{neanestest.check_box_text_order(\luastring{#1},
+  \luastring{#2})}%
+}
+
+%----------------------------------------------------------------------
+% Deferred page assertions (evaluated after the last shipout)
+%----------------------------------------------------------------------
+
+\NewDocumentCommand \NeanesSamePage { m m } {%
+  \directlua{neanestest.expect_same_page(\luastring{#1}, \luastring{#2})}%
+}
+
+\NewDocumentCommand \NeanesVDistRange { m m m m m } {%
+  \directlua{neanestest.expect_vdist_range(\luastring{#1},
+  \luastring{#2}, \luastring{#3}, \neanes@dim{#4}, \neanes@dim{#5})}%
+}
+
+\endinput

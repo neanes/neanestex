@@ -1,0 +1,418 @@
+{
+  "version": "1.1",
+  "appVersion": "0.5.53",
+  "pageSetup": {
+    "pageSize": "Letter",
+    "pageSizeUnit": "in",
+    "pageWidth": 816,
+    "pageHeight": 1056,
+    "topMargin": 96,
+    "bottomMargin": 96,
+    "leftMargin": 96,
+    "rightMargin": 96,
+    "headerMargin": 48,
+    "footerMargin": 48,
+    "firstPageNumber": 1,
+    "lineHeight": 72.96000000000001,
+    "lyricsVerticalOffset": -4.800000000000001,
+    "lyricsMinimumSpacing": 4.800000000000001,
+    "lyricsMelismaCutoffWidth": 6.666666666666667,
+    "neumeDefaultFontFamily": "Neanes",
+    "neumeDefaultFontSize": 26.666666666666668,
+    "neumeDefaultColor": "#112233",
+    "neumeDefaultSpacing": 0,
+    "neumeDefaultStrokeWidth": 0,
+    "alternateLineDefaultFontSize": 16,
+    "alternateLineDefaultColor": "#ED0000",
+    "modeKeyDefaultColor": "#778899",
+    "modeKeyDefaultStrokeWidth": 0,
+    "modeKeyDefaultFontSize": 26.666666666666668,
+    "modeKeyDefaultHeightAdjustment": 0,
+    "accidentalDefaultColor": "#010101",
+    "accidentalDefaultStrokeWidth": 0,
+    "fthoraDefaultColor": "#556677",
+    "fthoraDefaultStrokeWidth": 0,
+    "heteronDefaultColor": "#445566",
+    "heteronDefaultStrokeWidth": 0,
+    "gorgonDefaultColor": "#020202",
+    "gorgonDefaultStrokeWidth": 0,
+    "measureBarDefaultColor": "#050505",
+    "measureBarDefaultStrokeWidth": 0,
+    "measureNumberDefaultColor": "#060606",
+    "measureNumberDefaultStrokeWidth": 0,
+    "noteIndicatorDefaultColor": "#070707",
+    "noteIndicatorDefaultStrokeWidth": 0,
+    "isonDefaultColor": "#030303",
+    "isonDefaultStrokeWidth": 0,
+    "breathDefaultColor": "#223344",
+    "breathDefaultStrokeWidth": 0,
+    "crossDefaultColor": "#334455",
+    "crossDefaultStrokeWidth": 0,
+    "koronisDefaultColor": "#040404",
+    "koronisDefaultStrokeWidth": 0,
+    "martyriaDefaultColor": "#667788",
+    "martyriaDefaultStrokeWidth": 0,
+    "tempoDefaultColor": "#8899AA",
+    "tempoDefaultStrokeWidth": 0,
+    "dropCapDefaultLineSpan": 1,
+    "hyphenSpacing": 49.60629921259843,
+    "minimumSyllableToHyphenClearance": 13.228346456692915,
+    "martyriaVerticalOffset": 4,
+    "chrysanthineAccidentals": true,
+    "alignIsonIndicators": true,
+    "ignorePunctuationWhenPositioningLyrics": true
+  },
+  "paragraphStyles": [
+    {
+      "id": "default-text",
+      "displayName": "Default Text"
+    },
+    {
+      "id": "annotation",
+      "displayName": "Annotation",
+      "parentStyleId": "default-text"
+    },
+    {
+      "id": "title",
+      "displayName": "Title",
+      "parentStyleId": "default-text",
+      "alignment": "center",
+      "fontSize": 37.333333333333336
+    },
+    {
+      "id": "subtitle",
+      "displayName": "Subtitle",
+      "parentStyleId": "default-text",
+      "alignment": "center",
+      "fontSize": 29.333333333333332
+    },
+    {
+      "id": "chapter",
+      "displayName": "Chapter",
+      "parentStyleId": "default-text",
+      "alignment": "center",
+      "fontSize": 32
+    },
+    {
+      "id": "section",
+      "displayName": "Section",
+      "parentStyleId": "default-text",
+      "fontSize": 26.666666666666668
+    },
+    {
+      "id": "header",
+      "displayName": "Header",
+      "parentStyleId": "default-text",
+      "alignment": "center"
+    },
+    {
+      "id": "footer",
+      "displayName": "Footer",
+      "parentStyleId": "default-text",
+      "alignment": "center"
+    },
+    {
+      "id": "lyrics",
+      "displayName": "Lyrics",
+      "parentStyleId": "default-text"
+    },
+    {
+      "id": "drop-cap",
+      "displayName": "Drop Cap",
+      "parentStyleId": "default-text",
+      "fontSize": 80
+    }
+  ],
+  "headers": {
+    "default": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "odd": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "even": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "firstPage": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "chapterOpening": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    }
+  },
+  "footers": {
+    "default": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "$p",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "odd": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "$p",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "even": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "$p",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "firstPage": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "$p",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    },
+    "chapterOpening": {
+      "elements": [
+        {
+          "elementType": "TextBox",
+          "content": "",
+          "contentBottom": "",
+          "contentLeft": "",
+          "contentCenter": "$p",
+          "contentRight": "",
+          "multipanel": true,
+          "height": 20,
+          "marginTop": 0,
+          "marginBottom": 0
+        }
+      ]
+    }
+  },
+  "staff": {
+    "elements": [
+      {
+        "id": 1,
+        "elementType": "Note",
+        "quantitativeNeume": "OligonPlusRunningElaphronPlusKentemata",
+        "timeNeume": "GorgonDottedLeft",
+        "gorgonNeume": "DigorgonDottedRight",
+        "secondaryGorgonNeume": "TrigorgonDottedRightSecondary",
+        "fthora": "DiatonicPa_Top",
+        "secondaryFthora": "SoftChromaticThi_TopSecondary",
+        "tertiaryFthora": "Enharmonic_TopTertiary",
+        "accidental": "Sharp_2_Left",
+        "secondaryAccidental": "Sharp_4_LeftSecondary",
+        "tertiaryAccidental": "Sharp_6_LeftTertiary",
+        "measureBarLeft": "MeasureBarDoubleAbove",
+        "measureNumber": "Three",
+        "noteIndicator": true,
+        "ison": "Ison.Ga",
+        "tie": "YfenAbove",
+        "accidentalOffsetX": -0.2,
+        "accidentalOffsetY": -0.15,
+        "fthoraOffsetX": 0.3,
+        "fthoraOffsetY": -0.2,
+        "gorgonNeumeOffsetX": 0.2,
+        "gorgonNeumeOffsetY": -0.1,
+        "isonOffsetX": 0.15,
+        "isonOffsetY": -0.25,
+        "measureBarLeftOffsetX": 0.4,
+        "measureBarLeftOffsetY": -0.3,
+        "measureNumberOffsetX": -0.15,
+        "measureNumberOffsetY": -0.2,
+        "noteIndicatorOffsetX": -0.3,
+        "noteIndicatorOffsetY": 0.1,
+        "secondaryAccidentalOffsetX": 0.35,
+        "secondaryAccidentalOffsetY": 0.05,
+        "secondaryFthoraOffsetX": -0.25,
+        "secondaryFthoraOffsetY": 0.15,
+        "secondaryGorgonNeumeOffsetX": -0.15,
+        "secondaryGorgonNeumeOffsetY": 0.25,
+        "tertiaryAccidentalOffsetX": -0.1,
+        "tertiaryAccidentalOffsetY": 0.4,
+        "tertiaryFthoraOffsetX": 0.1,
+        "tertiaryFthoraOffsetY": 0.35,
+        "tieOffsetX": 0.2,
+        "tieOffsetY": 0.45,
+        "timeNeumeOffsetX": 0.1,
+        "timeNeumeOffsetY": 0.2
+      },
+      {
+        "id": 2,
+        "elementType": "Note",
+        "quantitativeNeume": "RunningElaphron",
+        "koronis": true,
+        "stavros": true,
+        "koronisOffsetX": 0.25,
+        "koronisOffsetY": 0.3,
+        "stavrosOffsetX": 0.25,
+        "stavrosOffsetY": 0.2
+      },
+      {
+        "id": 3,
+        "lineBreak": true,
+        "elementType": "Note",
+        "quantitativeNeume": "Ison"
+      },
+      {
+        "id": 4,
+        "elementType": "Note",
+        "quantitativeNeume": "Ison",
+        "measureBarLeft": "MeasureBarDouble",
+        "measureBarLeftOffsetX": 0.2,
+        "measureBarLeftOffsetY": -0.15
+      },
+      {
+        "id": 5,
+        "elementType": "Martyria",
+        "note": "Pa",
+        "rootSign": "Alpha",
+        "scale": "Diatonic",
+        "fthora": "DiatonicVou_Top",
+        "tempoLeft": "Moderate",
+        "tempo": "Slow",
+        "tempoRight": "Quick",
+        "quantitativeNeume": "Oligon",
+        "measureBarLeft": "MeasureBarRight",
+        "measureBarRight": "MeasureBarDouble",
+        "alignRight": true,
+        "bpm": 168
+      },
+      {
+        "id": 6,
+        "elementType": "ModeKey",
+        "alignment": "center",
+        "mode": 7,
+        "scale": "Diatonic",
+        "scaleNote": "Pa",
+        "martyria": "ModeSign.AlphaWithDeltaHat",
+        "note": "ModeSign.Pa",
+        "note2": "ModeSign.Vou",
+        "fthoraAboveNote": "DiatonicPa_Top",
+        "fthoraAboveNote2": "SoftChromaticThi_Top",
+        "fthoraAboveQuantitativeNeumeRight": "DiatonicVou_Top",
+        "quantitativeNeumeRight": "Ison",
+        "quantitativeNeumeAboveNote": "Oligon",
+        "quantitativeNeumeAboveNote2": "Petasti",
+        "color": "#654321",
+        "fontSize": 32,
+        "strokeWidth": 0,
+        "height": 60,
+        "heightAdjustment": 0,
+        "marginTop": 10.666666666666666,
+        "marginBottom": 8,
+        "bpm": 120,
+        "ambitusLowNote": "Pa",
+        "ambitusLowRootSign": "Alpha",
+        "ambitusHighNote": "Pa",
+        "ambitusHighRootSign": "Alpha",
+        "showAmbitus": true
+      },
+      {
+        "elementType": "Empty"
+      }
+    ],
+    "lyrics": {
+      "text": "_ _ _ _"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+\input regression-test.tex\relax
+
+% Existing rich-text fixture: a score declares its faces through fontspec, so a
+% document-level Script default reaches every face declared for a non-Latin
+% section, and the per-style OpenType features still arrive alongside it. The
+% roman and italic faces are named apart because a style landing on the wrong
+% one is the mistake worth catching.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+\defaultfontfeatures{Script=Greek}
+\setbox\neanestestbox=\vbox{\neanesscore{opentype-matrix.byztex}{greek}}
+\NeanesUseBox
+
+\NeanesFontScript{Greek script default reaches Old Standard}
+{Old Standard Regular}{grek}
+\NeanesFontScript{Greek script default reaches Old Standard Italic}
+{Old Standard Italic}{grek}
+\NeanesFontFeatures{Greek small-cap features reach Old Standard}
+{Old Standard Regular}{+smcp,+c2sc}
+\NeanesFontFeatures{Greek historical ligatures reach Old Standard}
+{Old Standard Regular}{+hlig}
+\NeanesFontFeatures{Greek stylistic set reaches Old Standard}
+{Old Standard Regular}{+ss02}
+\NeanesFontFeatures{Greek character variant reaches Old Standard}
+{Old Standard Regular}{+cv01}
+\NeanesFontFeatures{Greek alternates reach Old Standard}
+{Old Standard Regular}{+salt}
+\NeanesFontFeatures{Greek italic stylistic set reaches Old Standard}
+{Old Standard Italic}{+ss11}
+
+\defaultfontfeatures{Script=Cyrillic}
+\setbox\neanestestbox=\vbox{\neanesscore{opentype-matrix.byztex}{cyrillic}}
+\NeanesUseBox
+
+\NeanesFontScript{Cyrillic script default reaches Old Standard}
+{Old Standard Regular}{cyrl}
+\NeanesFontScript{Cyrillic script default reaches Old Standard Italic}
+{Old Standard Italic}{cyrl}
+\NeanesFontFeatures{Cyrillic small-cap features reach Old Standard}
+{Old Standard Regular}{+smcp,+c2sc}
+\NeanesFontFeatures{Cyrillic stylistic set reaches Old Standard}
+{Old Standard Regular}{+ss05}
+\NeanesFontFeatures{Cyrillic alternates reach Old Standard}
+{Old Standard Regular}{+salt}
+\NeanesFontFeatures{Cyrillic italic stylistic set reaches Old Standard}
+{Old Standard Italic}{+ss11}
+\end{document}

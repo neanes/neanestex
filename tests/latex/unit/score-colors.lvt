@@ -1,0 +1,59 @@
+\input regression-test.tex\relax
+
+% Score glyphs use their configured semantic colors.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\definecolor{expected-neume}{HTML}{112233}
+\definecolor{expected-accidental}{HTML}{010101}
+\definecolor{expected-breath}{HTML}{223344}
+\definecolor{expected-cross}{HTML}{334455}
+\definecolor{expected-gorgon}{HTML}{020202}
+\definecolor{expected-heteron}{HTML}{445566}
+\definecolor{expected-fthora}{HTML}{556677}
+\definecolor{expected-ison}{HTML}{030303}
+\definecolor{expected-koronis}{HTML}{040404}
+\definecolor{expected-martyria}{HTML}{667788}
+\definecolor{expected-measure-bar}{HTML}{050505}
+\definecolor{expected-measure-number}{HTML}{060606}
+\definecolor{expected-mode-key}{HTML}{778899}
+\definecolor{expected-note-indicator}{HTML}{070707}
+\definecolor{expected-tempo}{HTML}{8899AA}
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{colors.byztex}{}}
+\NeanesUseBox
+\NeanesGlyphColor{ordinary neume uses neume color}
+{\NeanesGlyph{ison}}{expected-neume}
+\NeanesGlyphColor{breath uses breath color}
+{\NeanesGlyph{breath}}{expected-breath}
+\NeanesGlyphColor{cross uses cross color}
+{\NeanesGlyph{stavros}}{expected-cross}
+\NeanesGlyphColor{heteron uses heteron color}
+{\NeanesGlyph{heteron}}{expected-heteron}
+\NeanesGlyphColor{gorgon uses gorgon color}
+{\NeanesGlyph{gorgonAbove}}{expected-gorgon}
+\NeanesGlyphColor{accidental uses accidental color}
+{\NeanesGlyph{diesis2}}{expected-accidental}
+\NeanesGlyphColor{note indicator uses note-indicator color}
+{\NeanesGlyph{noteIndicatorVou}}{expected-note-indicator}
+\NeanesGlyphColor{ison indicator uses ison color}
+{\NeanesGlyph{isonIndicatorPa}}{expected-ison}
+\NeanesGlyphColor{koronis uses koronis color}
+{\NeanesGlyph{koronis}}{expected-koronis}
+\NeanesGlyphColor{measure number uses measure-number color}
+{\NeanesGlyph{measureNumber2}}{expected-measure-number}
+\NeanesGlyphColor{measure bars use measure-bar color}
+{\NeanesGlyph{barlineSingle}}{expected-measure-bar}
+\NeanesGlyphColor{martyria fthora uses fthora color}
+{\NeanesGlyph{fthoraDiatonicPaAbove}}{expected-fthora}
+\NeanesGlyphColor{martyria and ambitus use martyria color}
+{\NeanesGlyph{martyriaNotePa}}{expected-martyria}
+\NeanesGlyphColor{mode key uses mode-key color}
+{\NeanesGlyph{modeFirst}}{expected-mode-key}
+\NeanesGlyphColor{inline and right-aligned tempi use tempo color}
+{\NeanesGlyph{agogiMetria}}{expected-tempo}
+\end{document}
