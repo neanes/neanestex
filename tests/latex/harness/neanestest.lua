@@ -432,7 +432,7 @@ local function entries_between(name, a, b)
     if not ia then
         return nil
     end
-    return table.move(snapshot().trace, ia + 1, ib - 1, 1, {})
+    return table.move(snapshot().trace, ia + 1, ib - 1, 1, {}), ia + 1
 end
 
 -- Baseline-to-baseline distance between the line owning anchor a and the
@@ -498,13 +498,13 @@ end
 
 -- No glue within tol of this width exists strictly between the anchors.
 function M.check_no_glue_width_between(name, a, b, width, tol)
-    local entries = entries_between(name, a, b)
+    local entries, first_index = entries_between(name, a, b)
     if not entries then
         return
     end
     for i, e in ipairs(entries) do
         if e.id == GLUE_ID and math.abs(e.width - width) <= tol then
-            record(false, name, string.format("found forbidden glue %s at %d", sp2pt(e.width), i))
+            record(false, name, string.format("found forbidden glue %s at %d", sp2pt(e.width), first_index + i - 1))
             return
         end
     end
@@ -537,20 +537,29 @@ local function find_occurrence(char, occurrence, required)
     local found = occurrences(char)
     local glyph = found[occurrence]
 
-    if glyph and (not required or glyph[required] ~= nil) then
-        return glyph, occurrence
+    if not glyph then
+        return nil, #found, nil
     end
+    if required and glyph[required] == nil then
+        return nil, #found, required
+    end
+    return glyph, #found, nil
+end
 
-    return nil, #found
+local function occurrence_failure(char, occurrence, count, missing_field)
+    if missing_field then
+        return string.format("glyph %q #%d lacks required field %s", char, occurrence, missing_field)
+    end
+    return string.format("glyph occurrence missing: %q #%d (saw %d)", char, occurrence, count)
 end
 
 -- The horizontal origin of one glyph within its top-level line.  A range is
 -- more useful than an exact coordinate for alignment contracts because it
 -- remains stable when a bundled font's advance width changes slightly.
 function M.check_glyph_x_range(name, char, occurrence, min, max)
-    local glyph, count = find_occurrence(char, occurrence, "x")
+    local glyph, count, missing_field = find_occurrence(char, occurrence, "x")
     if not glyph then
-        record(false, name, string.format("glyph occurrence missing: %q #%d (saw %d)", char, occurrence, count))
+        record(false, name, occurrence_failure(char, occurrence, count, missing_field))
         return
     end
 
@@ -746,9 +755,9 @@ end
 -- Score elements are emitted as direct child mboxes of their paragraph line,
 -- so this pins whether an overlay changes the element's horizontal advance.
 function M.check_glyph_outer_box_width(name, char, occurrence, expected, tol)
-    local glyph, count = find_occurrence(char, occurrence, "outer_box_width")
+    local glyph, count, missing_field = find_occurrence(char, occurrence, "outer_box_width")
     if not glyph then
-        record(false, name, string.format("glyph occurrence missing: %q #%d (saw %d)", char, occurrence, count))
+        record(false, name, occurrence_failure(char, occurrence, count, missing_field))
         return
     end
 
@@ -759,11 +768,18 @@ end
 -- Compare the origins of two addressed glyph occurrences on the same line.
 -- Occurrence indices make repeated quantitative neumes usable as width oracles.
 function M.check_glyph_offset(name, from_char, from_occurrence, to_char, to_occurrence, expected_x, expected_y, tol)
-    local from, from_count = find_occurrence(from_char, from_occurrence, "x")
-    local to, to_count = find_occurrence(to_char, to_occurrence, "x")
+    local from, from_count, from_missing_field = find_occurrence(from_char, from_occurrence, "x")
+    local to, to_count, to_missing_field = find_occurrence(to_char, to_occurrence, "x")
 
     if not from or not to then
-        record(false, name, string.format("glyph occurrence missing: %q #%d (saw %d), %q #%d (saw %d)", from_char, from_occurrence, from_count, to_char, to_occurrence, to_count))
+        local problems = {}
+        if not from then
+            table.insert(problems, occurrence_failure(from_char, from_occurrence, from_count, from_missing_field))
+        end
+        if not to then
+            table.insert(problems, occurrence_failure(to_char, to_occurrence, to_count, to_missing_field))
+        end
+        record(false, name, table.concat(problems, "; "))
         return
     end
 
@@ -986,6 +1002,11 @@ function M.finish()
     end
     texio.write_nl("log", "TOTAL" .. SEP .. #M.results .. SEP .. M.failures)
     texio.write_nl("term", string.format("neanestest: %d assertion(s), %d failure(s)", #M.results, M.failures))
+    if M.failures > 0 then
+        tex.error("neanestest: assertion failure", {
+            string.format("The test recorded %d failed assertion(s).", M.failures),
+        })
+    end
 end
 
 return M

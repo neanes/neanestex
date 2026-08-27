@@ -69,6 +69,8 @@
 \newcount\neanes@scorelevel
 \newif\ifneanes@countscore
 \newif\ifneanes@instrumentscore
+\newif\ifneanes@usescoreparagraphs
+\newif\ifneanes@useinstrumentscore
 
 % Section selection: count only the paragraphs the score itself opens, which
 % are the ones one group level inside the call.
@@ -83,11 +85,19 @@
 % \NeanesScoreParagraphs{file}{section}: render the score and leave the number
 % of paragraphs it emitted in \NeanesScoreParagraphCount.
 \NewDocumentCommand \NeanesScoreParagraphs { m m } {%
+  \ifneanes@useinstrumentscore
+  \PackageError{neanestest}
+  {Paragraph counting modes cannot be combined}
+  {Use either \string\NeanesScoreParagraphs\space or
+  \string\NeanesInstrumentScore, never both.}%
+  \else
+  \neanes@usescoreparagraphstrue
   \global\NeanesScoreParagraphCount=0\relax
   \neanes@scorelevel=\currentgrouplevel
   \neanes@countscoretrue
   \neanesscore{#1}{#2}%
   \neanes@countscorefalse
+  \fi
 }
 
 % Page layout: count every paragraph of the score, capture the leading in force
@@ -107,6 +117,13 @@
 % \NeanesInstrumentScore{assertions}: patch \neanesscore so that every score in
 % an unmodified example document is instrumented and followed by `assertions`.
 \NewDocumentCommand \NeanesInstrumentScore { m } {%
+  \ifneanes@usescoreparagraphs
+  \PackageError{neanestest}
+  {Paragraph counting modes cannot be combined}
+  {Use either \string\NeanesScoreParagraphs\space or
+  \string\NeanesInstrumentScore, never both.}%
+  \else
+  \neanes@useinstrumentscoretrue
   \NewCommandCopy \neanes@originalscore \neanesscore
   \RenewDocumentCommand \neanesscore { m m } {%
     \global\NeanesScoreParagraphCount=0\relax
@@ -115,6 +132,7 @@
     \neanes@instrumentscorefalse
     #1%
   }%
+  \fi
 }
 
 % Dimen arguments reach Lua as scaled points.
