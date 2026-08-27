@@ -182,25 +182,50 @@ local function get_mark_offset(base, mark, extra_offset)
     }
 end
 
+-- Single-byte characters LaTeX cannot take literally.
+local LATEX_ESCAPES = {
+    ["\\"] = "\\textbackslash{}",
+    ["{"] = "\\{",
+    ["}"] = "\\}",
+    ["$"] = "\\$",
+    ["&"] = "\\&",
+    ["%"] = "\\%",
+    ["#"] = "\\#",
+    ["_"] = "\\_",
+    ["^"] = "\\textasciicircum{}",
+    ["~"] = "\\textasciitilde{}",
+    ["\n"] = "\\\\",
+}
+
+-- Derived from the table rather than written out beside it, so an escape can
+-- never be declared and then left out of the pattern that selects it.  "%"
+-- before any non-alphanumeric character matches it literally, so escaping
+-- every key unconditionally is safe.
+local LATEX_ESCAPE_CLASS
+do
+    local escaped = {}
+    for character in pairs(LATEX_ESCAPES) do
+        table.insert(escaped, "%" .. character)
+    end
+    table.sort(escaped)
+    LATEX_ESCAPE_CLASS = "[" .. table.concat(escaped) .. "]"
+end
+
+-- Neume characters that carry their own font wherever they appear in text.
+-- They are multi-byte, so they cannot join a character class and are replaced
+-- one at a time, after the pass above has finished with the braces and
+-- backslashes their replacements introduce.
+local NEUME_ESCAPES = {}
+for _, character in ipairs({ "\u{E280}", "\u{E281}", "\u{1D0B4}", "\u{1D0B5}" }) do
+    NEUME_ESCAPES[character] = "{\\byzneumefont" .. character .. "}"
+end
+
 local function escape_latex(str)
-    local replacements = {
-        ["\\"] = "\\textbackslash{}",
-        ["{"] = "\\{",
-        ["}"] = "\\}",
-        ["$"] = "\\$",
-        ["&"] = "\\&",
-        ["%"] = "\\%",
-        ["#"] = "\\#",
-        ["_"] = "\\_",
-        ["^"] = "\\textasciicircum{}",
-        ["~"] = "\\textasciitilde{}",
-        ["\n"] = "\\\\",
-        ["\u{E280}"] = "{\\byzneumefont\u{E280}}",
-        ["\u{E281}"] = "{\\byzneumefont\u{E281}}",
-        ["\u{1D0B4}"] = "{\\byzneumefont\u{1D0B4}}",
-        ["\u{1D0B5}"] = "{\\byzneumefont\u{1D0B5}}",
-    }
-    return str:gsub("[\\%$%&%#_%^{}~\n]", replacements):gsub("\u{E280}", replacements["\u{E280}"]):gsub("\u{E281}", replacements["\u{E281}"]):gsub("\u{1D0B4}", replacements["\u{1D0B4}"]):gsub("\u{1D0B5}", replacements["\u{1D0B5}"])
+    local escaped = str:gsub(LATEX_ESCAPE_CLASS, LATEX_ESCAPES)
+    for character, replacement in pairs(NEUME_ESCAPES) do
+        escaped = escaped:gsub(character, replacement)
+    end
+    return escaped
 end
 
 -- Whitespace-tokenized so "Semibold" is not read as "Bold".

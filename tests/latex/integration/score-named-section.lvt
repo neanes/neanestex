@@ -1,0 +1,21 @@
+\input regression-test.tex\relax
+
+% A named-section request renders that section and no other named-section content.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+% One render answers every assertion below.
+\setbox\neanestestbox=\vbox{
+  \NeanesScoreParagraphs{funeral-service-blameless.byztex}{Stasis 1}
+}
+\NeanesUseBox
+\NeanesCheckNum{named selection emits seven paragraphs}
+{\NeanesScoreParagraphCount}{7}
+\NeanesBoxTextOrder{named selection preserves its content order}
+{blame,Bless,teach,tutes}
+\NeanesBoxTextAbsent{named selection excludes other named-section content}{hands}
+\end{document}

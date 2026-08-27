@@ -1,0 +1,50 @@
+\input regression-test.tex\relax
+
+% Schema-v3 styles exercise block, inline, multipanel, lyric, and drop-cap
+% rendering while assertions pin exact faces, sizes, colors, and content.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\definecolor{expected-block}{HTML}{112233}
+\definecolor{expected-inline}{HTML}{223344}
+\definecolor{expected-lyrics}{HTML}{334455}
+\definecolor{expected-drop-cap}{HTML}{445566}
+\definecolor{expected-escaped}{HTML}{556677}
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{text-styles.byztex}{}}
+\NeanesUseBox
+
+\NeanesBoxText{block text reaches the rendered box}{Q}
+\NeanesBoxText{text after an escaped percent sign renders}{AFTER}
+\NeanesBoxText{multipanel left content renders}{LEFT}
+\NeanesBoxText{multipanel center content renders}{CENTER}
+\NeanesBoxText{multipanel right content renders}{RIGHT}
+\NeanesBoxText{inline bottom content renders}{BOTTOM}
+
+\NeanesGlyphFont{block uses its exact regular face}{Q}{Source Serif 4}
+\NeanesGlyphFont{inline box uses its exact semibold face}
+{X}{Source Serif 4 Display Semibold}
+\NeanesGlyphFont{drop cap uses its exact semibold face}
+{D}{Source Serif 4 Display Semibold}
+\NeanesGlyphFont{lyrics use their exact regular face}{Y}{Source Serif 4}
+\NeanesGlyphFont{escaped text uses its exact regular face}{S}{Source Serif 4}
+
+\NeanesGlyphSize{block uses its style size}{Q}{11bp}{0.01pt}
+\NeanesGlyphSize{inline box uses its style size}{X}{13bp}{0.01pt}
+\NeanesGlyphSize{drop cap uses its style size}{D}{18bp}{0.01pt}
+\NeanesGlyphSize{lyrics use their style size}{Y}{10bp}{0.01pt}
+\NeanesGlyphSize{escaped text uses its style size}{S}{12bp}{0.01pt}
+
+\NeanesGlyphColor{block uses its style color}{Q}{expected-block}
+\NeanesGlyphColor{inline box uses its style color}{X}{expected-inline}
+\NeanesGlyphColor{drop cap uses its style color}{D}{expected-drop-cap}
+\NeanesGlyphColor{lyrics use their style color}{Y}{expected-lyrics}
+\NeanesGlyphColor{escaped text uses its style color}{S}{expected-escaped}
+
+\NeanesPdfColorstack{block enables fill-and-stroke rendering}{2 Tr}
+\NeanesPdfColorstack{block uses its exported stroke width}{0.14998 w}
+\end{document}

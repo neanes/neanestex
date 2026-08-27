@@ -1,0 +1,44 @@
+\input regression-test.tex\relax
+
+% Existing rich-text fixture: every exported schema-v3 OpenType tag reaches a
+% used luaotfload font selector with its requested enabled/disabled value, on a
+% face that requests that tag set and nothing else.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+\setbox\neanestestbox=\vbox{\neanesscore{opentype-matrix.byztex}{}}
+\NeanesUseBox
+
+\NeanesFontFeatures{small-cap features reach Source Serif}
+{Source Serif 4}{+smcp,+c2sc}
+\NeanesFontFeatures{proportional lining figures reach Source Serif}
+{Source Serif 4}{+lnum,+pnum}
+\NeanesFontFeatures{tabular lining figures reach Source Serif}
+{Source Serif 4}{+lnum,+tnum}
+\NeanesFontFeatures{proportional old-style figures reach Source Serif}
+{Source Serif 4}{+onum,+pnum}
+\NeanesFontFeatures{tabular old-style figures reach Source Serif}
+{Source Serif 4}{+onum,+tnum}
+\NeanesFontFeatures{fractions reach Source Serif}{Source Serif 4}{+frac}
+\NeanesFontFeatures{slashed zero reaches Source Serif}{Source Serif 4}{+zero}
+\NeanesFontFeatures{ordinals reach Source Serif}{Source Serif 4}{+ordn}
+\NeanesFontFeatures{disabled ligatures reach Source Serif}
+{Source Serif 4}{-liga,-clig}
+\NeanesFontFeatures{discretionary ligatures reach Source Serif}
+{Source Serif 4}{+dlig}
+\NeanesFontFeatures{historical ligatures reach Source Serif}
+{Source Serif 4}{+hlig}
+\NeanesFontFeatures{petite-cap features reach Source Serif}
+{Source Serif 4}{+pcap,+c2pc}
+\NeanesFontFeatures{titling capitals reach Source Serif}{Source Serif 4}{+titl}
+\NeanesFontFeatures{unicase reaches Source Serif}{Source Serif 4}{+unic}
+\NeanesFontFeatures{alternate fractions reach Source Serif}
+{Source Serif 4}{+afrc}
+\NeanesFontFeatures{combined disabled features reach Source Serif}
+{Source Serif 4}{-liga,-clig,-calt}
+\NeanesFontFeatures{historical forms reach GFS Didot}{GFSDidot-Regular}{+hist}
+\end{document}

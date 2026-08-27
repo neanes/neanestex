@@ -1,0 +1,6 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | following prose retains ordinary leading | baseline gap 14.500pt, expected [14.480pt, 14.520pt]
+TOTAL | 1 | 0
+***************
+Compilation 1 of test file completed with exit status 0

@@ -1,0 +1,171 @@
+{
+  "appVersion": "0.5.53",
+  "schemaVersion": 3,
+  "sectionNames": [
+    "Plain",
+    "Right",
+    "Margins",
+    "Empty",
+    "Inline"
+  ],
+  "fontVersions": {
+    "Neanes": "1.0.9"
+  },
+  "textStyles": [
+    {
+      "id": "left",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 12,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "112233",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "right",
+      "alignment": "right",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 12,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "445566",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    }
+  ],
+  "pageSetup": {
+    "lineHeight": 54.72,
+    "martyriaVerticalOffset": 3,
+    "fontFamilies": {
+      "neume": "Neanes"
+    },
+    "fontSizes": {
+      "modeKey": 20,
+      "neume": 20
+    },
+    "lyricsVerticalOffset": 18.15,
+    "lyricsMelismaSpacing": 1.8,
+    "lyricsMelismaThickness": 0.75,
+    "colors": {
+      "accidental": "ED0000",
+      "breath": "000000",
+      "cross": "000000",
+      "fthora": "ED0000",
+      "gorgon": "ED0000",
+      "heteron": "ED0000",
+      "ison": "ED0000",
+      "koronis": "ED0000",
+      "martyria": "ED0000",
+      "measureBar": "ED0000",
+      "measureNumber": "000000",
+      "modeKey": "ED0000",
+      "neume": "000000",
+      "noteIndicator": "ED0000",
+      "tempo": "ED0000"
+    }
+  },
+  "sections": [
+    {
+      "name": "Plain",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 20,
+              "content": "P",
+              "styleId": "left"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    },
+    {
+      "name": "Right",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 20,
+              "content": "R",
+              "styleId": "right"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    },
+    {
+      "name": "Margins",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 20,
+              "content": "M",
+              "marginTop": 7,
+              "marginBottom": 9,
+              "styleId": "left"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    },
+    {
+      "name": "Empty",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 13,
+              "content": "",
+              "styleId": "left"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    },
+    {
+      "name": "Inline",
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 200,
+              "height": 36.75,
+              "inline": true,
+              "content": "I",
+              "contentBottom": "",
+              "styleId": "left"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    }
+  ]
+}

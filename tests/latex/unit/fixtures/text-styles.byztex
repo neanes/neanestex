@@ -1,0 +1,191 @@
+{
+  "appVersion": "0.5.53",
+  "schemaVersion": 3,
+  "sectionNames": [],
+  "fontVersions": {
+    "Neanes": "1.0.9"
+  },
+  "textStyles": [
+    {
+      "id": "block",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 11,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "112233",
+      "strokeWidth": 0.15,
+      "strokeColor": "currentcolor",
+      "lineHeight": 1.4,
+      "textDecoration": "underline",
+      "fontFeatures": {}
+    },
+    {
+      "id": "escaped",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 12,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "556677",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "inline",
+      "alignment": "center",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 13,
+      "fontStyle": "Display Semibold",
+      "postscriptName": "SourceSerif4Display-Semibold",
+      "color": "223344",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "drop-cap",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 18,
+      "fontStyle": "Display Semibold",
+      "postscriptName": "SourceSerif4Display-Semibold",
+      "color": "445566",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    },
+    {
+      "id": "lyrics",
+      "alignment": "left",
+      "fontFamily": "Source Serif 4",
+      "fontSize": 10,
+      "fontStyle": "Regular",
+      "postscriptName": "SourceSerif4-Regular",
+      "color": "334455",
+      "strokeWidth": 0,
+      "strokeColor": "currentcolor",
+      "lineHeight": "normal",
+      "textDecoration": "none",
+      "fontFeatures": {}
+    }
+  ],
+  "pageSetup": {
+    "lineHeight": 54.72,
+    "martyriaVerticalOffset": 3,
+    "fontFamilies": {
+      "neume": "Neanes"
+    },
+    "fontSizes": {
+      "modeKey": 20,
+      "neume": 20
+    },
+    "lyricsVerticalOffset": 15.9,
+    "lyricsMelismaSpacing": 1.8,
+    "lyricsMelismaThickness": 0.75,
+    "colors": {
+      "accidental": "ED0000",
+      "breath": "000000",
+      "cross": "000000",
+      "fthora": "ED0000",
+      "gorgon": "ED0000",
+      "heteron": "ED0000",
+      "ison": "ED0000",
+      "koronis": "ED0000",
+      "martyria": "ED0000",
+      "measureBar": "ED0000",
+      "measureNumber": "000000",
+      "modeKey": "ED0000",
+      "neume": "000000",
+      "noteIndicator": "ED0000",
+      "tempo": "ED0000"
+    }
+  },
+  "sections": [
+    {
+      "default": true,
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 24,
+              "content": "Q",
+              "styleId": "block"
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "S & % # _ $ { } \\ ^ ~ AFTER",
+              "styleId": "escaped"
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 468,
+              "height": 18,
+              "content": "",
+              "multipanel": true,
+              "contentLeft": "LEFT",
+              "contentCenter": "CENTER",
+              "contentRight": "RIGHT",
+              "styleId": "block"
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "textbox",
+              "x": 0,
+              "width": 160,
+              "height": 36.75,
+              "inline": true,
+              "content": "X",
+              "contentBottom": "BOTTOM",
+              "styleId": "inline"
+            },
+            {
+              "type": "dropcap",
+              "x": 165.5746,
+              "width": 24,
+              "content": "D",
+              "styleId": "drop-cap"
+            },
+            {
+              "type": "note",
+              "x": 192.5492,
+              "width": 27.1093,
+              "quantitativeNeume": "ison",
+              "lyrics": "Y",
+              "lyricsStyleId": "lyrics"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    }
+  ]
+}

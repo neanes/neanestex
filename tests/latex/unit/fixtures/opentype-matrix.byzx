@@ -1,6 +1,6 @@
 {
   "version": "1.1",
-  "appVersion": "0.5.40",
+  "appVersion": "0.5.53",
   "pageSetup": {
     "pageSize": "Letter",
     "pageSizeUnit": "in",
@@ -65,20 +65,7 @@
   "paragraphStyles": [
     {
       "id": "default-text",
-      "displayName": "Default Text",
-      "alignment": "left",
-      "fontFamily": "Source Serif",
-      "fontSize": 14.666666666666666,
-      "fontSubfamily": "Regular",
-      "color": "#000000",
-      "strokeWidth": 0,
-      "strokeColor": "currentcolor",
-      "lineHeight": 1.15,
-      "textDecoration": null,
-      "fontVariantCaps": null,
-      "fontVariantNumeric": null,
-      "fontVariantLigatures": null,
-      "fontVariantAlternates": null
+      "displayName": "Default Text"
     },
     {
       "id": "annotation",
@@ -266,15 +253,15 @@
       "id": "matrix-017",
       "displayName": "Source / exact Display Semibold + decoration/stroke",
       "parentStyleId": "default-text",
+      "alignment": "center",
       "fontFamily": "Source Serif",
       "fontSubfamily": "Display Semibold",
-      "fontVariantNumeric": "oldstyle-nums",
       "color": "#000080",
       "strokeWidth": 0.26666666666666666,
       "strokeColor": "#800000",
-      "textDecoration": "underline",
       "lineHeight": 1.35,
-      "alignment": "center"
+      "textDecoration": "underline",
+      "fontVariantNumeric": "oldstyle-nums"
     },
     {
       "id": "matrix-018",
@@ -1043,7 +1030,7 @@
   "staff": {
     "elements": [
       {
-        "id": 10000,
+        "id": 1,
         "elementType": "TextBox",
         "paragraphStyleId": "title",
         "content": "NeanesTeX v3 OpenType end-to-end matrix",
@@ -1052,26 +1039,25 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 32,
+        "customHeight": 32,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 32
+        "marginBottom": 0
       },
       {
-        "id": 10001,
+        "id": 2,
         "elementType": "TextBox",
-        "paragraphStyleId": "default-text",
         "content": "Default text root: Abc 0123 office",
         "contentBottom": "",
         "contentLeft": "",
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10002,
+        "id": 3,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-001",
         "content": "Source Serif Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1080,12 +1066,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10003,
+        "id": 4,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-002",
         "content": "Source / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1094,12 +1080,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10004,
+        "id": 5,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-003",
         "content": "Source / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1108,12 +1094,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10005,
+        "id": 6,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-004",
         "content": "Source / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1122,12 +1108,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10006,
+        "id": 7,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-005",
         "content": "Source / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1136,12 +1122,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10007,
+        "id": 8,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-006",
         "content": "Source / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1150,12 +1136,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10008,
+        "id": 9,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-007",
         "content": "Source / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1164,12 +1150,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10009,
+        "id": 10,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-008",
         "content": "Source / frac: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1178,12 +1164,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10010,
+        "id": 11,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-009",
         "content": "Source / zero: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1192,12 +1178,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10011,
+        "id": 12,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-010",
         "content": "Source / ordn: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1206,12 +1192,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10012,
+        "id": 13,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-011",
         "content": "Source / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1220,12 +1206,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10013,
+        "id": 14,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-012",
         "content": "Source / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1234,12 +1220,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10014,
+        "id": 15,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-013",
         "content": "Source / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1248,12 +1234,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10015,
+        "id": 16,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-014",
         "content": "Source / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1262,12 +1248,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10016,
+        "id": 17,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-015",
         "content": "Source / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1276,12 +1262,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10017,
+        "id": 18,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-016",
         "content": "Source / dlig+calt interaction (dlig absent): Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1290,12 +1276,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10018,
+        "id": 19,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-017",
         "content": "Source / exact Display Semibold + decoration/stroke: Exact face 0123 office",
@@ -1304,12 +1290,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10019,
+        "id": 20,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-018",
         "content": "GFS Didot Regular / normal: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1318,12 +1304,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10020,
+        "id": 21,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-019",
         "content": "Didot / smcp: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1332,12 +1318,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10021,
+        "id": 22,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-020",
         "content": "Didot / smcp+c2sc: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1346,12 +1332,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10022,
+        "id": 23,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-021",
         "content": "Didot / lnum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1360,12 +1346,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10023,
+        "id": 24,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-022",
         "content": "Didot / lnum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1374,12 +1360,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10123,
+        "id": 25,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-089",
         "content": "Didot / lnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1388,12 +1374,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10124,
+        "id": 26,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-090",
         "content": "Didot / tnum only: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1402,12 +1388,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10024,
+        "id": 27,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-023",
         "content": "Didot / onum+pnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1416,12 +1402,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10025,
+        "id": 28,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-024",
         "content": "Didot / onum+tnum: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1430,12 +1416,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10026,
+        "id": 29,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-025",
         "content": "Didot / frac absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1444,12 +1430,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10027,
+        "id": 30,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-026",
         "content": "Didot / zero absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1458,12 +1444,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10028,
+        "id": 31,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-027",
         "content": "Didot / ordn absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1472,12 +1458,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10029,
+        "id": 32,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-028",
         "content": "Didot / liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1486,12 +1472,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10030,
+        "id": 33,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-029",
         "content": "Didot / -liga: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1500,12 +1486,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10031,
+        "id": 34,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-030",
         "content": "Didot / dlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1514,12 +1500,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10032,
+        "id": 35,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-031",
         "content": "Didot / hlig absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1528,12 +1514,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10033,
+        "id": 36,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-032",
         "content": "Didot / calt absent: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1542,12 +1528,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10034,
+        "id": 37,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-033",
         "content": "Didot / hist: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -1556,12 +1542,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10035,
+        "id": 38,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-034",
         "content": "Old Standard Regular / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1570,12 +1556,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10036,
+        "id": 39,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-035",
         "content": "Old Standard / smcp: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1584,12 +1570,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10037,
+        "id": 40,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-036",
         "content": "Old Standard / smcp+c2sc: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1598,12 +1584,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10038,
+        "id": 41,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-037",
         "content": "Old Standard / lnum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1612,12 +1598,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10039,
+        "id": 42,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-038",
         "content": "Old Standard / lnum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1626,12 +1612,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10040,
+        "id": 43,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-039",
         "content": "Old Standard / onum+pnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1640,12 +1626,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10041,
+        "id": 44,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-040",
         "content": "Old Standard / onum+tnum: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1654,12 +1640,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10042,
+        "id": 45,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-041",
         "content": "Old Standard / frac: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1668,12 +1654,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10043,
+        "id": 46,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-042",
         "content": "Old Standard / zero absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1682,12 +1668,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10044,
+        "id": 47,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-043",
         "content": "Old Standard / ordn absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1696,12 +1682,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10045,
+        "id": 48,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-044",
         "content": "Old Standard / liga: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1710,12 +1696,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10046,
+        "id": 49,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-045",
         "content": "Old Standard / Greek hlig: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1724,12 +1710,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10047,
+        "id": 50,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-046",
         "content": "Old Standard / dlig German-LangSys only: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1738,12 +1724,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10048,
+        "id": 51,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-047",
         "content": "Old Standard / calt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1752,12 +1738,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10049,
+        "id": 52,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-048",
         "content": "Old Standard / hist absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1766,12 +1752,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10050,
+        "id": 53,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-049",
         "content": "Old Standard / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1780,12 +1766,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10051,
+        "id": 54,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-050",
         "content": "Old Standard / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1794,12 +1780,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10052,
+        "id": 55,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-051",
         "content": "Old Standard / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1808,12 +1794,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10053,
+        "id": 56,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-052",
         "content": "Old Standard / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1822,12 +1808,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10054,
+        "id": 57,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-053",
         "content": "Old Standard / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1836,12 +1822,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10055,
+        "id": 58,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-054",
         "content": "Old Standard / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1850,12 +1836,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10056,
+        "id": 59,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-055",
         "content": "Old Standard / ss15: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1864,12 +1850,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10057,
+        "id": 60,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-056",
         "content": "Old Standard / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1878,12 +1864,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10058,
+        "id": 61,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-057",
         "content": "Old Standard / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1892,12 +1878,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10059,
+        "id": 62,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-058",
         "content": "Old Standard / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1906,12 +1892,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10060,
+        "id": 63,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-059",
         "content": "Old Standard / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1920,12 +1906,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10061,
+        "id": 64,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-060",
         "content": "Old Standard / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1934,12 +1920,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10118,
+        "id": 65,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-084",
         "content": "Old Standard / salt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1948,12 +1934,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10119,
+        "id": 66,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-085",
         "content": "Old Standard / swash alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1962,12 +1948,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10120,
+        "id": 67,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-086",
         "content": "Old Standard / ornm alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1976,12 +1962,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10121,
+        "id": 68,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-087",
         "content": "Old Standard / nalt alternate 2: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -1990,12 +1976,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10122,
+        "id": 69,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-088",
         "content": "Old Standard / ss03+cv27: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2004,12 +1990,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10062,
+        "id": 70,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-061",
         "content": "Old Standard Italic / normal: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2018,12 +2004,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10063,
+        "id": 71,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-062",
         "content": "Old Standard Italic / ss11: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2032,12 +2018,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10064,
+        "id": 72,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-063",
         "content": "Old Standard Italic / ss01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2046,12 +2032,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10065,
+        "id": 73,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-064",
         "content": "Old Standard Italic / ss02: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2060,12 +2046,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10066,
+        "id": 74,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-065",
         "content": "Old Standard Italic / ss05: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2074,12 +2060,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10067,
+        "id": 75,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-066",
         "content": "Old Standard Italic / ss06 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2088,12 +2074,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10068,
+        "id": 76,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-067",
         "content": "Old Standard Italic / ss12: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2102,12 +2088,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10069,
+        "id": 77,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-068",
         "content": "Old Standard Italic / ss14: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2116,12 +2102,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10070,
+        "id": 78,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-069",
         "content": "Old Standard Italic / cv01: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2130,12 +2116,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10071,
+        "id": 79,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-070",
         "content": "Old Standard Italic / ss15 absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2144,12 +2130,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10072,
+        "id": 80,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-071",
         "content": "Old Standard Italic / salt: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2158,12 +2144,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10073,
+        "id": 81,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-072",
         "content": "Old Standard Italic / swash absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2172,12 +2158,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10074,
+        "id": 82,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-073",
         "content": "Old Standard Italic / ornm absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2186,12 +2172,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10075,
+        "id": 83,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-074",
         "content": "Old Standard Italic / nalt absent: Abc ABC θού ИН б дпт Gg Şş Ţţ 0123456789 1/2 ffi",
@@ -2200,12 +2186,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10076,
+        "id": 84,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-075",
         "content": "Translator completeness / petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2214,12 +2200,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10077,
+        "id": 85,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-076",
         "content": "Translator completeness / all petite caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2228,12 +2214,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10078,
+        "id": 86,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-077",
         "content": "Translator completeness / titling caps: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2242,12 +2228,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10079,
+        "id": 87,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-078",
         "content": "Translator completeness / unicase: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2256,12 +2242,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10080,
+        "id": 88,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-079",
         "content": "Translator completeness / stacked fractions: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2270,12 +2256,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10081,
+        "id": 89,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-080",
         "content": "Translator completeness / ligatures none: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2284,12 +2270,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10082,
+        "id": 90,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-081",
         "content": "Translator completeness / no discretionary ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2298,12 +2284,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10083,
+        "id": 91,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-082",
         "content": "Translator completeness / no historical ligatures: Abc ABC 0123456789 1/2 1st office ffi ffj",
@@ -2312,12 +2298,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10084,
+        "id": 92,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-083",
         "content": "Text box paragraph style: Gg theta θ",
@@ -2326,76 +2312,74 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 24,
+        "customHeight": 24,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24
+        "marginBottom": 0
       },
       {
-        "id": 10085,
+        "id": 93,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-083",
+        "color": "#006000",
         "content": "Text box element override: Gg theta θ",
         "contentBottom": "",
         "contentLeft": "",
         "contentCenter": "",
         "contentRight": "",
-        "height": 24,
-        "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24,
         "fontVariantAlternates": "styleset(ss05)",
-        "color": "#006000"
+        "height": 24,
+        "customHeight": 24,
+        "marginTop": 0,
+        "marginBottom": 0
       },
       {
-        "id": 10086,
+        "id": 94,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-083",
+        "color": "#600060",
         "content": "Text box explicit normal reset: Gg theta θ",
         "contentBottom": "",
         "contentLeft": "",
         "contentCenter": "",
         "contentRight": "",
-        "height": 24,
-        "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24,
-        "fontVariantAlternates": "normal",
         "fontVariantNumeric": "normal",
-        "color": "#600060"
+        "fontVariantAlternates": "normal",
+        "height": 24,
+        "customHeight": 24,
+        "marginTop": 0,
+        "marginBottom": 0
       },
       {
-        "id": 10087,
+        "id": 95,
         "elementType": "TextBox",
-        "paragraphStyleId": "lyrics",
         "content": "Inline text box inherits Lyrics",
         "contentBottom": "bottom panel 0123 office",
         "contentLeft": "",
         "contentCenter": "",
         "contentRight": "",
-        "height": 24,
-        "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 24,
         "inline": true,
-        "customWidth": 333.3333333333333
+        "height": 49,
+        "customWidth": 333.3333333333333,
+        "customHeight": 24,
+        "marginTop": 0,
+        "marginBottom": 0
       },
       {
-        "id": 10088,
+        "id": 96,
         "elementType": "TextBox",
-        "paragraphStyleId": "default-text",
         "content": "",
         "contentBottom": "",
         "contentLeft": "left 0123",
         "contentCenter": "center ffi",
         "contentRight": "right ABC",
+        "multipanel": true,
         "height": 24,
-        "marginTop": 0,
-        "marginBottom": 0,
         "customHeight": 24,
-        "multipanel": true
+        "marginTop": 0,
+        "marginBottom": 0
       },
       {
-        "id": 10089,
+        "id": 97,
         "elementType": "ModeKey",
         "templateId": 100,
         "alignment": "center",
@@ -2419,115 +2403,105 @@
         "ambitusHighRootSign": "Alpha"
       },
       {
-        "id": 10090,
+        "id": 98,
         "elementType": "DropCap",
         "content": "A",
-        "lineSpan": 1,
-        "paragraphStyleId": "drop-cap"
+        "lineSpan": 1
       },
       {
-        "id": 10091,
+        "id": 99,
+        "lineBreak": true,
         "elementType": "Note",
         "quantitativeNeume": "OligonPlusKentemata",
         "gorgonNeume": "Gorgon_Top",
         "ison": "Ison.Pa",
         "lyrics": "Default inherited 0123 office",
         "isMelisma": true,
-        "isMelismaStart": true,
-        "lyricsParagraphStyleId": "lyrics",
-        "lineBreak": true,
-        "lineBreakType": "Left"
+        "isMelismaStart": true
       },
       {
-        "id": 10092,
+        "id": 100,
         "elementType": "DropCap",
         "content": "B",
-        "lineSpan": 1,
-        "paragraphStyleId": "surface-dropcap-custom"
+        "paragraphStyleId": "surface-dropcap-custom",
+        "lineSpan": 1
       },
       {
-        "id": 10093,
+        "id": 101,
+        "lineBreak": true,
         "elementType": "Note",
         "quantitativeNeume": "Apostrophos",
         "lyrics": "Custom paragraph theta θ 0123",
-        "lyricsParagraphStyleId": "surface-old-standard",
-        "lineBreak": true,
-        "lineBreakType": "Left"
+        "lyricsParagraphStyleId": "surface-old-standard"
       },
       {
-        "id": 10094,
+        "id": 102,
         "elementType": "DropCap",
         "content": "C",
-        "lineSpan": 1,
         "paragraphStyleId": "surface-dropcap-custom",
         "fontFamily": "Old Standard",
         "fontSubfamily": "Italic",
+        "color": "#006000",
         "fontVariantCaps": "normal",
         "fontVariantAlternates": "styleset(ss11)",
-        "color": "#006000"
+        "lineSpan": 1
       },
       {
-        "id": 10095,
+        "id": 103,
+        "lineBreak": true,
         "elementType": "Note",
         "quantitativeNeume": "Oligon",
         "lyrics": "Element override Gg theta θ 0123",
-        "lyricsParagraphStyleId": "surface-old-standard",
-        "lineBreak": true,
-        "lineBreakType": "Left",
+        "lyricsColor": "#600060",
         "lyricsFontVariantCaps": "normal",
         "lyricsFontVariantNumeric": "normal",
         "lyricsFontVariantAlternates": "styleset(ss02)",
-        "lyricsColor": "#600060"
+        "lyricsParagraphStyleId": "surface-old-standard"
       },
       {
-        "id": 10096,
+        "id": 104,
         "elementType": "Note",
         "quantitativeNeume": "Oligon",
         "vocalExpressionNeume": "Psifiston",
         "lyrics": "Lyric style continuation 3 0123 office",
         "isMelisma": true,
-        "isMelismaStart": true,
-        "lyricsParagraphStyleId": "lyrics",
-        "lineBreak": false
+        "isMelismaStart": true
       },
       {
-        "id": 10097,
+        "id": 105,
         "elementType": "Note",
         "quantitativeNeume": "Apostrophos",
         "timeNeume": "Hapli",
         "vocalExpressionNeume": "Antikenoma",
         "ison": "Ison.Unison",
         "lyrics": "Lyric style continuation 4 0123 office",
+        "lyricsParagraphStyleId": "surface-old-standard",
         "isMelisma": true,
         "isMelismaStart": true,
-        "isHyphen": true,
-        "lyricsParagraphStyleId": "surface-old-standard",
-        "lineBreak": false
+        "isHyphen": true
       },
       {
-        "id": 10098,
+        "id": 106,
         "elementType": "Note",
         "quantitativeNeume": "Ison",
         "vareia": true,
         "lyrics": "Lyric style continuation 5 0123 office",
         "isMelisma": true,
-        "isMelismaStart": true,
-        "lyricsParagraphStyleId": "lyrics",
-        "lineBreak": false
+        "isMelismaStart": true
       },
       {
-        "id": 10099,
+        "id": 107,
         "elementType": "Note",
         "quantitativeNeume": "PetastiPlusOligon",
         "measureNumber": "Four",
         "lyrics": "Lyric style continuation 6 0123 office",
-        "isMelisma": true,
-        "isMelismaStart": true,
         "lyricsParagraphStyleId": "surface-old-standard",
-        "lineBreak": false
+        "isMelisma": true,
+        "isMelismaStart": true
       },
       {
-        "id": 10100,
+        "id": 108,
+        "lineBreak": true,
         "elementType": "Note",
         "quantitativeNeume": "OligonPlusKentimaAbove",
         "timeNeume": "Klasma_Bottom",
@@ -2535,13 +2509,10 @@
         "lyrics": "Lyric style continuation 7 0123 office",
         "isMelisma": true,
         "isMelismaStart": true,
-        "isHyphen": true,
-        "lyricsParagraphStyleId": "lyrics",
-        "lineBreak": true,
-        "lineBreakType": "Left"
+        "isHyphen": true
       },
       {
-        "id": 10101,
+        "id": 109,
         "elementType": "TextBox",
         "paragraphStyleId": "section",
         "content": "Greek-script OpenType checks",
@@ -2550,14 +2521,14 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 28,
+        "customHeight": 28,
         "marginTop": 6,
         "marginBottom": 0,
-        "customHeight": 28,
         "runningMarkerRole": "section",
         "runningMarkerText": "greek"
       },
       {
-        "id": 10102,
+        "id": 110,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-034",
         "content": "Greek / normal: θού ϑ ζ",
@@ -2566,12 +2537,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10103,
+        "id": 111,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-035",
         "content": "Greek / smcp: θού ϑ ζ",
@@ -2580,12 +2551,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10104,
+        "id": 112,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-036",
         "content": "Greek / smcp+c2sc: θού ϑ ζ",
@@ -2594,12 +2565,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10105,
+        "id": 113,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-045",
         "content": "Greek / hlig: θού ϑ ζ",
@@ -2608,12 +2579,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10106,
+        "id": 114,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-050",
         "content": "Greek / ss02: θού ϑ ζ",
@@ -2622,12 +2593,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10107,
+        "id": 115,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-056",
         "content": "Greek / cv01: θού ϑ ζ",
@@ -2636,12 +2607,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10108,
+        "id": 116,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-057",
         "content": "Greek / salt: θού ϑ ζ",
@@ -2650,12 +2621,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10109,
+        "id": 117,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-062",
         "content": "Greek italic / ss11: θού ϑ ζ",
@@ -2664,12 +2635,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10110,
+        "id": 118,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-071",
         "content": "Greek italic / salt: θού ϑ ζ",
@@ -2678,12 +2649,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10111,
+        "id": 119,
         "elementType": "TextBox",
         "paragraphStyleId": "section",
         "content": "Cyrillic-script OpenType checks",
@@ -2692,14 +2663,14 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 28,
+        "customHeight": 28,
         "marginTop": 6,
         "marginBottom": 0,
-        "customHeight": 28,
         "runningMarkerRole": "section",
         "runningMarkerText": "cyrillic"
       },
       {
-        "id": 10112,
+        "id": 120,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-034",
         "content": "Cyrillic / normal: ИН б дпт ґ",
@@ -2708,12 +2679,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10113,
+        "id": 121,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-035",
         "content": "Cyrillic / smcp: ИН б дпт ґ",
@@ -2722,12 +2693,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10114,
+        "id": 122,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-036",
         "content": "Cyrillic / smcp+c2sc: ИН б дпт ґ",
@@ -2736,12 +2707,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10115,
+        "id": 123,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-051",
         "content": "Cyrillic / ss05: ИН б дпт ґ",
@@ -2750,12 +2721,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10116,
+        "id": 124,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-057",
         "content": "Cyrillic / salt: ИН б дпт ґ",
@@ -2764,12 +2735,12 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
       },
       {
-        "id": 10117,
+        "id": 125,
         "elementType": "TextBox",
         "paragraphStyleId": "matrix-062",
         "content": "Cyrillic italic / ss11: ИН б дпт ґ",
@@ -2778,17 +2749,16 @@
         "contentCenter": "",
         "contentRight": "",
         "height": 20,
+        "customHeight": 20,
         "marginTop": 0,
-        "marginBottom": 0,
-        "customHeight": 20
+        "marginBottom": 0
+      },
+      {
+        "elementType": "Empty"
       }
     ],
     "lyrics": {
-      "text": "Lord,__ I have cried__ un--to___ Thee,__ heark-en un--to___ me; heark--en__ un--to__ me,___ O____ Lord. Lord,__ I have cried___ un-to Thee,__ heark-en__ un-to__ me;___ at-tend to the voice____ of___ my sup--pli-ca----tion when I cry__ un-to__ Thee:_____ Heark-en un--to me,___ O____ Lord."
+      "text": "ADefault inherited 0123 office BCustom paragraph theta θ 0123 CElement override Gg theta θ 0123 Lyric style continuation 3 0123 office Lyric style continuation 4 0123 office-Lyric style continuation 5 0123 office Lyric style continuation 6 0123 office Lyric style continuation 7 0123 office-"
     }
-  },
-  "lyricSetup": {
-    "locked": true,
-    "text": ""
   }
 }

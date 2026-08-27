@@ -1,0 +1,18 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | xcolor dependency is loaded | got 1, expected 1
+PASS | fontspec dependency is loaded | got 1, expected 1
+PASS | underline dependency is loaded | got 1, expected 1
+PASS | stroke dependency is loaded | got 1, expected 1
+PASS | default neume size | got 20.075pt, expected 20.075pt +/- 0.000pt
+PASS | default mode-key size | got 20.075pt, expected 20.075pt +/- 0.000pt
+PASS | named glyph has its configured advance | got 27.222pt, expected 27.220pt +/- 0.050pt
+PASS | named glyph uses the selected neume font | 1 occurrence(s) of "" in fonts matching "Neanes"
+PASS | named glyph uses the requested size | 1 occurrence(s) of "" at 20.075pt +/- 0.010pt
+PASS | score uses its exported neume size | 1 occurrence(s) of "" at 20.075pt +/- 0.010pt
+PASS | score restores the surrounding neume size | got 31.116pt, expected 31.116pt +/- 0.000pt
+PASS | score restores the surrounding mode-key size | got 29.109pt, expected 29.109pt +/- 0.000pt
+PASS | score restores the surrounding paragraph skip | got 7.000pt, expected 7.000pt +/- 0.000pt
+TOTAL | 13 | 0
+***************
+Compilation 1 of test file completed with exit status 0

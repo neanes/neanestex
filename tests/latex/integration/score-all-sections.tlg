@@ -1,0 +1,7 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | wildcard selection emits all nineteen paragraphs | got 19, expected 19
+PASS | wildcard selection preserves section and content order | ordered blame@12, hands@1808, young@4309
+TOTAL | 2 | 0
+***************
+Compilation 1 of test file completed with exit status 0

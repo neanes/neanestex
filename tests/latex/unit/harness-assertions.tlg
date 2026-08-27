@@ -1,0 +1,32 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | exact dimension | got 10.000pt, expected 10.000pt +/- 0.000pt
+PASS | dimension range | got 10.000pt, expected [9.000pt, 11.000pt]
+PASS | penalty inspection | penalty 321 present
+PASS | glue inspection | glue 7.000pt present
+PASS | absent glue inspection | no glue within 0.020pt of 19.000pt
+PASS | matching glyph font | 1 occurrence(s) of "A" in fonts matching "LMRoman"
+PASS | excluded glyph font | 1 occurrence(s) of "A" in no font matching "Neanes"
+PASS | glyph size | 1 occurrence(s) of "A" at 10.000pt +/- 0.010pt
+PASS | glyph count | 1 occurrence(s) of "X", expected 1
+PASS | PDF literal inspection | PDF literal "harness-pdf-literal" present
+PASS | rule size | rule 13.000pt x 2.000pt + 0.000pt present
+PASS | glyph horizontal range | x origin 33.060pt, expected 0.000pt .. 100.000pt
+PASS | glyph outer box width | outer box width 17.000pt, expected 17.000pt +/- 0.010pt
+PASS | glyph position | offset (10.000pt, -3.000pt), expected (10.000pt, -3.000pt) +/- 0.010pt
+PASS | glyph color | 1 occurrence(s) of "A"; wanted color "1 0 0 rg 1 0 0 RG"
+PASS | font presence | font "LMRoman" at 10.000pt, wanted >= 10.000pt
+PASS | minimum glyph size | smallest glyph 10.000pt, wanted >= 10.000pt
+PASS | box color | color 1 0 0 rg 1 0 0 RG present
+PASS | box text | needle "Alpha", haystack "  AlphaX YZ    Beta"
+PASS | absent box text | needle "Gamma" absent in haystack "  AlphaX YZ    Beta"
+PASS | box text order | ordered Alpha@3, Beta@16
+PASS | shortstack vertical position | offset (0.000pt, 10.050pt), expected (0.000pt, 10.050pt) +/- 0.010pt
+PASS | parbox vertical position | offset (0.000pt, 14.000pt), expected (0.000pt, 14.000pt) +/- 0.010pt
+PASS | global occurrence count | 2 occurrence(s) of "U", expected 2
+PASS | positioned occurrence keeps global index | offset (0.000pt, 0.000pt), expected (0.000pt, 0.000pt) +/- 0.010pt
+PASS | stale snapshot rejected | got 0, expected 0
+PASS | harness adds no page | got 0, expected 0
+TOTAL | 27 | 0
+***************
+Compilation 1 of test file completed with exit status 0

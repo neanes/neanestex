@@ -1,0 +1,21 @@
+\input regression-test.tex\relax
+
+% The wildcard request renders the paragraphs from every exported section.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+% One render answers both assertions; \NeanesScoreParagraphCount is global, and
+% the score's paragraphs are still one group level inside the call.
+\setbox\neanestestbox=\vbox{
+  \NeanesScoreParagraphs{funeral-service-blameless.byztex}{*}
+}
+\NeanesUseBox
+\NeanesCheckNum{wildcard selection emits all nineteen paragraphs}
+{\NeanesScoreParagraphCount}{19}
+\NeanesBoxTextOrder{wildcard selection preserves section and content order}
+{blame,hands,young}
+\end{document}

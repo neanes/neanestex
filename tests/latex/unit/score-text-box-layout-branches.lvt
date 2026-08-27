@@ -1,0 +1,37 @@
+\input regression-test.tex\relax
+
+% Block text-box alignment, margins, and empty-space allocation are preserved.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+\setbox\neanestestbox=\vbox{
+  \neanesscore{text-box-layout-branches.byztex}{Inline}
+  \noindent After inline.\par
+  \noindent\neanesanchor{plain-before}Before plain.\par
+  \neanesscore{text-box-layout-branches.byztex}{Plain}
+  \noindent\neanesanchor{plain-after}After plain.\par
+  \noindent\neanesanchor{margins-before}Before margins.\par
+  \neanesscore{text-box-layout-branches.byztex}{Margins}
+  \noindent\neanesanchor{margins-after}After margins.\par
+  \noindent\neanesanchor{empty-before}Before empty.\par
+  \neanesscore{text-box-layout-branches.byztex}{Empty}
+  \noindent\neanesanchor{empty-after}After empty.\par
+  \neanesscore{text-box-layout-branches.byztex}{Right}
+}
+\NeanesUseBox
+\NeanesGlueWidthBetween{plain block text box emits its exported height}
+{plain-before}{plain-after}{20bp}{0.01pt}
+\NeanesGlueWidthBetween{block text box emits its top margin}
+{margins-before}{margins-after}{7bp}{0.01pt}
+\NeanesGlueWidthBetween{block text box adds its bottom margin to its height}
+{margins-before}{margins-after}{29bp}{0.01pt}
+\NeanesGlueWidthBetween{empty block text box emits its exported height}
+{empty-before}{empty-after}{13bp}{0.01pt}
+\NeanesBoxText{right-aligned block text reaches the rendered box}{R}
+\NeanesGlyphXRange{right-aligned block text reaches the right side of its box}
+{R}{1}{400bp}{468bp}
+\end{document}

@@ -1,0 +1,36 @@
+\input regression-test.tex\relax
+
+% Score boundaries preserve Neanes line allocation and ordinary prose leading.
+\documentclass[12pt]{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+% Both score kinds on both sides of a prose boundary.  Only the third box
+% carries an assertion; the others must simply typeset without error.
+\setbox\neanestestbox=\vbox{
+  \noindent Preceding prose.\par
+  \neanesscore{lyric.byztex}{}
+}
+
+\setbox\neanestestbox=\vbox{
+  \noindent Preceding prose.\par
+  \neanesscore{no-lyric.byztex}{}
+}
+
+\setbox\neanestestbox=\vbox{
+  \neanesscore{lyric.byztex}{}
+  \noindent\neanesanchor{first-prose}Following prose.\par
+  \noindent\neanesanchor{second-prose}More prose.\par
+}
+\NeanesUseBox
+\NeanesBaselineGap{following prose retains ordinary leading}
+{first-prose}{second-prose}{\baselineskip-0.02pt}{\baselineskip+0.02pt}
+
+\setbox\neanestestbox=\vbox{
+  \neanesscore{no-lyric.byztex}{}
+  \noindent Following prose.\par
+}
+\end{document}

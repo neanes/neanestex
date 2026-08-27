@@ -1,0 +1,15 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | manually positioned vareia renders once | 1 occurrence(s) of "", expected 1
+PASS | manually positioned vareia retains the neume color | 1 occurrence(s) of ""; wanted color "0.06668 0.13333 0.2 rg 0.06668 0.13333 0.2 RG"
+PASS | vareia retains its manual offset | offset (-4.738pt, -4.015pt), expected (-4.738pt, -4.015pt) +/- 0.020pt
+PASS | automatic stavros renders once | 1 occurrence(s) of "", expected 1
+PASS | automatic stavros uses the cross color | 1 occurrence(s) of ""; wanted color "0.2 0.26668 0.33333 rg 0.2 0.26668 0.33333 RG"
+PASS | syllable melisma renders its exported rule | rule 66.005pt x 0.753pt + 0.000pt present
+PASS | hyphenated syllable renders every exported hyphen | 1 occurrence(s) of "-", expected 1
+PASS | syllable hyphens use the resolved lyric face | 1 occurrence(s) of "-" in fonts matching "Source Serif 4"
+PASS | syllable hyphens use the resolved lyric size | 1 occurrence(s) of "-" at 10.037pt +/- 0.010pt
+PASS | syllable hyphens use the resolved lyric color | 1 occurrence(s) of "-"; wanted color "0.26668 0.33333 0.4 rg 0.26668 0.33333 0.4 RG"
+TOTAL | 10 | 0
+***************
+Compilation 1 of test file completed with exit status 0

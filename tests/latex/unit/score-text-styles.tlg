@@ -1,0 +1,28 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | block text reaches the rendered box | needle "Q", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | text after an escaped percent sign renders | needle "AFTER", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | multipanel left content renders | needle "LEFT", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | multipanel center content renders | needle "CENTER", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | multipanel right content renders | needle "RIGHT", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | inline bottom content renders | needle "BOTTOM", haystack " Q  S & % # _ $ { } \\ ^ ~ AFTER   LEFT CENTER RIGHT  X BOTTOM D Y"
+PASS | block uses its exact regular face | 1 occurrence(s) of "Q" in fonts matching "Source Serif 4"
+PASS | inline box uses its exact semibold face | 1 occurrence(s) of "X" in fonts matching "Source Serif 4 Display Semibold"
+PASS | drop cap uses its exact semibold face | 1 occurrence(s) of "D" in fonts matching "Source Serif 4 Display Semibold"
+PASS | lyrics use their exact regular face | 1 occurrence(s) of "Y" in fonts matching "Source Serif 4"
+PASS | escaped text uses its exact regular face | 1 occurrence(s) of "S" in fonts matching "Source Serif 4"
+PASS | block uses its style size | 1 occurrence(s) of "Q" at 11.041pt +/- 0.010pt
+PASS | inline box uses its style size | 1 occurrence(s) of "X" at 13.049pt +/- 0.010pt
+PASS | drop cap uses its style size | 1 occurrence(s) of "D" at 18.067pt +/- 0.010pt
+PASS | lyrics use their style size | 1 occurrence(s) of "Y" at 10.037pt +/- 0.010pt
+PASS | escaped text uses its style size | 1 occurrence(s) of "S" at 12.045pt +/- 0.010pt
+PASS | block uses its style color | 1 occurrence(s) of "Q"; wanted color "0.06668 0.13333 0.2 rg 0.06668 0.13333 0.2 RG"
+PASS | inline box uses its style color | 1 occurrence(s) of "X"; wanted color "0.13333 0.2 0.26668 rg 0.13333 0.2 0.26668 RG"
+PASS | drop cap uses its style color | 1 occurrence(s) of "D"; wanted color "0.26668 0.33333 0.4 rg 0.26668 0.33333 0.4 RG"
+PASS | lyrics use their style color | 1 occurrence(s) of "Y"; wanted color "0.2 0.26668 0.33333 rg 0.2 0.26668 0.33333 RG"
+PASS | escaped text uses its style color | 1 occurrence(s) of "S"; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
+PASS | block enables fill-and-stroke rendering | PDF color-stack operation "2 Tr" present
+PASS | block uses its exported stroke width | PDF color-stack operation "0.14998 w" present
+TOTAL | 23 | 0
+***************
+Compilation 1 of test file completed with exit status 0

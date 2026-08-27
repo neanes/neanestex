@@ -1,0 +1,29 @@
+\input regression-test.tex\relax
+
+% Public API workflow: configure the font, draw a standalone glyph, and render
+% the default section of a complete score.
+\documentclass{article}
+\usepackage{neanestex}
+\usepackage{neanestest}
+
+\NeanesUseBundledNeumeFont
+
+\begin{document}
+\noindent{\fontsize{20bp}{20bp}\byzneumefont\byzglyph{ison}}\par
+
+\noindent Before the default score.\neanesmark{score-before}\par
+\NeanesScoreParagraphs{olihc-1.byztex}{}
+\noindent After the default score.\neanesmark{score-after}\par
+
+\NeanesCheckNum{default selection emits one paragraph}
+{\NeanesScoreParagraphCount}{1}
+\NeanesSamePage{default score remains in the surrounding document flow}
+{score-before,score-after}
+\NeanesVDistRange{default score occupies visible vertical space}
+{score-before}{score-after}{100pt}{500pt}
+
+\setbox\neanestestbox=\vbox{\neanesscore{olihc-1.byztex}{}}
+\NeanesUseBox
+\NeanesBoxTextOrder{default selection preserves its content order}
+{cried,voice,sup,pli,ca,tion}
+\end{document}

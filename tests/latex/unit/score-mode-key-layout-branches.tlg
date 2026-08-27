@@ -1,0 +1,8 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+PASS | plagal mode marker renders once | 1 occurrence(s) of "", expected 1
+PASS | plagal mode marker uses the mode-key color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
+PASS | right-aligned mode key begins in the right side of its box | x origin 378.354pt, expected 301.125pt .. 469.755pt
+TOTAL | 3 | 0
+***************
+Compilation 1 of test file completed with exit status 0

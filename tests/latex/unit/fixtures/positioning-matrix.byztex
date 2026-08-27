@@ -1,0 +1,221 @@
+{
+  "appVersion": "0.5.53",
+  "schemaVersion": 3,
+  "sectionNames": [],
+  "fontVersions": {
+    "Neanes": "1.0.9"
+  },
+  "textStyles": [],
+  "pageSetup": {
+    "lineHeight": 54.72,
+    "martyriaVerticalOffset": 3,
+    "fontFamilies": {
+      "neume": "Neanes"
+    },
+    "fontSizes": {
+      "modeKey": 20,
+      "neume": 20
+    },
+    "lyricsVerticalOffset": 18.15,
+    "lyricsMelismaSpacing": 1.8,
+    "lyricsMelismaThickness": 0.75,
+    "colors": {
+      "accidental": "010101",
+      "breath": "223344",
+      "cross": "334455",
+      "fthora": "556677",
+      "gorgon": "020202",
+      "heteron": "445566",
+      "ison": "030303",
+      "koronis": "040404",
+      "martyria": "667788",
+      "measureBar": "050505",
+      "measureNumber": "060606",
+      "modeKey": "778899",
+      "neume": "112233",
+      "noteIndicator": "070707",
+      "tempo": "8899AA"
+    }
+  },
+  "sections": [
+    {
+      "default": true,
+      "lines": [
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 0,
+              "width": 41.8235,
+              "quantitativeNeume": "oligonRunningElafronKentimata",
+              "time": "gorgonDottedLeft",
+              "timeOffset": {
+                "x": 0.1,
+                "y": 0.2
+              },
+              "tie": "yfenAbove",
+              "tieOffset": {
+                "x": 0.2,
+                "y": 0.45
+              },
+              "gorgon": "digorgonDottedRight",
+              "gorgonOffset": {
+                "x": 0.2,
+                "y": -0.1
+              },
+              "gorgonSecondary": "trigorgonDottedRightSecondary",
+              "gorgonSecondaryOffset": {
+                "x": -0.15,
+                "y": 0.25
+              },
+              "fthora": "fthoraDiatonicPaAbove",
+              "fthoraOffset": {
+                "x": 0.3,
+                "y": -0.2
+              },
+              "fthoraSecondary": "fthoraSoftChromaticDiSecondary",
+              "fthoraSecondaryOffset": {
+                "x": -0.25,
+                "y": 0.15
+              },
+              "fthoraTertiary": "fthoraEnharmonicTertiary",
+              "fthoraTertiaryOffset": {
+                "x": 0.1,
+                "y": 0.35
+              },
+              "accidental": "diesis2",
+              "accidentalOffset": {
+                "x": -0.2,
+                "y": -0.15
+              },
+              "accidentalSecondary": "diesis4Secondary",
+              "accidentalSecondaryOffset": {
+                "x": 0.35,
+                "y": 0.05
+              },
+              "accidentalTertiary": "diesis6Tertiary",
+              "accidentalTertiaryOffset": {
+                "x": -0.1,
+                "y": 0.4
+              },
+              "ison": "isonIndicatorGa",
+              "isonOffset": {
+                "x": 0.15,
+                "y": -0.25
+              },
+              "noteIndicator": "noteIndicatorPa",
+              "noteIndicatorOffset": {
+                "x": -0.3,
+                "y": 0.1
+              },
+              "measureNumber": "measureNumber3",
+              "measureNumberOffset": {
+                "x": -0.15,
+                "y": -0.2
+              },
+              "measureBarLeft": "barlineDoubleAbove",
+              "measureBarLeftOffset": {
+                "x": 0.4,
+                "y": -0.3
+              }
+            },
+            {
+              "type": "note",
+              "x": 45.1233,
+              "width": 32.907,
+              "quantitativeNeume": "runningElafron",
+              "stavros": true,
+              "stavrosOffset": {
+                "x": 0.25,
+                "y": 0.2
+              },
+              "koronis": true,
+              "koronisOffset": {
+                "x": 0.25,
+                "y": 0.3
+              }
+            },
+            {
+              "type": "note",
+              "x": 81.3066,
+              "width": 27.1093,
+              "quantitativeNeume": "ison",
+              "measureBarRight": "barlineDouble",
+              "measureBarRightIsTransferred": true,
+              "computedMeasureBarRightTrailingSpacing": 5.5895
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "note",
+              "x": 0,
+              "width": 32.6893,
+              "quantitativeNeume": "ison",
+              "measureBarLeft": "barlineDouble",
+              "measureBarLeftOffset": {
+                "x": 0.2,
+                "y": -0.15
+              },
+              "computedMeasureBarLeftLeadingSpacing": 2.6012
+            },
+            {
+              "type": "martyria",
+              "x": 379.9175,
+              "width": 88.0825,
+              "note": "martyriaNotePa",
+              "rootSign": "martyriaAlphaBelow",
+              "fthora": "fthoraDiatonicVouAbove",
+              "measureBarLeft": "barlineSingle",
+              "measureBarRight": "barlineDouble",
+              "computedMeasureBarLeftOffsetX": -172.3088,
+              "computedMeasureBarLeftLeadingSpacing": 2.6,
+              "computedMeasureBarRightTrailingSpacing": 2.6,
+              "tempoLeft": "agogiMetria",
+              "tempoLeftOffsetX": -0.5439,
+              "tempoLeftSpacing": 2.6,
+              "tempo": "agogiArgi",
+              "tempoRight": "agogiGorgi",
+              "tempoRightSpacing": 21.9045,
+              "quantitativeNeume": "oligon",
+              "quantitativeNeumeSpacing": 2.6
+            }
+          ],
+          "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "modekey",
+              "width": 468,
+              "height": 45,
+              "marginTop": 8,
+              "marginBottom": 6,
+              "alignment": "center",
+              "color": "654321",
+              "fontSize": 24,
+              "isVarys": true,
+              "martyria": "modeFirst.salt01",
+              "note": "modePa",
+              "fthoraAboveNote": "fthoraDiatonicPaAbove",
+              "quantitativeNeumeAboveNote": "oligon",
+              "note2": "modeVou",
+              "fthoraAboveNote2": "fthoraSoftChromaticDiAbove",
+              "quantitativeNeumeAboveNote2": "petasti",
+              "quantitativeNeumeRight": "ison",
+              "fthoraAboveQuantitativeNeumeRight": "fthoraDiatonicVouAbove",
+              "showAmbitus": true,
+              "ambitusHighNote": "martyriaNotePa",
+              "ambitusHighRootSign": "martyriaAlphaBelow",
+              "ambitusLowNote": "martyriaNotePa",
+              "ambitusLowRootSign": "martyriaAlphaBelow"
+            }
+          ],
+          "paragraphEnd": true
+        }
+      ]
+    }
+  ]
+}
