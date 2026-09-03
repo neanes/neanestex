@@ -180,6 +180,7 @@
               "tempoRight": "agogiGorgi",
               "tempoRightSpacing": 21.9045,
               "quantitativeNeume": "oligon",
+              "quantitativeNeumeFthora": "fthoraDiatonicNiLowAbove",
               "quantitativeNeumeSpacing": 2.6
             }
           ],
