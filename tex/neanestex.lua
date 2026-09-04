@@ -985,6 +985,10 @@ local function print_martyria(martyria, pageSetup)
         end
 
         tex.sprint(string.format('\\textcolor{byzcolorneume}{\\char"%s}', glyphNameToCodepointMap[martyria.quantitativeNeume]))
+
+        if martyria.quantitativeNeumeFthora then
+            tex.sprint(string.format('\\textcolor{byzcolorfthora}{\\char"%s}', glyphNameToCodepointMap[martyria.quantitativeNeumeFthora]))
+        end
     end
 
     if martyria.tempoRight then

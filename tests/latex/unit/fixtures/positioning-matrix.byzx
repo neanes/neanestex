@@ -372,6 +372,7 @@
         "tempo": "Slow",
         "tempoRight": "Quick",
         "quantitativeNeume": "Oligon",
+        "quantitativeNeumeFthora": "DiatonicNiLow_Top",
         "measureBarLeft": "MeasureBarRight",
         "measureBarRight": "MeasureBarDouble",
         "alignRight": true,

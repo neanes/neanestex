@@ -9,6 +9,7 @@ PASS | tie renders once | 1 occurrence(s) of "", expected 1
 PASS | offset stavros renders once | 1 occurrence(s) of "", expected 1
 PASS | extended mode-key second note renders once | 1 occurrence(s) of "", expected 1
 PASS | extended mode-key second neume renders once | 1 occurrence(s) of "", expected 1
+PASS | martyria quantitative-neume fthora renders once | 1 occurrence(s) of "", expected 1
 PASS | secondary gorgon uses gorgon color | 1 occurrence(s) of ""; wanted color "0.00784 0.00784 0.00784 rg 0.00784 0.00784 0.00784 RG"
 PASS | secondary fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
 PASS | tertiary fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
@@ -24,6 +25,7 @@ PASS | right measure bars use measure-bar color | 3 occurrence(s) of ""; want
 PASS | manual stavros uses cross color | 1 occurrence(s) of ""; wanted color "0.2 0.26668 0.33333 rg 0.2 0.26668 0.33333 RG"
 PASS | left martyria tempo uses tempo color | 1 occurrence(s) of ""; wanted color "0.53333 0.6 0.66667 rg 0.53333 0.6 0.66667 RG"
 PASS | right martyria tempo uses tempo color | 1 occurrence(s) of ""; wanted color "0.53333 0.6 0.66667 rg 0.53333 0.6 0.66667 RG"
+PASS | martyria quantitative-neume fthora uses fthora color | 1 occurrence(s) of ""; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
 PASS | mode key honors its element color | 1 occurrence(s) of ""; wanted color "0.39609 0.26276 0.12941 rg 0.39609 0.26276 0.12941 RG"
 PASS | mode key honors its element font size | 1 occurrence(s) of "" at 24.090pt +/- 0.010pt
 PASS | time mark keeps its exported offset | offset (39.528pt, 5.219pt), expected (39.528pt, 5.219pt) +/- 0.020pt
@@ -46,6 +48,7 @@ PASS | transferred measure bar keeps its exported offset | offset (32.827pt, 0.0
 PASS | transferred measure bar preserves note element width | outer box width 0.000pt, expected 0.000pt +/- 0.010pt
 PASS | left martyria tempo retains its relative position | offset (-13.153pt, 0.000pt), expected (-13.153pt, 0.000pt) +/- 0.020pt
 PASS | right martyria tempo follows the quantitative neume | offset (48.827pt, 0.000pt), expected (48.827pt, 0.000pt) +/- 0.020pt
-TOTAL | 46 | 0
+PASS | martyria quantitative-neume fthora anchors to its neume | offset (14.153pt, -4.557pt), expected (14.153pt, -4.557pt) +/- 0.020pt
+TOTAL | 49 | 0
 ***************
 Compilation 1 of test file completed with exit status 0

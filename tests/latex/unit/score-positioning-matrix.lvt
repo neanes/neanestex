@@ -33,6 +33,8 @@
 \NeanesGlyphCount{offset stavros renders once}{\NeanesGlyph{stavrosAbove}}{1}
 \NeanesGlyphCount{extended mode-key second note renders once}{\NeanesGlyph{modeVou}}{1}
 \NeanesGlyphCount{extended mode-key second neume renders once}{\NeanesGlyph{petasti}}{1}
+\NeanesGlyphCount{martyria quantitative-neume fthora renders once}
+{\NeanesGlyph{fthoraDiatonicNiLowAbove}}{1}
 
 \NeanesGlyphColor{secondary gorgon uses gorgon color}
 {\NeanesGlyph{trigorgonDottedRightSecondary}}{expected-gorgon}
@@ -64,6 +66,8 @@
 {\NeanesGlyph{agogiMetria}}{expected-tempo}
 \NeanesGlyphColor{right martyria tempo uses tempo color}
 {\NeanesGlyph{agogiGorgi}}{expected-tempo}
+\NeanesGlyphColor{martyria quantitative-neume fthora uses fthora color}
+{\NeanesGlyph{fthoraDiatonicNiLowAbove}}{expected-fthora}
 \NeanesGlyphColor{mode key honors its element color}
 {\NeanesGlyph{modeWordVarys}}{expected-mode-key}
 \NeanesGlyphSize{mode key honors its element font size}
@@ -111,4 +115,6 @@
 {\NeanesGlyph{martyriaNotePa}}{1}{\NeanesGlyph{agogiMetria}}{1}{-13.153pt}{0pt}{0.02pt}
 \NeanesGlyphOffset{right martyria tempo follows the quantitative neume}
 {\NeanesGlyph{oligon}}{1}{\NeanesGlyph{agogiGorgi}}{1}{48.827pt}{0pt}{0.02pt}
+\NeanesGlyphOffset{martyria quantitative-neume fthora anchors to its neume}
+{\NeanesGlyph{oligon}}{1}{\NeanesGlyph{fthoraDiatonicNiLowAbove}}{1}{14.153pt}{-4.557pt}{0.02pt}
 \end{document}
