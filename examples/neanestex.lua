@@ -16,14 +16,11 @@ local schema_version = 3
 -- 2 to 3: Text typography moved to an interned table of fully resolved text
 -- styles. Elements reference the final style they render with. Exact font face
 -- names and structured OpenType feature settings are preserved. Alignment is
--- spelled out everywhere, including on initial martyriæ, which used to abbreviate it
+-- spelled out everywhere, including on mode keys, which used to abbreviate it
 -- to a single letter. Every v3 text style carries the exact postscriptName.
 -- Family selection plus recognizable bold/italic axes is only the v1/v2
 -- compatibility path. Glyph positioning includes layout-resolved spacing,
 -- offsets, transferred measure-bar placement, and leading lyric hyphens.
--- Score lines may preserve the paragraph boundaries used by Neanes during
--- Knuth-Plass layout. The field is optional for compatibility with older v3
--- exports.
 
 local lualibs = require("lualibs")
 local json = utilities.json
@@ -183,50 +180,25 @@ local function get_mark_offset(base, mark, extra_offset)
     }
 end
 
--- Single-byte characters LaTeX cannot take literally.
-local LATEX_ESCAPES = {
-    ["\\"] = "\\textbackslash{}",
-    ["{"] = "\\{",
-    ["}"] = "\\}",
-    ["$"] = "\\$",
-    ["&"] = "\\&",
-    ["%"] = "\\%",
-    ["#"] = "\\#",
-    ["_"] = "\\_",
-    ["^"] = "\\textasciicircum{}",
-    ["~"] = "\\textasciitilde{}",
-    ["\n"] = "\\\\",
-}
-
--- Derived from the table rather than written out beside it, so an escape can
--- never be declared and then left out of the pattern that selects it.  "%"
--- before any non-alphanumeric character matches it literally, so escaping
--- every key unconditionally is safe.
-local LATEX_ESCAPE_CLASS
-do
-    local escaped = {}
-    for character in pairs(LATEX_ESCAPES) do
-        table.insert(escaped, "%" .. character)
-    end
-    table.sort(escaped)
-    LATEX_ESCAPE_CLASS = "[" .. table.concat(escaped) .. "]"
-end
-
--- Neume characters that carry their own font wherever they appear in text.
--- They are multi-byte, so they cannot join a character class and are replaced
--- one at a time, after the pass above has finished with the braces and
--- backslashes their replacements introduce.
-local NEUME_ESCAPES = {}
-for _, character in ipairs({ "\u{E280}", "\u{E281}", "\u{1D0B4}", "\u{1D0B5}" }) do
-    NEUME_ESCAPES[character] = "{\\byzneumefont" .. character .. "}"
-end
-
 local function escape_latex(str)
-    local escaped = str:gsub(LATEX_ESCAPE_CLASS, LATEX_ESCAPES)
-    for character, replacement in pairs(NEUME_ESCAPES) do
-        escaped = escaped:gsub(character, replacement)
-    end
-    return escaped
+    local replacements = {
+        ["\\"] = "\\textbackslash{}",
+        ["{"] = "\\{",
+        ["}"] = "\\}",
+        ["$"] = "\\$",
+        ["&"] = "\\&",
+        ["%"] = "\\%",
+        ["#"] = "\\#",
+        ["_"] = "\\_",
+        ["^"] = "\\textasciicircum{}",
+        ["~"] = "\\textasciitilde{}",
+        ["\n"] = "\\\\",
+        ["\u{E280}"] = "{\\byzneumefont\u{E280}}",
+        ["\u{E281}"] = "{\\byzneumefont\u{E281}}",
+        ["\u{1D0B4}"] = "{\\byzneumefont\u{1D0B4}}",
+        ["\u{1D0B5}"] = "{\\byzneumefont\u{1D0B5}}",
+    }
+    return str:gsub("[\\%$%&%#_%^{}~\n]", replacements):gsub("\u{E280}", replacements["\u{E280}"]):gsub("\u{E281}", replacements["\u{E281}"]):gsub("\u{1D0B4}", replacements["\u{1D0B4}"]):gsub("\u{1D0B5}", replacements["\u{1D0B5}"])
 end
 
 -- Whitespace-tokenized so "Semibold" is not read as "Bold".
@@ -521,34 +493,30 @@ local function style_color_command(style, command)
     return style.color and string.format("%s[HTML]{%s}", command, style.color) or command .. "{black}"
 end
 
--- Keep shared font setup independent of paragraph line height. Lyrics, drop
--- caps, and inline text boxes are positioned by their element geometry; only
--- block text boxes use paragraph leading.
-local function style_font_setup(style)
-    local size = style.fontSize
-    assert(type(size) == "number", "Text style fontSize must be a number")
-
-    return string.format("\\fontsize{%fbp}{%fbp}", size, size * 1.2)
-end
-
--- Neanes applies paragraph-style line height only to non-inline text boxes.
-local function text_box_font_setup(style)
+local function style_leading(style)
     local line_height = style.lineHeight
 
     if line_height == nil or line_height == "normal" then
-        return style_font_setup(style)
+        return style.fontSize * 1.2
     end
 
     if type(line_height) ~= "number" or line_height ~= line_height or line_height < 0 or line_height >= math.huge then
         error(string.format('Text style "%s" lineHeight must be a non-negative number or "normal"; got %s', tostring(style.id), tostring(line_height)))
     end
 
+    return style.fontSize * line_height
+end
+
+-- Paragraph leading belongs to the text style. The score-wide \baselineskip is
+-- staff spacing and must not leak into text elements. The size and leading
+-- travel together so every styled element selects both through this fragment.
+local function style_font_setup(style)
     local size = style.fontSize
     assert(type(size) == "number", "Text style fontSize must be a number")
 
     -- TeX otherwise replaces small or overlapping leading (including zero)
     -- with \lineskip. Keep the requested baseline distance authoritative.
-    return string.format("\\fontsize{%fbp}{%fbp}\\lineskiplimit=-\\maxdimen", size, size * line_height)
+    return string.format("\\fontsize{%fbp}{%fbp}\\lineskiplimit=-\\maxdimen", size, style_leading(style))
 end
 
 -- The style an element renders in, or nil for one that prints no text. Classify
@@ -986,10 +954,6 @@ local function print_martyria(martyria, pageSetup)
         end
 
         tex.sprint(string.format('\\textcolor{byzcolorneume}{\\char"%s}', glyphNameToCodepointMap[martyria.quantitativeNeume]))
-
-        if martyria.quantitativeNeumeFthora then
-            tex.sprint(string.format('\\textcolor{byzcolorfthora}{\\char"%s}', glyphNameToCodepointMap[martyria.quantitativeNeumeFthora]))
-        end
     end
 
     if martyria.tempoRight then
@@ -1146,16 +1110,22 @@ local function print_text_box_inline(textBox)
     local style = textBox.resolved_style
     local color = style_color_command(style, "\\textcolor")
     local position = alignment_position(style.alignment)
-    local content = styled_content(textBox.content, style)
+    local content = decorate_content(escape_latex(textBox.content), style)
 
     if textBox.contentBottom and textBox.contentBottom ~= "" then
-        content = string.format("\\shortstack[%s]{%s\\\\%s}", position, content, styled_content(textBox.contentBottom, style))
+        local left_fill = position == "l" and "" or "\\hss"
+        local right_fill = position == "r" and "" or "\\hss"
+        local bottom = decorate_content(escape_latex(textBox.contentBottom), style)
+
+        -- \shortstack hardcodes its own interline settings. Consecutive hboxes
+        -- in a vbox use the leading installed by style_font_setup instead.
+        content = string.format("\\vbox{\\hbox to %fbp{%s%s%s}\\hbox to %fbp{%s%s%s}}", textBox.width, left_fill, content, right_fill, textBox.width, left_fill, bottom, right_fill)
     end
 
     tex.sprint("\\mbox{")
     tex.sprint(string.format("\\hspace{%fbp}", textBox.x))
     tex.sprint(string.format("\\makebox[%fbp][%s]{", textBox.width, position))
-    tex.sprint(string.format("%s{%s%s", color, style_font_setup(style), content))
+    tex.sprint(string.format("%s{%s%s%s", color, style_font_setup(style), font_selection(style), content))
 
     -- end \textcolor and \makebox
     tex.sprint("}}")
@@ -1189,9 +1159,9 @@ local function print_text_box(textBox)
     if textBox.multipanel then
         content = string.format(
             "\\makebox[\\linewidth][l]{%s}\\hspace{-\\linewidth}\\makebox[\\linewidth][c]{%s}\\hspace{-\\linewidth}\\makebox[\\linewidth][r]{%s}",
-            decorate_content(escape_latex(textBox.contentLeft or ""), style),
-            decorate_content(escape_latex(textBox.contentCenter or ""), style),
-            decorate_content(escape_latex(textBox.contentRight or ""), style)
+            styled_content(textBox.contentLeft or "", style),
+            styled_content(textBox.contentCenter or "", style),
+            styled_content(textBox.contentRight or "", style)
         )
     else
         content = decorate_content(escape_latex(textBox.content), style)
@@ -1215,8 +1185,16 @@ local function print_text_box(textBox)
         tex.sprint("\\raggedright")
     end
 
-    -- Keep the selected font and leading in scope until \par builds every line.
-    tex.sprint(string.format("%s{%s%s%s", color, text_box_font_setup(style), font_selection(style), content))
+    tex.sprint(string.format("%s{%s", color, style_font_setup(style)))
+
+    if textBox.multipanel then
+        tex.sprint(content)
+    else
+        -- Keep the selected font in scope until \par builds every line and
+        -- inserts the style's requested baseline glue.
+        tex.sprint(font_selection(style))
+        tex.sprint(content)
+    end
 
     -- End the paragraph while its text leading is still in scope, then close
     -- \color and \parbox.
@@ -1316,15 +1294,6 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\renewfontfamily{\\byzneumefont}{%s}", get_neume_font(data.pageSetup.fontFamilies.neume)))
 
     tex.sprint(string.format("\\setlength{\\baselineskip}{%fbp}", data.pageSetup.lineHeight))
-    -- Paragraph spacing is set here, after the line height, so that it can be
-    -- expressed as a fraction of the score's own \baselineskip.  The natural
-    -- width is zero so that a score reproduces the line spacing set in Neanes
-    -- exactly, whatever \parskip the surrounding document uses.  The stretch is
-    -- for \flushbottom: a score's lines sit on a rigid \baselineskip, so the
-    -- paragraph gaps are the only place the page builder can find give, and a
-    -- score has both taller lines and fewer paragraph breaks per page than
-    -- prose does.
-    tex.sprint("\\setlength{\\parskip}{0pt plus 0.1\\baselineskip}")
 
     tex.sprint(string.format("\\definecolor{byzcoloraccidental}{HTML}{%s}", data.pageSetup.colors.accidental))
     tex.sprint(string.format("\\definecolor{byzcolorbreath}{HTML}{%s}", data.pageSetup.colors.breath or data.pageSetup.colors.neume))
@@ -1342,51 +1311,43 @@ local function include_score(filename, sectionName)
     tex.sprint(string.format("\\definecolor{byzcolornoteindicator}{HTML}{%s}", data.pageSetup.colors.noteIndicator))
     tex.sprint(string.format("\\definecolor{byzcolortempo}{HTML}{%s}", data.pageSetup.colors.tempo))
 
-    local paragraph_open = false
+    first_line = true
 
-    for _, section in ipairs(sections) do
-        for _, line in ipairs(section.lines) do
+    for section_index, section in ipairs(sections) do
+        for line_index, line in ipairs(section.lines) do
+            if #line.elements > 0 and not first_line then
+                tex.sprint("\\newline")
+            else
+                first_line = false
+            end
+
             if #line.elements > 0 then
-                if paragraph_open then
-                    tex.sprint("\\newline")
-                else
-                    tex.sprint("\\noindent")
+                tex.sprint("\\noindent")
+            end
+            for _, element in ipairs(line.elements) do
+                if element.type == "note" then
+                    print_note(element, data.pageSetup)
                 end
-
-                for _, element in ipairs(line.elements) do
-                    if element.type == "note" then
-                        print_note(element, data.pageSetup)
-                    end
-                    if element.type == "martyria" then
-                        print_martyria(element, data.pageSetup)
-                    end
-                    if element.type == "tempo" then
-                        print_tempo(element, data.pageSetup)
-                    end
-                    if element.type == "dropcap" then
-                        print_drop_cap(element, data.pageSetup)
-                    end
-                    if element.type == "modekey" then
-                        print_mode_key(element, data.pageSetup)
-                    end
-                    if element.type == "textbox" then
-                        print_text_box(element)
-                    end
+                if element.type == "martyria" then
+                    print_martyria(element, data.pageSetup)
                 end
-
-                paragraph_open = true
-
-                if line.paragraphEnd then
-                    tex.sprint("\\par")
-                    paragraph_open = false
+                if element.type == "tempo" then
+                    print_tempo(element, data.pageSetup)
+                end
+                if element.type == "dropcap" then
+                    print_drop_cap(element, data.pageSetup)
+                end
+                if element.type == "modekey" then
+                    print_mode_key(element, data.pageSetup)
+                end
+                if element.type == "textbox" then
+                    print_text_box(element)
                 end
             end
         end
     end
 
-    if paragraph_open then
-        tex.sprint("\\par")
-    end
+    tex.sprint("\\par")
     -- close the section
     tex.sprint("}")
 end

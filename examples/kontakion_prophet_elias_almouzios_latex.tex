@@ -1,0 +1,29 @@
+
+
+\documentclass[a4paper]{article}
+\usepackage{xcolor}
+\usepackage{luacolor}
+\usepackage{fontspec}
+\usepackage{neanestex}
+% \usepackage[margin=0in]{geometry}
+% \usepackage[margin=1in]{geometry}
+% \usepackage[top=27.5pt, bottom=27.5pt, left=46pt, right=46pt]{geometry}
+\usepackage[top=29pt, bottom=29pt, left=46pt, right=46pt]{geometry}
+\usepackage{blindtext}
+
+% Select the neume font for modekeys and other glyphs outside the score
+\byzsetneumefontfamily{Almouzios}
+% \byzsetneumefontfamily{Neanes}
+
+% Set the precise paths to the neume font and metadata
+% Using a specific file helps with backwards compatibility.
+\byzsetneumefontfile{Almouzios}{Almouzios.otf}
+\byzsetneumefontmetadatafile{Almouzios}{almouzios.metadata.json}
+% \byzsetneumefontfile{Neanes}{NeanesEngraving.otf}
+% \byzsetneumefontmetadatafile{Neanes}{neanesengraving.metadata.json}
+
+\begin{document}
+
+\neanesscore{kontakion_prophet_elias_almouzios.byztex}{}
+
+\end{document}
