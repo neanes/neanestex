@@ -261,7 +261,7 @@
 
 \NewDocumentCommand \NeanesGlyphSynthesis { m m m m } {%
   \directlua{neanestest.check_glyph_synthesis(\luastring{#1},
-  \luastring{#2}, \ifnum#3=0 false\else true\fi,
+      \luastring{#2}, \ifnum#3=0 false\else true\fi,
   \ifnum#4=0 false\else true\fi)}%
 }
 

@@ -592,18 +592,7 @@ function M.check_glyph_synthesis(name, char, expected_bold, expected_italic)
         end
     end
 
-    record_every_occurrence(
-        name,
-        #found,
-        bad,
-        string.format(
-            "%d occurrence(s) of %q use synthetic bold=%s italic=%s",
-            #found,
-            char,
-            tostring(expected_bold),
-            tostring(expected_italic)
-        )
-    )
+    record_every_occurrence(name, #found, bad, string.format("%d occurrence(s) of %q use synthetic bold=%s italic=%s", #found, char, tostring(expected_bold), tostring(expected_italic)))
 end
 
 -- Keys fontspec puts in a raw feature table that select the face rather than

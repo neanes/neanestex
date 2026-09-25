@@ -475,9 +475,7 @@ local function register_font_selector(style)
         font_option_values[#font_option_values + 1] = "FakeSlant"
     end
 
-    local font_options = #font_option_values > 0
-        and string.format("[%s]", table.concat(font_option_values, ","))
-        or ""
+    local font_options = #font_option_values > 0 and string.format("[%s]", table.concat(font_option_values, ",")) or ""
     -- declaration_command distinguishes an exact face from a family, so it also
     -- keeps the two kinds of selector apart in the cache.
     local key = declaration_command .. "\0" .. font_options .. "\0" .. font_name
