@@ -18,6 +18,8 @@ local schema_version = 3
 -- names and structured OpenType feature settings are preserved. Alignment is
 -- spelled out everywhere, including on initial martyriæ, which used to abbreviate it
 -- to a single letter. Every v3 text style carries the exact postscriptName.
+-- Optional syntheticBold and syntheticItalic flags apply fontspec's native
+-- outline synthesis when that exact face lacks a requested axis.
 -- Family selection plus recognizable bold/italic axes is only the v1/v2
 -- compatibility path. Glyph positioning includes layout-resolved spacing,
 -- offsets, transferred measure-bar placement, and leading lyric hyphens.
@@ -458,8 +460,24 @@ local function register_font_selector(style)
     local declaration_command = is_v3 and "\\newfontface" or "\\newfontfamily"
     local font_name = is_v3 and style.postscriptName or style.fontFamily
 
+    local font_option_values = {}
     local raw_features = font_raw_features(style)
-    local font_options = raw_features ~= "" and string.format("[RawFeature={%s}]", raw_features) or ""
+
+    if raw_features ~= "" then
+        font_option_values[#font_option_values + 1] = string.format("RawFeature={%s}", raw_features)
+    end
+
+    if style.syntheticBold then
+        font_option_values[#font_option_values + 1] = "FakeBold"
+    end
+
+    if style.syntheticItalic then
+        font_option_values[#font_option_values + 1] = "FakeSlant"
+    end
+
+    local font_options = #font_option_values > 0
+        and string.format("[%s]", table.concat(font_option_values, ","))
+        or ""
     -- declaration_command distinguishes an exact face from a family, so it also
     -- keeps the two kinds of selector apart in the cache.
     local key = declaration_command .. "\0" .. font_options .. "\0" .. font_name

@@ -571,6 +571,41 @@ function M.check_glyph_count(name, char, expected)
     record(count == expected, name, string.format("%d occurrence(s) of %q, expected %d", count, char, expected))
 end
 
+-- Every occurrence of `char` uses a font with exactly the requested synthetic
+-- weight and slant. fontspec records FakeBold and FakeSlant as the luaotfload
+-- `embolden` and `slant` features; testing both their presence and absence
+-- keeps the two independent flags from being conflated.
+function M.check_glyph_synthesis(name, char, expected_bold, expected_italic)
+    local found = occurrences(char)
+    local bad = {}
+
+    for _, glyph in ipairs(found) do
+        local f = font.getfont(glyph.font_id)
+        local raw = f and f.specification and f.specification.features and f.specification.features.raw
+        assert(raw, "neanestest: no specification.features.raw for font " .. glyph.font_id)
+
+        local bold = tonumber(raw.embolden or 0) ~= 0
+        local italic = tonumber(raw.slant or 0) ~= 0
+
+        if bold ~= expected_bold or italic ~= expected_italic then
+            table.insert(bad, string.format("font %d has bold=%s italic=%s", glyph.font_id, tostring(bold), tostring(italic)))
+        end
+    end
+
+    record_every_occurrence(
+        name,
+        #found,
+        bad,
+        string.format(
+            "%d occurrence(s) of %q use synthetic bold=%s italic=%s",
+            #found,
+            char,
+            tostring(expected_bold),
+            tostring(expected_italic)
+        )
+    )
+end
+
 -- Keys fontspec puts in a raw feature table that select the face rather than
 -- request an OpenType feature.  Everything else in that table is a tag the
 -- score asked for.

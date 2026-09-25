@@ -11,6 +11,9 @@ PASS | inline box uses its exact semibold face | 1 occurrence(s) of "X" in fonts
 PASS | drop cap uses its exact semibold face | 1 occurrence(s) of "D" in fonts matching "Source Serif 4 Display Semibold"
 PASS | lyrics use their exact regular face | 1 occurrence(s) of "Y" in fonts matching "Source Serif 4"
 PASS | escaped text uses its exact regular face | 1 occurrence(s) of "S" in fonts matching "Source Serif 4"
+PASS | block applies both synthetic axes | 1 occurrence(s) of "Q" use synthetic bold=true italic=true
+PASS | escaped text applies only synthetic bold | 1 occurrence(s) of "S" use synthetic bold=true italic=false
+PASS | lyrics apply only synthetic italic | 1 occurrence(s) of "Y" use synthetic bold=false italic=true
 PASS | block uses its style size | 1 occurrence(s) of "Q" at 11.041pt +/- 0.010pt
 PASS | inline box uses its style size | 1 occurrence(s) of "X" at 13.049pt +/- 0.010pt
 PASS | drop cap uses its style size | 1 occurrence(s) of "D" at 18.067pt +/- 0.010pt
@@ -23,6 +26,6 @@ PASS | lyrics use their style color | 1 occurrence(s) of "Y"; wanted color "0.2 
 PASS | escaped text uses its style color | 1 occurrence(s) of "S"; wanted color "0.33333 0.4 0.46667 rg 0.33333 0.4 0.46667 RG"
 PASS | block enables fill-and-stroke rendering | PDF color-stack operation "2 Tr" present
 PASS | block uses its exported stroke width | PDF color-stack operation "0.14998 w" present
-TOTAL | 23 | 0
+TOTAL | 26 | 0
 ***************
 Compilation 1 of test file completed with exit status 0
