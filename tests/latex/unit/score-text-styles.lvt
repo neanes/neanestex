@@ -1,7 +1,9 @@
 \input regression-test.tex\relax
 
 % Schema-v3 styles exercise block, inline, multipanel, lyric, and drop-cap
-% rendering while assertions pin exact faces, sizes, colors, and content.
+% rendering while assertions pin exact faces, sizes, colors, and content. The
+% block, escaped, and lyric styles verify both synthetic axes together and
+% independently on an exact PostScript face.
 \documentclass{article}
 \usepackage{neanestex}
 \usepackage{neanestest}
@@ -32,6 +34,10 @@
 {D}{Source Serif 4 Display Semibold}
 \NeanesGlyphFont{lyrics use their exact regular face}{Y}{Source Serif 4}
 \NeanesGlyphFont{escaped text uses its exact regular face}{S}{Source Serif 4}
+
+\NeanesGlyphSynthesis{block applies both synthetic axes}{Q}{1}{1}
+\NeanesGlyphSynthesis{escaped text applies only synthetic bold}{S}{1}{0}
+\NeanesGlyphSynthesis{lyrics apply only synthetic italic}{Y}{0}{1}
 
 \NeanesGlyphSize{block uses its style size}{Q}{11bp}{0.01pt}
 \NeanesGlyphSize{inline box uses its style size}{X}{13bp}{0.01pt}
