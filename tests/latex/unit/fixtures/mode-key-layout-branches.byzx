@@ -313,6 +313,20 @@
         "ambitusHighRootSign": "Alpha"
       },
       {
+        "id": 2,
+        "elementType": "ModeKey",
+        "alignment": "left",
+        "mode": 4,
+        "scale": "Diatonic",
+        "scaleNote": "Ni",
+        "martyria": "ModeSign.DeltaWithHypsili",
+        "note": "ModeSign.Ni",
+        "fthoraAboveQuantitativeNeumeRight": "DiatonicPa_Top",
+        "quantitativeNeumeRight2": "KentemataPlusOligon",
+        "gorgonAboveQuantitativeNeumeRight2": "Argon",
+        "bpm": 120
+      },
+      {
         "elementType": "Empty"
       }
     ],

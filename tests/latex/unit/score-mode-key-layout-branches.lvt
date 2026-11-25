@@ -1,6 +1,6 @@
 \input regression-test.tex\relax
 
-% Plagal and right-aligned mode-key output is observable in the finished box.
+% Mode-key glyphs, alignment, and spacing are observable in the finished box.
 \documentclass{article}
 \usepackage{neanestex}
 \usepackage{neanestest}
@@ -18,4 +18,7 @@
 {\NeanesGlyph{modePlagal}}{expected-mode-key}
 \NeanesGlyphXRange{right-aligned mode key begins in the right side of its box}
 {\NeanesGlyph{modeWordEchos}}{1}{300bp}{468bp}
+% The second neume starts after 0.13 em of standard glue at 20 bp.
+\NeanesGlyphXRange{second group keeps its gap after a fthora-only first group}
+{\NeanesGlyph{oligonKentimataBelow}}{1}{78.68bp}{78.78bp}
 \end{document}

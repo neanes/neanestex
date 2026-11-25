@@ -1103,9 +1103,23 @@ local function print_mode_key(modeKey, pageSetup)
     end
     if modeKey.quantitativeNeumeRight then
         tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.quantitativeNeumeRight]))
+        if modeKey.timeNeumeAboveQuantitativeNeumeRight then
+            tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.timeNeumeAboveQuantitativeNeumeRight]))
+        end
     end
     if modeKey.fthoraAboveQuantitativeNeumeRight then
         tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.fthoraAboveQuantitativeNeumeRight]))
+    end
+    if modeKey.quantitativeNeumeRight2 then
+        local has_first_group = modeKey.quantitativeNeumeRight or modeKey.fthoraAboveQuantitativeNeumeRight
+        local glue = (font_metadata.engravingDefaults or {}).standardGlue
+        if has_first_group and glue and glue.width ~= 0 then
+            tex.sprint(string.format("\\hspace{%fem}", glue.width))
+        end
+        tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.quantitativeNeumeRight2]))
+        if modeKey.gorgonAboveQuantitativeNeumeRight2 then
+            tex.sprint(string.format('\\char"%s', glyphNameToCodepointMap[modeKey.gorgonAboveQuantitativeNeumeRight2]))
+        end
     end
     if modeKey.tempo and not modeKey.tempoAlignRight then
         tex.sprint(string.format('\\hspace{6bp}\\raisebox{0.45em}{\\textcolor{byzcolortempo}{\\char"%s}}', glyphNameToCodepointMap[modeKey.tempo]))

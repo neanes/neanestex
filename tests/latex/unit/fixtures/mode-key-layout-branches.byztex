@@ -54,6 +54,22 @@
             }
           ],
           "paragraphEnd": true
+        },
+        {
+          "elements": [
+            {
+              "type": "modekey",
+              "width": 468,
+              "height": 36.75,
+              "alignment": "left",
+              "martyria": "modeFourth",
+              "note": "modeNi",
+              "fthoraAboveQuantitativeNeumeRight": "fthoraDiatonicPaAbove",
+              "quantitativeNeumeRight2": "oligonKentimataBelow",
+              "gorgonAboveQuantitativeNeumeRight2": "argon"
+            }
+          ],
+          "paragraphEnd": true
         }
       ]
     }
